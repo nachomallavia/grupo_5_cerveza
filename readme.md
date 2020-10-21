@@ -23,22 +23,34 @@ A modo ilustrativo, vamos a desarrollar este proyecto bajo el nombre de “Elio 
 
 ## Paginas en las que nos basamos
 
-- https://www.craftsociety.com.ar/ 
+- [Craft Society](https://www.craftsociety.com.ar/)
 
-- https://www.beercoffee.com.ar/ 
+- [Beer Coffee](https://www.beercoffee.com.ar/)
 
-- https://www.cervezaantares.com/ 
+- [Antares](https://www.cervezaantares.com/)
 
-- https://sixpack.com.ar/
+- [Six Pack](https://sixpack.com.ar/)
 
 Las elegimos porque nos sirven de parámetro para saber de qué manera diseñar nuestra app. Nos gusta la manera en que muestran los productos, arman combos, envían recomendaciones y ofertas a sus clientes. 
 
-- https://www.pedidosya.com.ar/
+- [Pedidos Ya](https://www.pedidosya.com.ar/)
 
 La app más elegida para comprar comida y bebidas. Nos parecía muy poco inteligente dejar afuera un app que todo el mundo conoce. 
 
-- https://www.mercadolibre.com.ar/
+- [Mercado Libre](https://www.mercadolibre.com.ar/)
 
 Si algo aprendimos de MercadoLibre es que nos enseñaron a perder el miedo a la compra online. Así que si algo funciona, copialo.
 
 ## Integrantes
+
+- **Matias Antoine Tarrié:** Redactor publicitario. Baterista frustrado con mucha proyección. 
+
+- **José Anadón:** Integrante de logística en consumo masivo. Fanático de river y mitad tucumano.
+
+- **Ian Mamotiuk:** Estudiante de zona oeste, hincha de Boca y pseudo bajista.
+
+- **Matias Antoine Tarrié:** Redactor publicitario. Baterista frustrado con mucha proyección. 
+
+## Wireframe
+
+- https://www.figma.com/file/JQAplNwhxHHI2zJU9ffK4W/Untitled
