@@ -1,9 +1,7 @@
 
 # Proyecto Integrador
 
-## Nombre del Emprendimiento
-
-**Beer me 5**
+## Nombre del Emprendimiento: **Beer me 5**
 
 ## Producto
 
