@@ -17,10 +17,6 @@ Vamos a ofrecer a nuestros clientes la posibilidad de abrir su propia empresa de
 
 En esta oportunidad vamos a enfocarnos solamente en el desarrollo de la app. El canal de envíos lo vamos a gestionar por MercadoEnvíos y los proveedores se van a ajustar a posibilidades geográficas.
 
-## La App
-
-A modo ilustrativo, vamos a desarrollar este proyecto bajo el nombre de “Elio Pez”, nuestro primer cliente.
-
 ## Paginas en las que nos basamos
 
 - [Craft Society](https://www.craftsociety.com.ar/)
@@ -41,6 +37,10 @@ La app más elegida para comprar comida y bebidas. Nos parecía muy poco intelig
 
 Si algo aprendimos de MercadoLibre es que nos enseñaron a perder el miedo a la compra online. Así que si algo funciona, copialo.
 
+## La App
+
+A modo ilustrativo, vamos a desarrollar este proyecto bajo el nombre de “Elio Pez”, nuestro primer cliente.
+
 ## Integrantes
 
 - **Matias Antoine Tarrié:** Redactor publicitario. Baterista frustrado con mucha proyección. 
@@ -49,7 +49,7 @@ Si algo aprendimos de MercadoLibre es que nos enseñaron a perder el miedo a la 
 
 - **Ian Mamotiuk:** Estudiante de zona oeste, hincha de Boca y pseudo bajista.
 
-- **Matias Antoine Tarrié:** Redactor publicitario. Baterista frustrado con mucha proyección. 
+- **Ignacio Mallaviabarrena:** Jefe de operaciones en una empresa de merchandise on-demand, director de arte, 5 que hace jugar, pero en cancha chica.
 
 ## Wireframe
 
