@@ -53,4 +53,4 @@ A modo ilustrativo, vamos a desarrollar este proyecto bajo el nombre de “Elio 
 
 ## Wireframe
 
-- https://www.figma.com/file/JQAplNwhxHHI2zJU9ffK4W/Untitled
+- https://www.figma.com/file/JQAplNwhxHHI2zJU9ffK4W/Untitled?node-id=0%3A1
