@@ -1,0 +1,23 @@
+{
+  "name": "grupo_5_cerveza",
+  "version": "1.0.0",
+  "description": "Servicio de venta de cervezas mediante una app que nosotros vamos a programar y diseñar.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nachomallavia/grupo_5_cerveza.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nachomallavia/grupo_5_cerveza/issues"
+  },
+  "homepage": "https://github.com/nachomallavia/grupo_5_cerveza#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
+}
