@@ -1,0 +1,25 @@
+@import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header{
+    background: #EDDDD4;
+    padding: 10px 10px 10px 10px;
+    max-width: 250px;
+    display: flex;
+}
+header div.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+header div img.logo{
+    width: 70px;
+}
+header div.header div.carrito{
+    display: flex;
+}

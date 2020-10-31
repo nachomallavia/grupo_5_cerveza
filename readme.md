@@ -54,3 +54,7 @@ A modo ilustrativo, vamos a desarrollar este proyecto bajo el nombre de “Elio 
 ## Wireframe
 
 - https://www.figma.com/file/JQAplNwhxHHI2zJU9ffK4W/Untitled
+
+## Tablero de trabajo
+
+- https://trello.com/b/47rbNHHF/cerveza
