@@ -10,7 +10,7 @@ app.get('/', function(req,res){
 });
 
 app.get('/product', function(req,res){
-    res.sendFile(path.join(__dirname, '/views/productDetail.html'))
+    res.sendFile(path.join(__dirname, '/views/product.html'))
 });
 
 app.get('/cart', function(req,res){
