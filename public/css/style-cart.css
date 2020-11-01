@@ -1,0 +1,109 @@
+@import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+:root{
+    --color1:#F0C630;
+    --color2:#0D5B61;
+    --color3:#EDDDD4;
+    --color4:#C43727;
+    --color5:#631F40;
+    --darkgrey:hsl(0,0,12);
+    --lightgrey:#f2f2f2;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family:'Roboto';
+}
+
+header{
+    background: #EDDDD4;
+    padding: 10px 10px 10px 10px;
+    max-width: 250px;
+    display: flex;
+}
+header div.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+header div img.logo{
+    width: 70px;
+}
+header div.header div.carrito{
+    display: flex;
+}
+body{
+    background-color:white;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.cart.container{
+    background-color:var(--color1);
+    width:90%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    /* justify-content:center; */
+    align-items: center;
+}
+
+.cart.card{
+    display:flex;
+}
+.cart.card.background{
+    background-color:var(--lightgrey);
+    display:flex;
+    width:90%;
+    justify-content: flex-start;
+    padding:8px;
+    border-radius:4px;
+    margin-bottom:24px;
+    
+    
+}
+div.cart.card.img-prod{
+    display:inherit;
+    width:30%;
+}
+div.cart.card.img-prod img{
+    width:100%;
+}
+div.cart.card.data-prod{
+    width:100%;
+    flex-direction:column;
+    justify-content:space-around;
+}
+div.cart.card.title-trash{
+    width:100%;
+    flex-direction:row;
+    justify-content:space-between;
+}
+div.cart.card.title-price{
+    flex-direction:column;
+    padding-left:16px;
+}
+.prod-title{
+    display: inline-block;
+}
+.prod-price{
+    display:inline-block;
+}
+div.cart.card.quantity-subtotal{
+    justify-content:space-between;
+    padding-left: 16px;
+}
+div.cart.card.quantity-subtotal button{
+    background-color:var(--color2);
+    color:white;
+    border-radius:4px;
+    border:none;
+}
+div.cart.card.quantity-subtotal button i{
+    font-size:1em;
+}
+div.cart.card.quantity-subtotal input{
+    border:none;
+}

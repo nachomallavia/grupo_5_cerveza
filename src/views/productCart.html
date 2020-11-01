@@ -2,13 +2,13 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.8">
-    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/style-cart.css">
 </head>
 <body>
-    <div class="container">
+    <div class="cart container">
         <h2>Carrito de compras</h2>
-        <div class="cart card container">
+        <div class="cart card background">
             <div class="cart card img-prod">
                 <img src="/img/latas_capitan.jpg" alt="pack IPA Capitán Lúpulo">
             </div>
@@ -25,20 +25,79 @@
                 <div class="cart card quantity-subtotal">
                     <div class="cart card quantity">
                         <button class="plus">
-                            <i class="far fa-plus-square"></i>
+                            <i class="fas fa-plus"></i>
                         </button>
                         <form action="#">
                             <input type="number" class= "prod-quantity">
                         </form>
                         <button class="minus">
-                            <i class="far fa-minus-square"></i>
+                            <i class="fas fa-minus"></i>
                         </button>
                     </div>
-                    <div class="subtotal">$600</div>
-                    
+                    <div class="subtotal">$600</div>                    
                 </div>   
             </div>
 
+        </div>
+
+        <div class="cart card background">
+            <div class="cart card img-prod">
+                <img src="/img/latas_strange.jpg" alt="pack Strange Breweing">
+            </div>
+            <div class="cart card data-prod">
+                <div class="cart card title-trash">
+                   <div class="cart card title-price">
+                        <h4 class= "prod-title">Pack Strange Breweing</h4>
+                        <h6 class= "prod-price">$1200 por unidad</h6>
+                    </div>
+                    <div class="cart card trash">
+                        <i class="far fa-trash-alt"></i>
+                    </div>
+                </div>
+                <div class="cart card quantity-subtotal">
+                    <div class="cart card quantity">
+                        <button class="plus">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                        <form action="#">
+                            <input type="number" class= "prod-quantity">
+                        </form>
+                        <button class="minus">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                    </div>
+                    <div class="subtotal">$1200</div>                    
+                </div>   
+            </div>
+
+        </div>
+        <div class="subtotal">
+            <div class="subtotal word">
+                <h4>subtotal</h4>
+            </div>
+            <div class="subtotal number">$1800</div>
+        </div>
+        <div class= "cart delivery-price">
+            <div class="cart delivery-select">
+                <form action="#">
+                    <label for="tipo-de-envio">Tipo de envío</label>
+                    <select name="tipo-de-envio" id="tipo-de-envio" class="tipo-de-envio">
+                        <option value="rapido a domicilio">Rápido a domicilio</option>
+                        <option value="estandar a domicilio">Estándar a domicilio</option>
+                        <option value="retiro">Retiro por local</option>
+                    </select>
+                </form>
+            </div>
+            <div class= "delivery-price">
+                <h4>$250</h4>
+            </div>
+        </div>
+        <div class="cart total-price">
+            <div class="total"><h2>Total</h2></div>
+            <div class="price"><h2>$2050</h2></div>
+        </div>
+        <div class="cart buy">
+            <button class="buy">Comprar</button>
         </div>
 
     </div>
