@@ -1,0 +1,68 @@
+@import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: roboto;
+}
+
+main {
+    background-color: #197278;
+/* #283D3B, #197278, #EDDDD4, #C44536, #772E25 */
+    display: flex;
+    flex-direction: column;
+    color: white;
+    height: 600px;
+    padding-top: 50px;
+
+}
+main div.registrate {
+    display: flex;
+    justify-content: space-around;
+}
+main div.completar {
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    height: 200px;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+main div.separador {
+    display: flex;
+    flex-direction: column;
+    align-items:  center;
+   
+}
+main div.registrate button {
+    background-color: #eaeaea;
+    display: flex;
+    padding: 10px;
+}   
+
+header{
+    background: #EDDDD4;
+    padding: 10px 10px 10px 10px;
+
+    display: flex;
+}
+header div.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+header div img.logo{
+    width: 70px;
+}
+header div.header div.carrito{
+    display: flex;
+}
+p a.olvidaste {
+    text-decoration: none;
+    color: whitesmoke;
+}
+hr {
+    margin: 20px;
+} 
