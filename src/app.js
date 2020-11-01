@@ -18,7 +18,7 @@ app.get('/cart', function(req,res){
 });
 
 app.get('/register', function(req,res){
-    res.sendFile(path.join(__dirname, '/views/register.html'))
+    res.sendFile(path.join(__dirname, '/views/registro.html'))
 });
 
 app.get('/login', function(req,res){
