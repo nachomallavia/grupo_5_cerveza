@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.8">
-    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
-    <h1>CARRITO</h1>
+    <div class="container">
+        <h2>Carrito de compras</h2>
+        <div class="cart card container">
+            <div class="cart card img-prod">
+                <img src="/img/latas_capitan.jpg" alt="pack IPA Capitán Lúpulo">
+            </div>
+            <div class="cart card data-prod">
+                <div class="cart card title-trash">
+                   <div class="cart card title-price">
+                        <h4 class= "prod-title">Pack IPA Capitán Lúpulo X3</h4>
+                        <h6 class= "prod-price">$600 por unidad</h6>
+                    </div>
+                    <div class="cart card trash">
+                        <i class="far fa-trash-alt"></i>
+                    </div>
+                </div>
+                <div class="cart card quantity-subtotal">
+                    <div class="cart card quantity">
+                        <button class="plus">
+                            <i class="far fa-plus-square"></i>
+                        </button>
+                        <form action="#">
+                            <input type="number" class= "prod-quantity">
+                        </form>
+                        <button class="minus">
+                            <i class="far fa-minus-square"></i>
+                        </button>
+                    </div>
+                    <div class="subtotal">$600</div>
+                    
+                </div>   
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
