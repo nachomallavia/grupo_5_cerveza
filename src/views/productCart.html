@@ -6,6 +6,17 @@
     <link rel="stylesheet" type="text/css" href="css/style-cart.css">
 </head>
 <body>
+    <header>
+        <div class="header">
+            <i class="fas fa-bars"></i>
+            <img class="logo" src="/img/logo.svg" alt="Logo elio pez">
+            <div class="carrito">
+                <i class="fas fa-search"></i>
+               <i class="fas fa-shopping-cart"></i>
+            </div>
+        </div>
+    </header>
+    <main>
     <div class="cart container">
         <h2>Carrito de compras</h2>
         <div class="cart card background">
@@ -16,7 +27,7 @@
                 <div class="cart card title-trash">
                    <div class="cart card title-price">
                         <h4 class= "prod-title">Pack IPA Capitán Lúpulo X3</h4>
-                        <h6 class= "prod-price">$600 por unidad</h6>
+                        <h6 class= "prod-price">$600 c/u</h6>
                     </div>
                     <div class="cart card trash">
                         <i class="far fa-trash-alt"></i>
@@ -24,17 +35,17 @@
                 </div>
                 <div class="cart card quantity-subtotal">
                     <div class="cart card quantity">
-                        <button class="plus">
-                            <i class="fas fa-plus"></i>
+                        <button class="minus">
+                            <i class="fas fa-minus"></i>
                         </button>
                         <form action="#">
                             <input type="number" class= "prod-quantity">
                         </form>
-                        <button class="minus">
-                            <i class="fas fa-minus"></i>
+                        <button class="plus">
+                            <i class="fas fa-plus"></i>
                         </button>
                     </div>
-                    <div class="subtotal-prod">$600</div>                    
+                    <div class="subtotal-prod"><h5>$600</h5></div>                    
                 </div>   
             </div>
 
@@ -47,8 +58,8 @@
             <div class="cart card data-prod">
                 <div class="cart card title-trash">
                    <div class="cart card title-price">
-                        <h4 class= "prod-title">Pack Strange Breweing</h4>
-                        <h6 class= "prod-price">$1200 por unidad</h6>
+                        <h4 class= "prod-title">Pack Strange Breweing X6</h4>
+                        <h6 class= "prod-price">$1200 c/u</h6>
                     </div>
                     <div class="cart card trash">
                         <i class="far fa-trash-alt"></i>
@@ -56,22 +67,23 @@
                 </div>
                 <div class="cart card quantity-subtotal">
                     <div class="cart card quantity">
-                        <button class="plus">
-                            <i class="fas fa-plus"></i>
+                        <button class="minus">
+                            <i class="fas fa-minus"></i>
                         </button>
                         <form action="#">
                             <input type="number" class= "prod-quantity">
                         </form>
-                        <button class="minus">
-                            <i class="fas fa-minus"></i>
+                        <button class="plus">
+                            <i class="fas fa-plus"></i>
                         </button>
+                        
                     </div>
-                    <div class="subtotal-prod">$1200</div>                    
+                    <div class="subtotal-prod"><h5>$1200</h5></div>                    
                 </div>   
             </div>
 
         </div>
-        <div class="subtotal">
+        <div class="cart subtotal">
             <div class="subtotal word">
                 <h4>subtotal</h4>
             </div>
@@ -80,11 +92,11 @@
         <div class= "cart delivery-price">
             <div class="cart delivery-select">
                 <form action="#">
-                    <label for="tipo-de-envio">Tipo de envío</label>
+                    <!-- <label for="tipo-de-envio">Tipo de envío</label> -->
                     <select name="tipo-de-envio" id="tipo-de-envio" class="tipo-de-envio">
-                        <option value="rapido a domicilio">Rápido a domicilio</option>
-                        <option value="estandar a domicilio">Estándar a domicilio</option>
-                        <option value="retiro">Retiro por local</option>
+                        <option value="Envio rapido a domicilio">Envío rápido a domicilio</option>
+                        <option value="Envio estandar a domicilio">Envío estándar a domicilio</option>
+                        <option value="Retiro por local">Retiro por local</option>
                     </select>
                 </form>
             </div>
@@ -92,6 +104,7 @@
                 <h4>$250</h4>
             </div>
         </div>
+        <hr class="separador">
         <div class="cart total-price">
             <div class="total"><h2>Total</h2></div>
             <div class="price"><h2>$2050</h2></div>
@@ -101,5 +114,6 @@
         </div>
 
     </div>
+    </main>
 </body>
 </html>
