@@ -1,0 +1,157 @@
+@import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+
+:root{
+    --color1:#F0C630;
+    --color2:#0D5B61;
+    --color3:#EDDDD4;
+    --color4:#C43727;
+    --color5:#631F40;
+    --darkgrey:hsl(0,0,12);
+    --lightgrey:#f2f2f2;
+}
+
+h2{
+    font-family: "Roboto";
+}
+
+hr {
+    margin: 10px;
+    opacity: 0;
+} 
+
+* {
+    box-sizing: content-box;
+    margin: 0;
+    font-family:'Roboto';
+}
+body{
+    width: 400 px;
+    background-color: var(--color1);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    background-color: var(--color1);
+}
+
+div.principal{
+    flex-direction: column;
+    width: 100%;
+    height: 450 px;
+    align-items: center;
+}
+div.foto-prpal{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+}
+div.txt-prpal{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: var(--color2);
+    color: var(--color3);
+    padding-top: 7px;
+    padding-bottom: 7px;
+}
+div.combos{
+    display: flex;
+    flex-direction: column;
+}
+div.titulo-combos{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    top: 20px;
+}
+div.combo-item-name{
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    top: 30px;
+    left: 15px;
+}
+div.combo-item-precio{
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    bottom: 35px;
+    right: 10px;
+}
+div.content-combos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+div.destacadosos{
+    display: flex;
+    flex-direction: column;
+}
+div.titulo-destacados{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+div.destacados-item-name{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+div.destacados-item-precio{
+    display: flex;
+    flex-direction: row-reverse;
+}
+div.content-destacados{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+div.destacados-txt{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    bottom: 50px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+div.destacados-prop{
+    display: flex;
+    flex-direction: row;
+}
+
+div.newsletter{
+    justify-content: center;
+}
+div.newsletter-txt{
+    display: flex;
+    align-items: center;
+}
+div.newsletter-txt h4{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 15px 15px 15px 15px;
+    text-align: center;
+}
+div.newsletter-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+
+
