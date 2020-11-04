@@ -201,6 +201,7 @@ main div.buybttn div.buybttnBox button.Cart{
     padding: 10px 6px 10px 6px;
     background-color: var(--color2);
     border: none;
+    color: white;
 }
 main div.buybttn div.buybttnBox button.buyNow{  
     width: 45%;
@@ -208,6 +209,7 @@ main div.buybttn div.buybttnBox button.buyNow{
     padding: 10px 6px 10px 6px;
     background-color: var(--color2);
     border: none;
+    color: white;
 }
 
 
