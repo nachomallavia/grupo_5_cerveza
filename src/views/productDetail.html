@@ -9,12 +9,12 @@
     <header>
         <div class="header">
             <i class="fas fa-bars"></i>
-            <img class="logo" src="/img/logo.svg" alt="Logo elio pez">
+            <a href="/"><img class="logo" src="/img/logo.svg" alt="Logo elio pez"></a>
             <div class="carrito">
                 <i class="fas fa-search"></i>
-               <i class="fas fa-shopping-cart"></i>
+               <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
             </div>
-        </div>  
+        </div>
     </header>
     <main>
         <div class="imgProduct">
@@ -41,20 +41,53 @@
         <div class="buy">
             <div class="buybox">
                 <div class="cant">
-                    <button>
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <form>
-                        <input type="number">
-                    </form>
-                    <button>
-                     <i class="fas fa-plus"></i>
-                    </button>
+                    <h3>Cantidad</h3>
+                    <div class="input">
+                        <button class="menos">
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <form>
+                            <input type="number">
+                        </form>
+                        <button class="mas">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
                 </div>
             <div class="buybttn">
+                <div class="buybttnBox">
+                    <button class="Cart">
+                        <h3>AGREGAR AL CARRITO</h3>
+                    </button>
+                    <button class="buyNow">
+                        <h3>COMPRAR AHORA</h3>
+                    </button>
+                </div>
             </div>
             </div>
         </div>
     </main>
+    <footer>   
+        <div class="sesion">
+            <a href="/login"><i class="far fa-user"></i>Iniciá Sesión</a>
+        </div>
+        <div class="seguinosredes">
+            <p>¡Seguinos!</p>
+            <div class="redes">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+        <hr>
+        <div class="enlaces">
+        <nav>
+            <a href="#" class="nav-enlace">Productos</a>
+            <a href="#" class="nav-enlace">Promociones</a>
+            <a href="/register" class="nav-enlace">Registro</a>
+            <a href="#" class="nav-enlace">Contactos</a> 
+        </nav>
+        </div>
+    </footer>
 </body>
 </html>
