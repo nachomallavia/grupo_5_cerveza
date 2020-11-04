@@ -1,68 +1,200 @@
 @import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); 
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
+:root{
+    --color1:#F0C630;
+    --color2:#0D5B61;
+    --color3:#EDDDD4;
+    --color4:#C43727;
+    --color5:#631F40;
+    --darkgrey:hsl(0,0,12);
+    --lightgrey:#f2f2f2;
+}
+ 
 * {
     box-sizing: border-box;
     margin: 0;
-    font-family: roboto;
+    font-family:'Roboto';
 }
-
-main {
-    background-color: #197278;
-/* #283D3B, #197278, #EDDDD4, #C44536, #772E25 */
-    display: flex;
-    flex-direction: column;
-    color: white;
-    height: 600px;
-    padding-top: 50px;
-
+main{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
-main div.registrate {
-    display: flex;
-    justify-content: space-around;
-}
-main div.completar {
-    display: flex;
-    flex-direction: column;
-    align-items: center ;
-    height: 200px;
-    justify-content: space-between;
-    padding-top: 20px;
-}
-main div.separador {
-    display: flex;
-    flex-direction: column;
-    align-items:  center;
-   
-}
-main div.registrate button {
-    background-color: #eaeaea;
-    display: flex;
-    padding: 10px;
-}   
-
 header{
-    background: #EDDDD4;
-    padding: 10px 10px 10px 10px;
-
+    background: var(--color1);
+    padding: 20px 0px;
+    width:100%;
     display: flex;
+    justify-content: center;
 }
+
 header div.header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 90%;
+    font-size:clamp(24px,4vw,32px);
 }
-header div img.logo{
-    width: 70px;
+
+header div.header a img.logo{
+    width: 100%;
+    max-width: 125px;
 }
 header div.header div.carrito{
     display: flex;
 }
-p a.olvidaste {
+header div.header div.carrito a{
+    display: flex;
     text-decoration: none;
-    color: whitesmoke;
+    color:  black;
+    
 }
-hr {
+
+/* css footer */
+footer{
+    background: var(--color2);
+    padding: 20px 0px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+footer div.enlaces {
+    width: fit-content;
+}
+footer div.enlaces nav {
+    display: flex;
+    margin-top: 20px;
+    
+}
+footer div.enlaces nav a {
+    margin: 10px;
+}
+footer div.seguinosredes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+footer div.seguinosredes div.redes {
+    display: flex;}
+    
+footer .redes a {
+    margin: 10px;
+}
+footer div.seguinosredes p {
+    color: white;
+}
+
+/* css main */
+
+
+body{
+    background-color:var(--lightgrey);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+main {
+    background-color:white;
+    width:90%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    /* justify-content:center; */
+    align-items: center;
+}
+h2{
+    font-size:clamp(20px,3vw,32px);
+    text-transform: uppercase;
+    color:var(--darkgrey);
+    margin:24px 0px;
+}
+
+.registrate{
+
+    display:flex;
+    width:90%;
+    justify-content: space-between;
+    align-items: center;
+    padding:16px;
+    border-radius:4px;
+    margin-bottom:16px;
+}
+
+.completar {
+    display:flex;
+    flex-direction: column;
+    width:90%;
+    justify-content: space-between;
+    align-items: center;
+    padding:16px;
+    border-radius:4px;
+    margin-bottom:16px;
+}
+div.completar p {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin: 20px;
-} 
+}
+.check {
+    display: flex;
+    flex-direction: row;
+ 
+}
+div.completar p input.input {
+
+    width: 90%;
+    height: 7vh;
+}
+hr{
+    margin:24px 0px;
+    border:1px solid lightgrey;
+    width:100%;
+}
+
+button{
+    height:8vh;
+    border:none;
+    background-color:var(--color2);
+    color:white;
+    font-size:clamp(18px,4vw,24px);
+    font-weight:400;
+    width: 80%;
+
+}
+button .fb {
+    background-color:blue;
+}
+/* button.fb {
+
+} */
+
+@media (max-width: 700px){
+    .registrate {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+    }
+    button {
+        width: 100%;
+    }
+    footer div.enlaces nav {
+        display: flex;
+        flex-direction: column;
+        
+        margin-top: 20px;
+    }
+    div.enlaces {
+        width: 95%;
+    }
+}

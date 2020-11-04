@@ -27,12 +27,91 @@ hr {
 }
 body{
     width: 400 px;
-    background-color: var(--color1);
+    background-color: var(--lightgrey);
     display:flex;
     flex-direction: column;
     align-items: center;
 }
+header{
+    background: var(--color1);
+    padding: 20px 0px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
 
+header div.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    font-size:clamp(24px,4vw,32px);
+}
+
+header div.header a img.logo{
+    width: 100%;
+    max-width: 125px;
+}
+header div.header div.carrito{
+    display: flex;
+}
+header div.header div.carrito a{
+    display: flex;
+    text-decoration: none;
+    color:  black;
+    
+}
+
+
+
+/* css footer */
+footer{
+    background: var(--color2);
+    padding: 20px 0px;
+    width:100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+footer a{
+    text-decoration: none;
+    color: white;
+}
+footer div.enlaces {
+    width: fit-content;
+}
+footer div.enlaces nav {
+    display: flex;
+    margin-top: 20px;
+    
+}
+footer div.enlaces nav a {
+    margin: 10px;
+}
+footer div.seguinosredes {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+footer div.seguinosredes div.redes {
+    display: flex;}
+    
+footer .redes a {
+    margin: 10px;
+}
+footer div.seguinosredes p {
+    color: white;
+}
+hr {
+    margin:24px 0px;
+    border:1px solid lightgrey;
+    width:100%;
+}
+
+/* css main */
 main{
     display: flex;
     width: 90%;
