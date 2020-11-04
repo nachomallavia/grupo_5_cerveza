@@ -82,16 +82,16 @@ main div.productInfo div.price-stars h3{
 main div.productInfo div.price-stars h4{
     margin-left: 5px;
 }
-main div.productInfo div.infoGlobal div.separador{
+main div.productInfo div.infobox div.separador{
     margin:12px 0px;
     border:1px solid lightgrey;
     width:100%;
 }
-main div.productInfo div.infoGlobal p{
+main div.productInfo div.infobox p{
     color: var(--darkgrey);
     text-align: justify;
 }
-main div.productInfo div.infoGlobal h3.info{
+main div.productInfo div.infobox h3.info{
     font-size: 16px;
     margin-top: 12px;
 }
@@ -111,10 +111,7 @@ main div.buy div.buybox{
     width: 90%;
     background-color: white;
 }
-main div.buy div.buybox div.cant{
-    
 
-}
 
 
 
