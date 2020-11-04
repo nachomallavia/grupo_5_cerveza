@@ -17,24 +17,40 @@
         </div>
     </header>
     <main>
-    <div class="cart container">
-        <h2>Carrito de compras</h2>
-        <div class="cart card background">
-            <div class="cart card img-prod">
+    <div class="cart container"> <!-- Div contenedor para el carrito -->
+        
+        <h2 class="cart-tilte">Carrito de compras</h2>
+
+        
+        <div class="cart card background"> <!-- Acá arranca la primer card -->
+
+            <div class="cart card img-prod"> <!-- Div para la imagen de producto -->
                 <img src="/img/latas_capitan.jpg" alt="pack IPA Capitán Lúpulo">
             </div>
-            <div class="cart card data-prod">
-                <div class="cart card title-trash">
-                   <div class="cart card title-price">
+
+            <div class="cart card data-prod"> <!-- Div para dividir el titulo, el precio y el tachito de basura de las cantidades y subtotal  -->
+                
+                <div class="cart card title-trash"> <!-- Div para titulo, precio y tacho  -->
+
+                    <div class="cart card title-price">
+
                         <h4 class= "prod-title">Pack IPA Capitán Lúpulo X3</h4>
                         <h6 class= "prod-price">$600 c/u</h6>
+
                     </div>
+
                     <div class="cart card trash">
+
                         <i class="far fa-trash-alt"></i>
+
                     </div>
+
                 </div>
+
                 <div class="cart card quantity-subtotal">
+                    
                     <div class="cart card quantity">
+
                         <button class="minus">
                             <i class="fas fa-minus"></i>
                         </button>
@@ -44,29 +60,45 @@
                         <button class="plus">
                             <i class="fas fa-plus"></i>
                         </button>
+
                     </div>
-                    <div class="subtotal-prod"><h5>$600</h5></div>                    
-                </div>   
+
+                    <div class="subtotal-prod">
+                        <h5>$600</h5>
+                    </div>
+
+                </div>
+
             </div>
+            
 
-        </div>
+        </div> <!-- Acá termina la primera card -->
 
-        <div class="cart card background">
+        <div class="cart card background">  <!-- Acá arranca la segunda card -->
+            
             <div class="cart card img-prod">
                 <img src="/img/latas_strange.jpg" alt="pack Strange Breweing">
             </div>
+
             <div class="cart card data-prod">
+
                 <div class="cart card title-trash">
+
                    <div class="cart card title-price">
                         <h4 class= "prod-title">Pack Strange Breweing X6</h4>
                         <h6 class= "prod-price">$1200 c/u</h6>
                     </div>
+
                     <div class="cart card trash">
                         <i class="far fa-trash-alt"></i>
                     </div>
+
                 </div>
+
                 <div class="cart card quantity-subtotal">
+
                     <div class="cart card quantity">
+
                         <button class="minus">
                             <i class="fas fa-minus"></i>
                         </button>
@@ -78,19 +110,32 @@
                         </button>
                         
                     </div>
-                    <div class="subtotal-prod"><h5>$1200</h5></div>                    
-                </div>   
-            </div>
 
-        </div>
-        <div class="cart subtotal">
+                    <div class="subtotal-prod">
+                        <h5>$1200</h5>
+                    </div>                    
+
+                </div>
+
+            </div>
+            
+        </div> <!-- Acá termina la segunda card -->
+
+        <div class="cart subtotal"> <!-- Div para el subtotal -->
+            
             <div class="subtotal word">
                 <h4>subtotal</h4>
             </div>
-            <div class="subtotal number"><h4>$1800</h4></div>
-        </div>
-        <div class= "cart delivery-price">
-            <div class="cart delivery-select">
+
+            <div class="subtotal number">
+                <h4>$1800</h4>
+            </div>
+
+        </div> <!-- Cierra Div para el subtotal -->
+
+        <div class= "cart delivery-price"> <!-- Div para el envio y su precio -->
+            
+            <div class="cart delivery-select"> 
                 <form action="#">
                     <!-- <label for="tipo-de-envio">Tipo de envío</label> -->
                     <select name="tipo-de-envio" id="tipo-de-envio" class="tipo-de-envio">
@@ -100,20 +145,31 @@
                     </select>
                 </form>
             </div>
+
             <div class= "delivery-price">
                 <h4>$250</h4>
             </div>
-        </div>
+
+        </div> <!-- Cierra Div para el envio y su precio -->
+
         <hr class="separador">
-        <div class="cart total-price">
-            <div class="total"><h2>Total</h2></div>
-            <div class="price"><h2>$2050</h2></div>
-        </div>
-        <div class="cart button background">
-            <button class="buy">Comprar</button>
+
+        <div class="cart total-price"> <!-- Div para el TOTAL -->
+            <div class="total">
+                <h2>Total</h2>
+            </div>
+
+            <div class="price">
+                <h2>$2050</h2>
+            </div>
+
+        </div> <!-- Cierra Div para el TOTAL -->
+
+        <div class="cart button background"> <!-- Div para el botón de compra -->
+            <button class="buy">Comprar</button>        
         </div>
 
-    </div>
+    </div> <!-- Cierra el Div contenedor para el carrito -->
     </main>
 </body>
 </html>
