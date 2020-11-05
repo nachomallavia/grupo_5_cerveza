@@ -12,5 +12,11 @@
 
 - Definir fechas de encuentro.
 
+### MORE OF
+
+- Compartir descubrimientos con el grupo.   
+
+
+
 
 
