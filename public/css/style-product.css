@@ -65,7 +65,6 @@ footer div.enlaces {
 footer div.enlaces nav {
     display: flex;
     margin-top: 20px;
-    
 }
 footer div.enlaces nav a {
     margin: 10px;
@@ -78,8 +77,8 @@ footer div.seguinosredes {
     margin: 10px;
 }
 footer div.seguinosredes div.redes {
-    display: flex;}
-    
+    display: flex;
+}
 footer .redes a {
     margin: 10px;
 }
