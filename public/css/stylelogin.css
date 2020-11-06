@@ -190,8 +190,7 @@ button .fb {
     }
     footer div.enlaces nav {
         display: flex;
-        flex-direction: column;
-        
+        flex-direction: row;
         margin-top: 20px;
     }
     div.enlaces {
