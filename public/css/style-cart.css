@@ -20,6 +20,7 @@ main{
     display:flex;
     flex-direction:column;
     align-items:center;
+    /* position:relative; */
 }
 header{
     background: var(--color1);
@@ -101,7 +102,7 @@ body{
 div.cart.container{
     background-color:white;
     width:90%;
-    height:100vh;
+    /* height:100vh; */
     display:flex;
     flex-direction:column;
     align-items: center;
@@ -246,6 +247,7 @@ div.cart.button.background{
     display:flex;
     justify-content:center;
     align-items: center;
+    margin-bottom: 48px;
 }
 button.buy{
     height:64px;
@@ -258,3 +260,15 @@ button.buy{
     font-weight:400;
 
 }
+
+/* .elio-pez{
+    position:fixed;
+    width:80px;
+    bottom:40px;
+    right:40px;
+    stroke: 2px solid #F0C630;
+}
+
+.elio-pez img{
+    width:100%;
+} */
