@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require("path");
+const cartRouter = require ('./routes/cartRouter');
 
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -13,9 +14,7 @@ app.get('/product', function(req,res){
     res.sendFile(path.join(__dirname, '/views/productDetail.html'))
 });
 
-app.get('/cart', function(req,res){
-    res.sendFile(path.join(__dirname, '/views/productCart.html'))
-});
+app.use('/cart', cartRouter);
 
 app.get('/register', function(req,res){
     res.sendFile(path.join(__dirname, '/views/registro.html'))

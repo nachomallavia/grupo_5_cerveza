@@ -1,98 +1,12 @@
-@import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
-:root{
-    --color1:#F0C630;
-    --color2:#0D5B61;
-    --color3:#EDDDD4;
-    --color4:#C43727;
-    --color5:#631F40;
-    --darkgrey:hsl(0,0,12);
-    --lightgrey:#f2f2f2;
-    
-}
- 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    font-family:'Roboto';
-}
+
 main{
     display:flex;
     flex-direction:column;
     align-items:center;
     /* position:relative; */
 }
-header{
-    background: var(--color1);
-    padding: 20px 0px;
-    width:100%;
-    display: flex;
-    justify-content: center;
-}
 
-header div.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    font-size:clamp(24px,4vw,32px);
-}
-
-header div.header a img.logo{
-    width: 100%;
-    max-width: 125px;
-}
-header div.header div.carrito{
-    display: flex;
-}
-header div.header div.carrito a{
-    display: flex;
-    text-decoration: none;
-    color:  black;
-    
-}
-
-/* css footer */
-footer{
-    background: var(--color2);
-    padding: 20px 0px;
-    width:100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-footer a{
-    text-decoration: none;
-    color: white;
-}
-footer div.enlaces {
-    width: fit-content;
-}
-footer div.enlaces nav {
-    display: flex;
-    margin-top: 20px;
-    
-}
-footer div.enlaces nav a {
-    margin: 10px;
-}
-footer div.seguinosredes {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-}
-footer div.seguinosredes div.redes {
-    display: flex;}
-    
-footer .redes a {
-    margin: 10px;
-}
-footer div.seguinosredes p {
-    color: white;
-}
+/*---------------- css carrito ---------------- */
 body{
     background-color:var(--lightgrey);
     display:flex;
