@@ -64,7 +64,6 @@ body{
 main {
     background-color:white;
     width:90%;
-    height:100vh;
     display:flex;
     flex-direction:column;
     /* justify-content:center; */
