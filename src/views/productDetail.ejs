@@ -1,23 +1,8 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/style-product.css">
-</head>
+<%- include('partials/head'); %>
 <body>
-    <!----------------------------------- HEADER ------------------------------->
-    <header>
-        <div class="header">
-            <i class="fas fa-bars"></i>
-            <a href="/"><img class="logo" src="/img/logo.svg" alt="Logo elio pez"></a>
-            <div class="carrito">
-                <i class="fas fa-search"></i>
-               <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-        </div>
-    </header>
-    <!-------------------------------------------------------------------------->
+    <%- include('partials/header'); %>
     <!----------------------------- IMAGEN E INFORMACIÓN ----------------------->
     <main>
         <div class="imgProduct">
@@ -73,29 +58,6 @@
         </div>
     </main>
     <!-------------------------------------------------------------------------->
-    <!---------------------------------- FOOTER -------------------------------->
-    <footer>   
-        <div class="sesion">
-            <a href="/login"><i class="far fa-user"></i>Iniciá Sesión</a>
-        </div>
-        <div class="seguinosredes">
-            <p>¡Seguinos!</p>
-            <div class="redes">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </div>
-        </div>
-        <hr>
-        <div class="enlaces">
-        <nav>
-            <a href="#" class="nav-enlace">Productos</a>
-            <a href="#" class="nav-enlace">Promociones</a>
-            <a href="/register" class="nav-enlace">Registro</a>
-            <a href="#" class="nav-enlace">Contactos</a> 
-        </nav>
-        </div>
-    </footer>
-    <!-------------------------------------------------------------------------->
+    <%- include('partials/footer'); %>
 </body>
 </html>

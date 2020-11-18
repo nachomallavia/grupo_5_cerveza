@@ -8,21 +8,21 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 
 app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname, '/views/index.html'))
+    res.render(path.join(__dirname, '/views/index.ejs'))
 });
 
 app.get('/product', function(req,res){
-    res.sendFile(path.join(__dirname, '/views/productDetail.html'))
+    res.render(path.join(__dirname, '/views/productDetail.ejs'))
 });
 
 app.use('/cart', cartRouter);
 
 app.get('/register', function(req,res){
-    res.sendFile(path.join(__dirname, '/views/registro.html'))
+    res.render(path.join(__dirname, '/views/registro.ejs'))
 });
 
 app.get('/login', function(req,res){
-    res.sendFile(path.join(__dirname, '/views/login.html'))
+    res.render(path.join(__dirname, '/views/login.ejs'))
 });
 
 app.listen(3000, function(){

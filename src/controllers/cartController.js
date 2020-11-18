@@ -2,7 +2,7 @@
 const path = require ('path');
 const controller = {
     cart : function(req,res){
-        res.sendFile(path.join(__dirname, '../views/Cart.html'))
+        res.render(path.join(__dirname, '../views/Cart.ejs'))
     }
 
 }

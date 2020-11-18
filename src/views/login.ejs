@@ -1,22 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/css/stylelogin.css">
-</head>
+<%- include('partials/head'); %>
 <body>
-    <header>
-        <div class="header">
-            <i class="fas fa-bars"></i>
-            <a href="/"><img class="logo" src="/img/logo.svg" alt="Logo elio pez"></a>
-            <div class="carrito">
-                <i class="fas fa-search"></i>
-               <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-        </div>
-    </header>
+    <%- include('partials/header'); %>
     <main>
         <div class="registrate">
             <button class="fb"><i class="fab fa-facebook-f"></i>Ingresá Con Facebook</button>
@@ -42,27 +28,6 @@
     </main>
 
 
-    <footer>   
-        <div class="sesion">
-            <a href="/login"><i class="far fa-user"></i>Iniciá Sesión</a>
-        </div>
-        <div class="seguinosredes">
-            <p>¡Seguinos!</p>
-            <div class="redes">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            </div>
-        </div>
-        <hr>
-        <div class="enlaces">
-        <nav>
-            <a href="#" class="nav-enlace">Productos</a>
-            <a href="#" class="nav-enlace">Promociones</a>
-            <a href="/register" class="nav-enlace">Registro</a>
-            <a href="#" class="nav-enlace">Contactos</a> 
-        </nav>
-        </div>
-    </footer>
+    <%- include('partials/footer'); %>
 </body>
 </html>

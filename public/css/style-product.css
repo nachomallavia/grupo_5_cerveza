@@ -46,45 +46,7 @@ header div.header div.carrito a{
 }
 
 /* css footer */
-footer{
-    background: var(--color2);
-    padding: 20px 0px;
-    width:100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-}
-footer a{
-    text-decoration: none;
-    color: white;
-}
-footer div.enlaces {
-    width: fit-content;
-}
-footer div.enlaces nav {
-    display: flex;
-    margin-top: 20px;
-}
-footer div.enlaces nav a {
-    margin: 10px;
-}
-footer div.seguinosredes {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 10px;
-}
-footer div.seguinosredes div.redes {
-    display: flex;
-}
-footer .redes a {
-    margin: 10px;
-}
-footer div.seguinosredes p {
-    color: white;
-}
+
 body{
     background-color:var(--lightgrey);
 }

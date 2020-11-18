@@ -1,6 +1,10 @@
 @import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
 @import url('/css/style-cart.css');
+@import url('/css/style-index.css');
+@import url('/css/style-product.css');
+@import url('/css/stylelogin.css');
+
 * {
     box-sizing: border-box;
     margin: 0;
