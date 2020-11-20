@@ -1,10 +1,10 @@
 const path = require ('path');
 const controller = {
     all : function(req,res){
-        res.render(path.join(__dirname, '../views/productList.ejs'))
+        res.render(path.join(__dirname, '../views/products/productList.ejs'))
     },
     detail: function(req, res){
-        res.render(path.join(__dirname, '../views/productDetail.ejs'))
+        res.render(path.join(__dirname, '../views/products/productDetail.ejs'))
     }
 
 }
