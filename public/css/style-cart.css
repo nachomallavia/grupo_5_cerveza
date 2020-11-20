@@ -1,5 +1,5 @@
 
-main{
+main.cart{
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -7,7 +7,7 @@ main{
 }
 
 /*---------------- css carrito ---------------- */
-body{
+body.cart{
     background-color:var(--lightgrey);
     display:flex;
     flex-direction: column;
@@ -21,7 +21,7 @@ div.cart.container{
     flex-direction:column;
     align-items: center;
 }
-h2{
+ h2.cart{
     font-size:clamp(20px,3vw,32px);
     text-transform: uppercase;
     color:var(--darkgrey);
