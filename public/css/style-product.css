@@ -124,9 +124,63 @@ main div.buybttn div.buybttnBox button.buyNow{
     color: white;
 }
 
+/* ESTILOS DE productCreate.ejs */
 
+main.create{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+main.create div.container{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    background-color: white;
+    align-items: center;
+}
 
+main.create div.container h2.title{
+    margin-top: 12px;
+}
+main.create div.container div.separador{
+    margin:12px 0px;
+    border:1px solid lightgrey;
+    width:100%;
+}
+main.create div.container div.formCreate{
+    width: 90%;
+}
+main.create div.container div.formCreate form{
+    display: flex;
+    flex-direction: column;
+}
+main.create div.container div.formCreate form div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 20px;
+}
+main.create div.container div.formCreate form button{
+    margin-bottom: 12px
+}
+main.create div.container div.formCreate form div.image{
+    display: flex;
+    flex-direction: column;
+}
+main.create div.container div.formCreate form div.pdesc{
+    display: flex;
+    flex-direction: column;
+}
+main.create div.container div.formCreate form div.pdesc label{
+    margin-bottom: 8px;
+}
+main.create div.container div.formCreate form div.image label{
+    margin-bottom: 8px;
+}
 
 
 

@@ -21,7 +21,7 @@ div.cart.container{
     flex-direction:column;
     align-items: center;
 }
-h2{
+div.cart.container h2{
     font-size:clamp(20px,3vw,32px);
     text-transform: uppercase;
     color:var(--darkgrey);
