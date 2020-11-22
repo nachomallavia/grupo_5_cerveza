@@ -1,52 +1,15 @@
-h2{
-    font-family: "Roboto";
-}
 
 hr {
     margin: 10px;
     opacity: 0;
 } 
 
-* {
-    box-sizing: content-box;
-    margin: 0;
-    font-family:'Roboto';
-}
 body{
-    width: 400 px;
+    width: 100vw;
     background-color: var(--lightgrey);
     display:flex;
     flex-direction: column;
     align-items: center;
-}
-header{
-    background: var(--color1);
-    padding: 20px 0px;
-    width:100%;
-    display: flex;
-    justify-content: center;
-}
-
-header div.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    font-size:clamp(24px,4vw,32px);
-}
-
-header div.header a img.logo{
-    width: 100%;
-    max-width: 125px;
-}
-header div.header div.carrito{
-    display: flex;
-}
-header div.header div.carrito a{
-    display: flex;
-    text-decoration: none;
-    color:  black;
-    
 }
 
 hr {
@@ -56,12 +19,7 @@ hr {
 }
 
 /* css main */
-main{
-    display: flex;
-    width: 90%;
-    flex-direction: column;
-    background-color: var(--color1);
-}
+
 
 div.principal{
     flex-direction: column;

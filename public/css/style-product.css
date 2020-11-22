@@ -1,105 +1,102 @@
 body{
     background-color:var(--lightgrey);
 }
-main{
+main.product{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-main div.imgProduct{
+main.product div.imgProduct{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
     background-color: white;
 }
-main div.imgProduct img.productImg{
+main.product div.imgProduct img.productImg{
     width: 90%;
 }
-main div.productInfo{
+main.product div.productInfo{
     display: flex;
     flex-direction: column;
-    align-self: center;
-    width: 90%;
     background-color: white;
     padding-top: 10px;
 }
-main div.productInfo div.infobox{
+main.product div.productInfo div.infobox{
     display: flex;
     flex-direction: column;
     align-self: center;
     width: 90%;
     background-color: white;
 }
-main div.productInfo div.price-stars{
+main.product div.productInfo div.price-stars{
     display: flex;
     flex-direction:row;
     align-items: center;
     margin-top: 5px;
     font-size: 20px;
 }
-main div.productInfo div.price-stars h3{
+main.product div.productInfo div.price-stars h3{
     margin-right: 15px;
 }
-main div.productInfo div.price-stars h4{
+main.product div.productInfo div.price-stars h4{
     margin-left: 5px;
 }
-main div.productInfo div.infobox div.separador{
+main.product div.productInfo div.infobox div.separador{
     margin:12px 0px;
     border:1px solid lightgrey;
     width:100%;
 }
-main div.productInfo div.infobox p{
+main.product div.productInfo div.infobox p{
     color: var(--darkgrey);
     text-align: justify;
 }
-main div.productInfo div.infobox h3.info{
+main.product div.productInfo div.infobox h3.info{
     font-size: 16px;
     margin-top: 12px;
 }
-main div.buy{
+main.product div.buy{
     display: flex;
     flex-direction: column;
-    align-self: center;
-    width: 90%;
     background-color: white;
     padding-top: 10px;
 
 }
-main div.buy div.buybox{
+main.product div.buy div.buybox{
     display: flex;
     flex-direction: column;
     align-self: center;
     width: 90%;
     background-color: white;
 }
-main div.buy div.buybox div.cant{
+main.product div.buy div.buybox div.cant{
     display: flex;
     flex-direction:row;
     align-items: center;
     justify-content: space-between;
+    margin:0px 0px 0px 13px;
 }
-main div.buy div.buybox div.cant div.input{
+main.product div.buy div.buybox div.cant div.input{
     display: flex;
     flex-direction:row;
     align-items: center;
     width: 25%;
 }
-main div.buy div.buybox div.cant div.input input{
+main.product div.buy div.buybox div.cant div.input input{
     width: 100%;
     border:1px solid lightgrey;
+    height: 26px;
 }
-main div.buy div.buybox div.cant div.input form{
-    width: 35%;
+main.product div.buy div.buybox div.cant div.input form{
+    width: 20%;
 }
-main div.buy div.buybox div.cant div.input button i{
+main.product div.buy div.buybox div.cant div.input button i{
     font-size: 14px;
 }
-main div.buy div.buybox div.cant div.input button{
+main.product div.buy div.buybox div.cant div.input button{
     border: none;
     padding: 5px 7px 5px 7px;
 }
-main div.buybttn div.buybttnBox{
+main.product div.buybttn div.buybttnBox{
     display: flex;
     flex-direction:row;
     align-items: center;
@@ -107,7 +104,7 @@ main div.buybttn div.buybttnBox{
     margin-top: 20px;
     margin-bottom: 20px;
 }
-main div.buybttn div.buybttnBox button.Cart{
+main.product div.buybttn div.buybttnBox button.Cart{
     width: 45%;
     font-size: 10px;
     padding: 10px 6px 10px 6px;
@@ -115,7 +112,7 @@ main div.buybttn div.buybttnBox button.Cart{
     border: none;
     color: white;
 }
-main div.buybttn div.buybttnBox button.buyNow{  
+main.product div.buybttn div.buybttnBox button.buyNow{  
     width: 45%;
     font-size: 10px;
     padding: 10px 6px 10px 6px;
@@ -124,7 +121,7 @@ main div.buybttn div.buybttnBox button.buyNow{
     color: white;
 }
 
-/* ESTILOS DE productCreate.ejs */
+/* ESTILOS DE productCreate.ejs y productEdit.ejs */
 
 main.create{
     display: flex;
@@ -201,9 +198,42 @@ main.create div.container div.formCreate form button{
     align-self: center;
 }
     
+/* MEDIA QUERIES productDetail.ejs */
+@media only screen and (min-width: 768px){
+   
+}
 
+@media only screen and (min-width: 1024px){
+    div.all{
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+    }
+    div.infobuy{
+        display: flex;
+        flex-direction: column;
+    }
+    div.productInfo{
+        height: 100%;
+        align-self: auto;
+    }
+}
 
-
+@media only screen and (min-width: 1680px){
+    div.all{
+        display: flex;
+        flex-direction: row;
+        margin: 20px;
+    }
+    div.infobuy{
+        display: flex;
+        flex-direction: column;
+    }
+    div.productInfo{
+        height: 100%;
+        align-self: auto;
+    }
+}
 
 
 
