@@ -171,7 +171,7 @@ main.create div.container div.formCreate form div.image{
     display: flex;
     flex-direction: column;
 }
-main.create div.container div.formCreate form div.pdesc{
+main.create div.container div.formCreate form div.desc{
     display: flex;
     flex-direction: column;
 }
@@ -181,11 +181,26 @@ main.create div.container div.formCreate form div.pdesc label{
 main.create div.container div.formCreate form div.image label{
     margin-bottom: 8px;
 }
-
-
-
-
-
+main.create div.container div.formCreate form div.abv input{
+    width: 20%;
+}
+main.create div.container div.formCreate form div.ibu input{
+    width: 20%;
+}
+main.create div.container div.formCreate form div.price input{
+    width: 20%;
+}
+main.create div.container div.formCreate form button{
+    width: 80%;
+    margin-top: 4px;
+    font-size: 20px;
+    padding: 10px 6px 10px 6px;
+    background-color: var(--color2);
+    border: none;
+    color: white;
+    align-self: center;
+}
+    
 
 
 
