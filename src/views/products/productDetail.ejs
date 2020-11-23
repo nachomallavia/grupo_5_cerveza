@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+    </head>
+<body>
+    <%- include('../partials/header'); %>
+    <!----------------------------- IMAGEN E INFORMACIÓN ----------------------->
+    <main class="product">
+        <div class="all">
+            <div class="imgProduct">
+                <img class="productImg" src="/img/BeataAmberLager1.jpg" alt="cerveza">
+            </div>
+            <div class="infobuy">
+                <div class="productInfo">
+                    <div class="infobox">
+                        <h2 class="beerName">NOMBRE DE LA CERVEZA</h2>
+                        <div class="price-stars">
+                            <h3>300$</h3>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            <h4>(0)</h4>
+                        </div>
+                        <div class="separador"></div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quas quidem, dolor voluptatem id porro dolorum dignissimos obcaecati cum dicta? Ab sequi fugiat nemo, quod et facere dolore minus dicta!</p>
+                        <h3 class="info">ABV: 00</h3>
+                        <h3 class="info">IBU: 00</h3>
+                    </div>
+                </div>
+                <div class="buy">
+                    <div class="buybox">
+                        <div class="cant">
+                            <h3>Cantidad</h3>
+                            <div class="input">
+                                <button class="menos">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <form>
+                                    <input type="number">
+                                </form>
+                                <button class="mas">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="buybttn">
+                            <div class="buybttnBox">
+                                <button class="Cart">
+                                    <h3>AGREGAR AL CARRITO</h3>
+                                </button>
+                                <button class="buyNow">
+                                <h3>COMPRAR AHORA</h3>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-------------------------------------------------------------------------->
+    <%- include('../partials/footer'); %>
+</body>
+</html>

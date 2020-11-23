@@ -1,20 +1,6 @@
 @import url('https://use.fontawesome.com/releases/v5.15.1/css/all.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap');
-:root{
-    --color1:#F0C630;
-    --color2:#0D5B61;
-    --color3:#EDDDD4;
-    --color4:#C43727;
-    --color5:#631F40;
-    --darkgrey:hsl(0,0,12);
-    --lightgrey:#f2f2f2;
-}
- 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    font-family:'Roboto';
-}
+
 main{
     display:flex;
     flex-direction:column;
@@ -70,7 +56,7 @@ main {
     /* justify-content:center; */
     align-items: center;
 }
-h2{
+h2.algo{
     font-size:clamp(20px,3vw,32px);
     text-transform: uppercase;
     color:var(--darkgrey);
