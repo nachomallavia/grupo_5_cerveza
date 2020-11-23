@@ -12,12 +12,12 @@
 }
 :root{
     --color1:#F0C630;
-    --color2:#0D5B61;
+    --color2:#005254;
     --color3:#EDDDD4;
     --color4:#C43727;
     --color5:#631F40;
     --darkgrey:hsl(0,0,12);
-    --lightgrey:#f2f2f2;
+    --lightgrey:#eaeaea;
     
 }
 header{

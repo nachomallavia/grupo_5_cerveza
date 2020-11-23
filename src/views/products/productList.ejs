@@ -1,9 +1,83 @@
 <!DOCTYPE html>
 <html>
-<%- include('../partials/head'); %>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+    </head>
 <body>
     <%- include('../partials/header'); %>
-    
+    <main class="product-list">
+        <aside class="filter-group">
+            <form action="" class="filtering">
+                <div class="order">
+                
+                    <label for="ordenar">Ordenar por</label>
+                    <select name="ordenar" id="ordenar">
+                        <option value="novedad">Novedad</option>
+                        <option value="mayor-precio">Mayor precio</option>
+                        <option value="menor-precio">Menor precio</option>
+                        <option value="mayor-amargor">Mayor amargor</option>
+                        <option value="menor-amargor">Menor amargor</option>
+                        <option value="mayor-puntaje">Mayor puntaje</option>
+                        <option value="menor-puntaje">Menor puntaje</option>
+                    </select>
+                    
+                </div>
+                <div class="filter">                  
+
+                        <label for="precio">Precio</label>
+                        <div class="range-price">
+                            <input type="number" name="precio-minimo" id="" placeholder="Min">
+                            <input type="number" name="precio-maximo" id="" placeholder="Max">
+                        </div>
+                        
+                        <div class= "range-ibu">
+                            <label for="amargor">Amargor</label>
+                            <input type="range" name="amargor" id="amargor" min="1" max="100">
+                        </div>
+
+                        <div class= "range-alcohol">
+                            <label for="amargor">Alcohol</label>
+                            <input type="range" name="alcohol" id="alcohol" min="1" max="100">
+                        </div>
+                        <div class="category">
+                            <label for="Category">Categorías</label>
+                            <ul class= "category-list">
+                         
+                                <% for (let i = 0; i < categorias.length; i++){ %>
+                                    <li class= "category-item">
+                               
+                                    <input type="checkbox" name= "categoria" id="" value = "<%= categorias[i] %>" >
+                                    <%= categorias[i] %>
+                                    
+                                    </li>
+                               
+                                <% } %>
+
+                            </ul>
+                         
+                        
+                        </div>
+                        <button type="submit" class="filter-btn">Aplicar</button>
+
+                    
+                </div>
+            </form>
+            
+        </aside>
+        <div class = "container">
+            <div class= "list card">
+                <div class= "list card img-prod">
+                    <img src="/img/latas_capitan.jpg" alt="imagen producto">
+                </div>
+                <div class="rating">
+                    <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                </div>
+            </div>
+
+        </div>
+    </main>
     <%- include('../partials/footer'); %>
 </body>
 </html>
