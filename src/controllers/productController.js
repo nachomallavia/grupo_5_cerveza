@@ -5,10 +5,11 @@ let productos = fs.readFileSync(path.join(__dirname, '../database/products.json'
 let productosGuardados = JSON.parse(productos);
 let categorias = fs.readFileSync(path.join(__dirname,'../database/categories.json'),'utf-8');
 let categoriasParseadas = JSON.parse(categorias);
+let fabricantes = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/makers.json'),'utf-8'));
 
 const controller = {
     list : function(req,res){
-        res.render(path.join(__dirname, '../views/products/productList.ejs'),{'categorias': categoriasParseadas})
+        res.render(path.join(__dirname, '../views/products/productList.ejs'),{'categorias': categoriasParseadas,'fabricantes': fabricantes})
     },
     detail: function(req, res){
         res.render(path.join(__dirname, '../views/products/productDetail.ejs'))
