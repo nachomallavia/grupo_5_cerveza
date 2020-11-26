@@ -1,2 +1,11 @@
 [
+    {
+        "name": "Andes",
+        "category": "ale",
+        "abv": "12",
+        "ibu": "23",
+        "desc": "birrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirrabirra",
+        "price": "400",
+        "image": "Andes_picture.jpg"
+    }
 ]

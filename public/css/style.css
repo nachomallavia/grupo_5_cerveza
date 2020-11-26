@@ -47,7 +47,46 @@ header div.header div.carrito a{
     display: flex;
     text-decoration: none;
     color:  black;
-    
+}
+header div.all{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+header div.nav{
+    display: none;
+}
+header div.carrito a{
+    margin-left: 10px;
+}
+header img{
+    margin-right: -10px;
+}
+/* Resposive header.ejs */
+
+@media(min-width: 450px){
+    div.barras i{
+        display: none;
+    }
+    div.all div.nav{
+        margin-top: 20px;
+        width: 100%;
+        display: flex !important;
+        flex-direction: row;
+    }
+    div.all div.nav nav{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    div.all div.nav nav a{
+        font-size: 20px;
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
 }
 
 /* css footer */
@@ -92,4 +131,7 @@ footer .redes a {
 footer div.seguinosredes p {
     color: white;
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8494a35ff282648176349789a073316f28de2967
