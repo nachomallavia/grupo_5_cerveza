@@ -33,6 +33,11 @@ div.foto-prpal{
     width: 100%;
     justify-content: center;
 }
+
+div.foto-prpal-desktop{
+    display: none;
+}
+
 div.txt-prpal{
     display: flex;
     flex-direction: row;
@@ -42,6 +47,8 @@ div.txt-prpal{
     padding-top: 7px;
     padding-bottom: 7px;
 }
+
+
 div.combos{
     display: flex;
     flex-direction: column;
@@ -111,6 +118,7 @@ div.destacados-txt{
 div.destacados-prop{
     display: flex;
     flex-direction: row;
+    font-size: 12px;
 }
 
 div.newsletter{
@@ -134,5 +142,33 @@ div.newsletter-form{
     margin-bottom: 15px;
 }
 
+/* Media Query */
 
+@media (min-width: 450px){
+    div.seccion-combos{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    div.seccion-destacados{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    div.destacados{
+        width: 48%;
+    }
+    
+    div.combos{
+        width: 48%;
+    }
+
+    div.foto-prpal-desktop{
+        display: flex;
+    }
+    div.foto-prpal-mobile{
+        display: none;
+    }
+
+}
 

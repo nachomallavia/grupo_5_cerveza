@@ -74,6 +74,7 @@ footer div.enlaces nav {
 }
 footer div.enlaces nav a {
     margin: 10px;
+    font-size: 12px;
 }
 footer div.seguinosredes {
     width: 100%;
@@ -91,3 +92,4 @@ footer .redes a {
 footer div.seguinosredes p {
     color: white;
 }
+
