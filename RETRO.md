@@ -16,7 +16,12 @@
 
 - Compartir descubrimientos con el grupo.   
 
+## Sprint 2
 
 
+### KEEP DOING
+- Buena relación entre los integrantes del grupo. Es fundamental para perderle el miedo a equivocarse. También es más fácil la comunicación entre nosotros y hace a las reuniones mucho más entretenidas.
 
 
+### MORE OF
+- Encontrar más momentos para trabajar juntos. Hacerlo nos permite agilizar la toma de decisiones y refuerzar lazos.
