@@ -1,53 +1,161 @@
 <!DOCTYPE html>
 <html>
     <%- include('../partials/head'); %>
-<body>
+<body onload="LoadValue()">
     <%- include('../partials/header'); %>
     <main class="create">
         <div class="container">
-            <h2 class="title">EDITAR EL PRODUCTO</h2>
+            <h2 class="title">Producto a editar:</h2><h2 class="product-name-edit"><%= producto.name %></h2>
+            <div class= "edit-image">
+                <img id="prod-img" src="/uploads/<%=producto.image%>" alt="imagen producto">
+            </div>
             <div class="separador"></div>
             <div class="formCreate">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form action="/admin/products/<%= producto.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data" name="editform">
                     <div class="name">
                         <label for="pname">Nombre</label>
-                        <input id="pname" name="pname" type="text">
+                        <input id="pname" name="pname" type="text" value="<%= producto.name %>">
+                    </div>
+                    <div class="maker">
+                        <label for="pmaker">Fabricante</label>
+                        <select id="pmaker" name="pmaker">
+                            <option value="<%= producto.maker %>" selected><%= producto.maker %></option>
+                            <% for (let i = 1; i < fabricantes.length; i++){ %>
+                            <option value= <%= fabricantes[i] %> > <%= fabricantes[i] %> </option>
+                            <% } %>
+                        </select>
                     </div>
                     <div class="category">
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
-                            <option value="ipa">IPA</option>
-                            <option value="lager">Lager</option>
-                            <option value="ale">Ale</option>
-                            <option value="negra">Negra</option>
-                            <option value="honey">Honey</option>
-                          </select>
+                            <option value="<%= producto.category %>" selected><%= producto.category %></option>
+                            <% for (let i = 1; i < categorias.length; i++){ %>
+                            <option value= <%= categorias[i] %> > <%= categorias[i] %> </option>
+                            <% } %>
+                        </select>
                     </div>
                     <div class="abv">
-                        <label for="pabv">ABV</label>
-                        <input id="pabv" name="pabv" type="number">
+                        <label for="pabv">Alcohol (%)</label>
+                        <input id="pabv" name="pabv" type="number" value="<%= producto.abv %>">
                     </div>
                     <div class="ibu">
-                        <label for="pibu">IBU</label>
-                        <input id="pibu" name="pibu" type="number">
+                        <label for="pibu">Amargor (IBU)</label>
+                        <input id="pibu" name="pibu" type="number" value="<%= producto.ibu %>">
+                    </div>
+                    <div class="srm">
+                        <label for="psrm">Tono (SRM)</label>
+                        <div class="data-srm">
+                            <h5 id="valor-srm" class="valor-srm"><%= producto.srm %></h5>
+                            <input id="psrm-range" name="psrm" type="range" min="1" max="40" value="12">
+                            <div id="color-srm" class="color-srm"></div>
+                        </div>
                     </div>
                     <div class="desc">
                         <label for="pdesc">Descripción</label>
-                        <textarea name="pdesc" id="pdesc" rows="10" cols="20"></textarea>
+                        <textarea name="pdesc" id="pdesc" rows="10" cols="20"><%= producto.desc %></textarea>
+                    </div>
+                    <div class="format">
+                        <label for="pformat">formato</label>
+                        <select id="pformat" name="pformat">
+                            <option value="<%= producto.format %>" selected><%= producto.format %></option>
+                            <% for (let i = 1; i < formatos.length; i++){ %>
+                            <option value= <%= formatos[i].formato %> > <%= formatos[i].formato %> </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="capacity">
+                        <label for="pcapacity">capacidad</label>
+                        <select id="pcapacity" name="pcapacity">
+                            <option value="<%= producto.capacity %>" selected><%= producto.capacity %></option>
+                            <option value="330">330 ml</option>
+                            <option value="473">473 ml</option>
+                            <option value="500">500 ml</option>
+                            <option value="660">660 ml</option>
+                            <option value="730">730 ml</option>
+                            <option value="750">750 ml</option>
+                            <option value="1000">1 lt</option>
+                            <option value="1900">1,9 lts</option>
+                            <option value="2000">2 lts</option>                                                       
+                        </select>
                     </div>
                     <div class="price">
                         <label for="pprice">Precio</label>
-                        <input id="pprice" name="pprice" type="number">
+                        <input id="pprice" name="pprice" type="number" step="any" value="<%= producto.price %>">
                     </div>
+                    <!-- <div class="pack">
+                        <label for="ppack">Pack</label>
+                        <input id="ppack" name="ppack" type="number">
+                    </div> -->
                     <div class="image">
                         <label for="pimage">Imagen</label>
                         <input id="pimage" name="pimage" type="file">
                     </div>
-                    <button type="submit">Crear</button>
+                    <button type="submit">Editar</button>
                 </form>
             </div>
         </div>
     </main>
     <%- include('../partials/footer'); %>
+    
+    <script>
+        function LoadValue() {
+        editform.pimage.value= producto.image;
+        }
+    </script>
+    
+    <!-- script para cargar los colores de SRM disponibles -->
+    <script> 
+        let stringColores = "<%=coloresSrm%>";
+        let colores = stringColores.split(',');
+                
+
+        var inputSrm = document.getElementById("psrm-range");
+        var numeroSrm = document.getElementById("psrm-range").value;
+        var ventanaSrm =document.getElementById("color-srm");
+        var valor = document.getElementById("valor-srm");
+
+        console.log(numeroSrm);
+
+        inputSrm.addEventListener("input", function() {
+            numeroSrm = document.getElementById("psrm-range").value;
+            ventanaSrm.style.backgroundColor = colores[numeroSrm];
+            valor.innerText = numeroSrm;
+        })
+       
+    </script>
+    
+    <!-- script para cargar las capacidades de cada formato, todavía no funciona -->
+    <!-- <script>
+        
+        let formatos = "<%=formatos%>";
+        formatos = formatos.split(',');
+        
+        let trigger = document.getElementById("pformat");
+
+        trigger.addEventListener("input", function(){
+
+            let formatoElegido = document.getElementById("pformat").value;
+
+            
+            
+            let capacidades = document.getElementById("pcapacity");
+
+                       
+
+            for(let i= 0; i<formatos.length; i++){
+                let formatoParseado = formatos[i];
+                if(formatoParseado.formato == formatoElegido){
+                    for(let j= 0; j<formatoParseado.capacidad.length; j++){
+                        let valor = formatoParseado.capacidad[j];
+                        let optn = document.createElement("option");
+                        optn.textContent = valor;
+                        optn.value = valor;
+                        capacidades.appendChild(optn);
+                    }
+                }
+            }
+        })
+    </script> -->
+    
 </body>
 </html>

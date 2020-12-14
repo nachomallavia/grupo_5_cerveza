@@ -7,14 +7,14 @@
     <main class="product">
         <div class="all">
             <div class="imgProduct">
-                <img class="productImg" src="/img/BeataAmberLager1.jpg" alt="cerveza">
+                <img class="productImg" src="/uploads/<%=producto.image%>" alt="imagen producto">
             </div>
             <div class="infobuy">
                 <div class="productInfo">
                     <div class="infobox">
-                        <h2 class="beerName">NOMBRE DE LA CERVEZA</h2>
+                        <h2 class="beerName"><%= producto.name %></h2>
                         <div class="price-stars">
-                            <h3>300$</h3>
+                            <h3><%= producto.price + "$" %></h3>
                                 <i class="far fa-star"></i>
                                 <i class="far fa-star"></i>
                                 <i class="far fa-star"></i>
@@ -23,9 +23,32 @@
                             <h4>(0)</h4>
                         </div>
                         <div class="separador"></div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quas quidem, dolor voluptatem id porro dolorum dignissimos obcaecati cum dicta? Ab sequi fugiat nemo, quod et facere dolore minus dicta!</p>
-                        <h3 class="info">ABV: 00</h3>
-                        <h3 class="info">IBU: 00</h3>
+                        <p><%= producto.desc %></p>
+                        <div class= "meter alcohol">
+                            <div class= "alcohol text">
+                                <h4>Alcohol</h4>
+                                <h4 id="percentage-alcohol"><%=producto.abv%>%</h4>
+                            </div>
+                            <% var abv = (((producto.abv)/14)*100)+"%" %>
+                            
+                            <div class="bar alcohol"><div id="bar-level-alcohol" style= "width: <%= abv %>"></div></div>
+                        </div>
+                        <!-- <h3 class="info">ABV: <%= producto.abv %></h3> -->
+                        <!-- <h3 class="info">IBU: <%= producto.ibu %></h3> -->
+                        <div class= "meter bitternes">
+                            <div class="bitternes text">
+                                <h4>Amargor</h4>
+                                <h4 id="number-bitternes"><%=producto.ibu%></h4>
+                            </div>
+                            <% var ibu = producto.ibu+"%" %>
+                            <div class="bar bitternes"><div id="bar-level-bitternes" style= "width: <%= ibu %>"></div></div>
+                        </div>
+                        <div class="meter srm">
+                            <h4>Tono</h4>
+                            <% var color = producto.srm %>
+                            <% var tono = coloresSrm[color]%>
+                            <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
+                        </div>
                     </div>
                 </div>
                 <div class="buy">

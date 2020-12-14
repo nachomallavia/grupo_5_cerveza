@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="../css/style.css">
+    </head>
+<body>
+    <%- include('../partials/header'); %>
+    <main class="product-list">
+        <aside class="filter group">
+            <form action="" class="filter form">
+                <div class="order">
+                
+                    <label for="ordenar">Ordenar por</label>
+                    <select name="ordenar" id="ordenar">
+                        <option value="novedad">Novedad</option>
+                        <option value="mayor-precio">Mayor precio</option>
+                        <option value="menor-precio">Menor precio</option>
+                        <option value="mayor-amargor">Mayor amargor</option>
+                        <option value="menor-amargor">Menor amargor</option>
+                        <option value="mayor-puntaje">Mayor puntaje</option>
+                        <option value="menor-puntaje">Menor puntaje</option>
+                    </select>
+                    
+                </div>
+                <div class="filter controls">                  
+
+                        <label for="precio">Precio</label>
+                        <div class="range price">
+                            <input type="number" name="precio-minimo" id="" placeholder="Min">
+                            <input type="number" name="precio-maximo" id="" placeholder="Max">
+                        </div>
+                                            
+                        <div class= "range alcohol">
+                            <label for="amargor">Alcohol</label>
+                            <input type="range" name="alcohol" id="alcohol" min="1" max="100">
+                        </div>
+
+                        <div class= "range ibu">
+                            <label for="amargor">Amargor</label>
+                            <input type="range" name="amargor" id="amargor" min="1" max="100">
+                        </div>
+
+                        <div class="category">
+                            <label for="Category">Categorías</label>
+                            <ul class= "category-list">
+                         
+                                <% for (let i = 0; i < categorias.length; i++){ %>
+                                    <li class= "category-item">
+                               
+                                    <input type="checkbox" name= "categoria" id="" value = "<%= categorias[i] %>" >
+                                    <%= categorias[i] %>
+                                    
+                                    </li>
+                               
+                                <% } %>
+
+                            </ul>
+                         
+                        
+                        </div>
+
+                        <div class="maker">
+                            <label for="maker">Fabricantes</label>
+                            <ul class= "maker-list">
+                         
+                                <% for (let i = 0; i < fabricantes.length; i++){ %>
+                                    <li class= "maker-item">
+                               
+                                    <input type="checkbox" name= "fabricante" id="" value = "<%= fabricantes[i] %>" >
+                                    <%= fabricantes[i] %>
+                                    
+                                    </li>
+                               
+                                <% } %>
+
+                            </ul>
+                         
+                        
+                        </div>
+
+
+                        <!-- <button type="submit" class="filter-btn">Aplicar</button> -->
+
+                    
+                </div>
+            </form>
+            
+        </aside>
+        <div class="title-list">
+            <div class="title-products">
+                <h2>Productos</h2>
+                <span>home - productos</span>
+            </div>
+            <div id= "list container" class = "list container">
+                <% for (let i = 0; i<productos.length; i++){ %>
+                    <div class= "list card">
+                        <div class="card title">
+                            <h3 id="prod-title"><%=productos[i].name%></h3>
+                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker%></a></h5>
+                        </div>
+                        
+                        <div class= "card prod-img">
+                            <img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                        </div>
+                        <div class="card rating">
+                            <% for (let s = 1; s <= productos[i].rating; s++){ %>
+                            <div class="fullstar"><img src="/img/star_full.svg" alt=""></div><% } %>
+                            <% for (let r = 1; r <= (5-(productos[i].rating)); r++){ %> 
+                                <div class="emptystar"><img src="/img/star_empty.svg" alt=""></div>
+                            <% } %>
+                        </div>
+
+                        <div class= "meter alcohol">
+                            <div class= "alcohol text">
+                                <h4>Alcohol</h4>
+                                <h4 id="percentage-alcohol"><%=productos[i].abv%>%</h4>
+                            </div>
+                            <% var abv = (((productos[i].abv)/14)*100)+"%" %>
+                            
+                            <div class="bar alcohol"><div id="bar-level-alcohol" style= "width: <%= abv %>"></div></div>
+                        </div>
+                    
+
+                        <div class= "meter bitternes">
+                            <div class="bitternes text">
+                                <h4>Amargor</h4>
+                                <h4 id="number-bitternes"><%=productos[i].ibu%></h4>
+                            </div>
+                            <% var ibu = productos[i].ibu+"%" %>
+                            <div class="bar bitternes"><div id="bar-level-bitternes" style= "width: <%= ibu %>"></div></div>
+                        </div>
+                        <div class="meter srm">
+                            <h4>Tono</h4>
+                            <% var color = productos[i].srm %>
+                            <% var tono = coloresSrm[color]%>
+                            <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
+                        </div>
+                        <section class="edit-delete-buttons">
+                            <a class="edit" href="/admin/products/<%= productos[i].id %>/edit"><h4 class="edittxt">EDITAR</h4></a>
+                            
+                            <form action="/admin/products/<%= productos[i].id %>?_method=DELETE" method="POST">
+                                <button type="submit" class="delete"><h3 class="deletetxt">ELIMINAR</h3></button>
+                            </form>
+                        </section>
+
+                    </div>
+                <% } %>
+
+                
+            </div>
+
+        </div>
+        
+    </main>
+    <%- include('../partials/footer'); %>
+    
+</body>
+</html>

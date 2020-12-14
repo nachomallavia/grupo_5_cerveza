@@ -442,7 +442,39 @@ div.card.rating img{
     border-radius:80px;
     
 }
-
+section.edit-delete-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+section.edit-delete-buttons a.edit{
+    display: flex;
+    width: 35%;
+    background-color: rgb(104, 170, 4);
+    text-decoration: none;
+    color: white;
+    justify-content: center;
+    padding: 4px 0px 4px 0px;
+}
+section.edit-delete-buttons button.delete{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(167, 23, 23);
+    border: 0px;
+    padding: 6px 14px 6px 14px;
+    cursor: pointer;
+    color: white;
+}
+section.edit-delete-buttons button.delete h3.deletetxt{
+    width: 100%;
+}
+.edit-image{
+    width: 30%;
+}
+.product-name-edit{
+    background-color: var(--color1);
+    padding: 10px;
+}
 @media only screen and (max-width: 768px){
  .list.container{
    position:relative;
