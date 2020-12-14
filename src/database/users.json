@@ -1,3 +1,30 @@
 [
-
+    {
+        "id": 1,
+        "email": "jose@eliopez.com",
+        "avatar": "jose@eliopez.com-1607988076966.jpg",
+        "birthdate": "1993-06-24",
+        "password": "$2a$12$5W2vV2H7PcsZrYvk7ZFGmOIOjsaRBMIz.55baTs721AXZIE0/Y/2m"
+    },
+    {
+        "id": 2,
+        "email": "nacho@eliopez.com",
+        "avatar": "nacho@eliopez.com-1607988135402.jpg",
+        "birthdate": "1993-01-01",
+        "password": "$2a$12$ELpmgVQxuOwB0kEIBfUc6.PbXdX1VO.axoY8drE1hjOPLdbs6aBwi"
+    },
+    {
+        "id": 3,
+        "email": "mati@eliopez.com",
+        "avatar": "mati@eliopez.com-1607988180126.jpg",
+        "birthdate": "1993-01-01",
+        "password": "$2a$12$Cq4AKNaPyu2PRQe5NGcNvexjBnsgazTKV/4WfWst0S5Mdpbsj1lY6"
+    },
+    {
+        "id": 4,
+        "email": "ian@eliopez.com",
+        "avatar": "ian@eliopez.com-1607988225709.jpg",
+        "birthdate": "1993-01-01",
+        "password": "$2a$12$uSg3ESTNS8YWHaW1XcHyiuAlG9C.Uc6qVJFNMa6RGhNosAVEbK5ee"
+    }
 ]
