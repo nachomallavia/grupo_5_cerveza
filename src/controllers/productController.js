@@ -20,7 +20,7 @@ const controller = {
     edit: function(req, res){
         res.render(path.join(__dirname, '../views/products/productEdit.ejs'))
     },
-    createForm: function(req,res){
+    store: function(req,res){
         productosGuardados.push({
             name: req.body.pname,
             category: req.body.pcategory,
@@ -33,8 +33,8 @@ const controller = {
         fs.writeFileSync(path.join(__dirname, '../database/products.json'), JSON.stringify(productosGuardados, null, 4));
         res.redirect('..')
     },
-    editForm: function(req,res){
-
+    storeEdit: function(req,res){
+        res.send("producto editado");
     }
 
 }
