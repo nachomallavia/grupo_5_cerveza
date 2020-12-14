@@ -31,16 +31,17 @@
                             <input type="number" name="precio-minimo" id="" placeholder="Min">
                             <input type="number" name="precio-maximo" id="" placeholder="Max">
                         </div>
-                        
+                                            
+                        <div class= "range alcohol">
+                            <label for="amargor">Alcohol</label>
+                            <input type="range" name="alcohol" id="alcohol" min="1" max="100">
+                        </div>
+
                         <div class= "range ibu">
                             <label for="amargor">Amargor</label>
                             <input type="range" name="amargor" id="amargor" min="1" max="100">
                         </div>
 
-                        <div class= "range alcohol">
-                            <label for="amargor">Alcohol</label>
-                            <input type="range" name="alcohol" id="alcohol" min="1" max="100">
-                        </div>
                         <div class="category">
                             <label for="Category">Categorías</label>
                             <ul class= "category-list">
@@ -92,217 +93,53 @@
                 <h2>Productos</h2>
                 <span>home - productos</span>
             </div>
-            <div class = "list container">
-                <div class= "list card">
-                    <div class="card title">
-                        <h2 id="prod-title">IPA Mutante</h2>
-                        <h5>por <a class="prod-maker" id="prod-maker" href="#">Capitán Lúpulo</a></h5>
-                    </div>
+            <div id= "list container" class = "list container">
+                <% for (let i = 0; i<productos.length; i++){ %>
+                    <div class= "list card">
+                        <div class="card title">
+                            <h3 id="prod-title"><%=productos[i].name%></h3>
+                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker%></a></h5>
+                        </div>
+                        
+                        <div class= "card prod-img">
+                            <img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                        </div>
+                        <div class="card rating">
+                            <% for (let s = 1; s <= productos[i].rating; s++){ %>
+                            <div class="fullstar"><img src="/img/star_full.svg" alt=""></div><% } %>
+                            <% for (let r = 1; r <= (5-(productos[i].rating)); r++){ %> 
+                                <div class="emptystar"><img src="/img/star_empty.svg" alt=""></div>
+                            <% } %>
+                        </div>
+
+                        <div class= "meter alcohol">
+                            <div class= "alcohol text">
+                                <h4>Alcohol</h4>
+                                <h4 id="percentage-alcohol"><%=productos[i].abv%>%</h4>
+                            </div>
+                            <% var abv = (((productos[i].abv)/14)*100)+"%" %>
+                            
+                            <div class="bar alcohol"><div id="bar-level-alcohol" style= "width: <%= abv %>"></div></div>
+                        </div>
                     
-                    <div class= "card prod-img">
-                        <img id="prod-img" src="/img/latas_capitan.jpg" alt="imagen producto">
-                    </div>
-                    <div class="card rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
 
-                    <div class= "meter alcohol">
-                        <div class= "alcohol text">
-                            <h4>Alcohol</h4>
-                            <h4 id="percentage-alcohol">%5,2</h4>
+                        <div class= "meter bitternes">
+                            <div class="bitternes text">
+                                <h4>Amargor</h4>
+                                <h4 id="number-bitternes"><%=productos[i].ibu%></h4>
+                            </div>
+                            <% var ibu = productos[i].ibu+"%" %>
+                            <div class="bar bitternes"><div id="bar-level-bitternes" style= "width: <%= ibu %>"></div></div>
                         </div>
-                        <div class="bar alcohol"><div id="bar-level-alcohol"></div></div>
-                    </div>
-
-                    <div class= "meter bitternes">
-                        <div class="bitternes text">
-                            <h4>Amargor</h4>
-                            <h4 id="number-bitternes">37</h4>
+                        <div class="meter srm">
+                            <h4>Tono</h4>
+                            <% var color = productos[i].srm %>
+                            <% var tono = coloresSrm[color]%>
+                            <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
                         </div>
-                        <div class="bar bitternes"><div id="bar-level-bitternes"></div></div>
-                    </div>
-                    <div class="meter srm">
-                        <h4>Tono</h4>
-                        <div class = "srm-circle" id = "color-srm"></div>
-                    </div>
 
-                </div>
-
-                <div class= "list card">
-                    <div class="card title">
-                        <h2 id="prod-title">IPA Mutante</h2>
-                        <h5>por <a class="prod-maker" id="prod-maker" href="#">Capitán Lúpulo</a></h5>
                     </div>
-                    
-                    <div class= "card prod-img">
-                        <img id="prod-img" src="/img/latas_capitan.jpg" alt="imagen producto">
-                    </div>
-                    <div class="card rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-
-                    <div class= "meter alcohol">
-                        <div class= "alcohol text">
-                            <h4>Alcohol</h4>
-                            <h4 id="percentage-alcohol">%5,2</h4>
-                        </div>
-                        <div class="bar alcohol"><div id="bar-level-alcohol"></div></div>
-                    </div>
-
-                    <div class= "meter bitternes">
-                        <div class="bitternes text">
-                            <h4>Amargor</h4>
-                            <h4 id="number-bitternes">37</h4>
-                        </div>
-                        <div class="bar bitternes"><div id="bar-level-bitternes"></div></div>
-                    </div>
-                    <div class="meter srm">
-                        <h4>Tono</h4>
-                        <div class = "srm-circle" id = "color-srm"></div>
-                    </div>
-
-                </div>
-
-                <div class= "list card">
-                    <div class="card title">
-                        <h2 id="prod-title">IPA Mutante</h2>
-                        <h5>por <a class="prod-maker" id="prod-maker" href="#">Capitán Lúpulo</a></h5>
-                    </div>
-                    
-                    <div class= "card prod-img">
-                        <img id="prod-img" src="/img/latas_capitan.jpg" alt="imagen producto">
-                    </div>
-                    <div class="card rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-
-                    <div class= "meter alcohol">
-                        <div class= "alcohol text">
-                            <h4>Alcohol</h4>
-                            <h4 id="percentage-alcohol">%5,2</h4>
-                        </div>
-                        <div class="bar alcohol"><div id="bar-level-alcohol"></div></div>
-                    </div>
-
-                    <div class= "meter bitternes">
-                        <div class="bitternes text">
-                            <h4>Amargor</h4>
-                            <h4 id="number-bitternes">37</h4>
-                        </div>
-                        <div class="bar bitternes"><div id="bar-level-bitternes"></div></div>
-                    </div>
-                    <div class="meter srm">
-                        <h4>Tono</h4>
-                        <div class = "srm-circle" id = "color-srm"></div>
-                    </div>
-
-                </div>
-
-                <div class= "list card">
-                    <div class="card title">
-                        <h2 id="prod-title">IPA Mutante</h2>
-                        <h5>por <a class="prod-maker" id="prod-maker" href="#">Capitán Lúpulo</a></h5>
-                    </div>
-                    
-                    <div class= "card prod-img">
-                        <img id="prod-img" src="/img/latas_capitan.jpg" alt="imagen producto">
-                    </div>
-                    <div class="card rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-
-                    <div class= "meter alcohol">
-                        <div class= "alcohol text">
-                            <h4>Alcohol</h4>
-                            <h4 id="percentage-alcohol">%5,2</h4>
-                        </div>
-                        <div class="bar alcohol"><div id="bar-level-alcohol"></div></div>
-                    </div>
-
-                    <div class= "meter bitternes">
-                        <div class="bitternes text">
-                            <h4>Amargor</h4>
-                            <h4 id="number-bitternes">37</h4>
-                        </div>
-                        <div class="bar bitternes"><div id="bar-level-bitternes"></div></div>
-                    </div>
-                    <div class="meter srm">
-                        <h4>Tono</h4>
-                        <div class = "srm-circle" id = "color-srm"></div>
-                    </div>
-
-                </div>
-
-                <div class= "list card">
-                    <div class="card title">
-                        <h2 id="prod-title">IPA Mutante</h2>
-                        <h5>por <a class="prod-maker" id="prod-maker" href="#">Capitán Lúpulo</a></h5>
-                    </div>
-                    
-                    <div class= "card prod-img">
-                        <img id="prod-img" src="/img/latas_capitan.jpg" alt="imagen producto">
-                    </div>
-                    <div class="card rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-
-                    <div class= "meter alcohol">
-                        <div class= "alcohol text">
-                            <h4>Alcohol</h4>
-                            <h4 id="percentage-alcohol">%5,2</h4>
-                        </div>
-                        <div class="bar alcohol"><div id="bar-level-alcohol"></div></div>
-                    </div>
-
-                    <div class= "meter bitternes">
-                        <div class="bitternes text">
-                            <h4>Amargor</h4>
-                            <h4 id="number-bitternes">37</h4>
-                        </div>
-                        <div class="bar bitternes"><div id="bar-level-bitternes"></div></div>
-                    </div>
-                    <div class="meter srm">
-                        <h4>Tono</h4>
-                        <div class = "srm-circle" id = "color-srm"></div>
-                    </div>
-
-                </div>
-
-
-                <div class= "list card">
-                    <div class="card title">
-                        <h2 id="prod-title">IPA Mutante</h2>
-                        <h5>por <a class="prod-maker" id="prod-maker" href="#">Capitán Lúpulo</a></h5>
-                    </div>
-                    
-                    <div class= "card prod-img">
-                        <img id="prod-img" src="/img/latas_capitan.jpg" alt="imagen producto">
-                    </div>
-                    <div class="card rating">
-                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                    </div>
-
-                    <div class= "meter alcohol">
-                        <div class= "alcohol text">
-                            <h4>Alcohol</h4>
-                            <h4 id="percentage-alcohol">%5,2</h4>
-                        </div>
-                        <div class="bar alcohol"><div id="bar-level-alcohol"></div></div>
-                    </div>
-
-                    <div class= "meter bitternes">
-                        <div class="bitternes text">
-                            <h4>Amargor</h4>
-                            <h4 id="number-bitternes">37</h4>
-                        </div>
-                        <div class="bar bitternes"><div id="bar-level-bitternes"></div></div>
-                    </div>
-                    <div class="meter srm">
-                        <h4>Tono</h4>
-                        <div class = "srm-circle" id = "color-srm"></div>
-                    </div>
-
-                </div>
+                <% } %>
 
                 
             </div>
@@ -311,5 +148,6 @@
         
     </main>
     <%- include('../partials/footer'); %>
+    
 </body>
 </html>

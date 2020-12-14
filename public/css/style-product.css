@@ -135,18 +135,26 @@ main.create div.container{
     width: 90%;
     background-color: white;
     align-items: center;
+    
+    margin-bottom: 96px;
+    /* min-height: 100vh; */
+}
+div.srm{
+    display:flex;
+    align-items: center;
 }
 
 main.create div.container h2.title{
-    margin-top: 12px;
+    margin: 24px;
 }
 main.create div.container div.separador{
-    margin:12px 0px;
+    margin-bottom: 24px;
     border:1px solid lightgrey;
     width:100%;
 }
 main.create div.container div.formCreate{
     width: 90%;
+    max-width:500px;
 }
 main.create div.container div.formCreate form{
     display: flex;
@@ -158,8 +166,8 @@ main.create div.container div.formCreate form div{
     justify-content: space-between;
     margin-top: 8px;
     margin-bottom: 8px;
-    font-weight: bold;
-    font-size: 20px;
+    font-weight: normal;
+    font-size: 18px;
 }
 main.create div.container div.formCreate form button{
     margin-bottom: 12px
@@ -196,6 +204,24 @@ main.create div.container div.formCreate form button{
     border: none;
     color: white;
     align-self: center;
+}
+main.create div.data-srm{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+main.create div.data-srm h5{
+    font-weight: 400;
+    font-size: 16px;
+    margin-right: 8px;
+}
+main.create div.color-srm{
+    margin-left: 4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 48px;
+    border: 2px solid var(--lightgrey);
+    background-color: #de7c00;
 }
     
 /* MEDIA QUERIES productDetail.ejs */
@@ -350,18 +376,24 @@ div.category{
 
 .card.prod-img{
     width:100%;
+
 }
 #prod-img{
     width:100%;
 }
 
 
-.card.rating{
-    margin: 16px;
+div.card.rating{
+    margin: 8px;
+    height: 20px;
+    display: flex;
+    
+    
 }
-.card.rating i{
-    color:var(--color1);
+div.card.rating img{
+    width:16px;
 }
+
 .meter{
     margin: 8px;
 }
