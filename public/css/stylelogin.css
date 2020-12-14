@@ -84,6 +84,16 @@ h2.algo{
     border-radius:4px;
     margin-bottom:16px;
 }
+.completar form{
+    display:flex;
+    flex-direction: column;
+    width:90%;
+    justify-content: space-between;
+    align-items: center;
+    padding:16px;
+    border-radius:4px;
+    margin-bottom:16px;
+}
 div.completar p {
     width: 100%;
     display: flex;
