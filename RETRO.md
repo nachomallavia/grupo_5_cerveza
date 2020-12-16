@@ -25,3 +25,12 @@
 
 ### MORE OF
 - Encontrar más momentos para trabajar juntos. Hacerlo nos permite agilizar la toma de decisiones y refuerzar lazos.
+
+## Sprint 3
+
+### START DOING
+- Hacer una review de los avances de cada uno explicando como se llevó a cabo su trabajo.
+
+### MORE OF
+
+- Compartir descubrimientos con el grupo.  
