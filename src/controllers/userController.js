@@ -21,7 +21,6 @@ const controller = {
         res.render('users/login.ejs')
     },
     save: function(req, res) {
-        
         let nuevoUsuario = {
             id: ultimoIdUser + 1,
             email: req.body.email,

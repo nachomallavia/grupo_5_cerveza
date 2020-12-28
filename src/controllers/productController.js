@@ -30,16 +30,16 @@ const controller = {
         })
         res.render('products/productDetail',{'producto': producto,'coloresSrm': coloresSrm});
     },
-    create: function(req,res){
+    Create: function(req,res){
         res.render('products/productCreate',{'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
     },
-    edit: function(req, res){
+    Edit: function(req, res){
         let producto = productos.find((producto) => {
             return producto.id == req.params.id;
         })
         res.render('products/productEdit',{'producto': producto,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
     },
-    createForm: function(req,res){
+    CreateForm: function(req,res){
         productos.push({
             id: ultimoIdProducto + 1,
             name: req.body.pname,
@@ -58,7 +58,7 @@ const controller = {
         fs.writeFileSync(path.join(__dirname, '../database/products.json'), JSON.stringify(productos, null, 4));
         res.redirect('../../admin/products');
     },
-    editForm: function(req,res){
+    EditForm: function(req,res){
         let editID = req.params.id - 1;
         productos[editID].name = req.body.pname;
         productos[editID].maker = req.body.pmaker;
@@ -77,7 +77,7 @@ const controller = {
     adminList: function(req,res){
         res.render('products/productAdminList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm})
     },
-    delete: function(req,res){
+    Delete: function(req,res){
         let productsFiltered = productos.filter(producto => producto.id != req.params.id);
         fs.writeFileSync(path.join(__dirname, '../database/products.json'), JSON.stringify(productsFiltered, null, 4));
         res.redirect('../../');
