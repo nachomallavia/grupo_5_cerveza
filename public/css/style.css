@@ -34,14 +34,17 @@ header div.header{
     align-items: center;
     width: 90%;
     font-size:clamp(24px,4vw,32px);
+    
 }
 
 header div.header a img.logo{
     width: 100%;
     max-width: 125px;
+    
 }
 header div.header div.carrito{
     display: flex;
+    ;
 }
 header div.header div.carrito a{
     display: flex;
@@ -56,6 +59,7 @@ header div.all{
 }
 header div.nav{
     display: none;
+    
 }
 header div.carrito a{
     margin-left: 10px;
@@ -65,12 +69,12 @@ header img{
 }
 /* Resposive header.ejs */
 
-@media(min-width: 450px){
+@media(min-width: 560px){
     div.barras i{
         display: none;
     }
     div.all div.nav{
-        margin-top: 20px;
+        margin-top: 0px;
         width: 100%;
         display: flex !important;
         flex-direction: row;
@@ -83,9 +87,12 @@ header img{
     }
     div.all div.nav nav a{
         font-size: 20px;
-        color: white;
+        color: #fafafa;
         text-decoration: none;
         font-weight: bold;
+    }
+    header{
+        padding: 0px 0px;
     }
 }
 

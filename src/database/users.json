@@ -26,5 +26,12 @@
         "avatar": "ian@eliopez.com-1607988225709.jpg",
         "birthdate": "1993-01-01",
         "password": "$2a$12$uSg3ESTNS8YWHaW1XcHyiuAlG9C.Uc6qVJFNMa6RGhNosAVEbK5ee"
+    },
+    {
+        "id": 5,
+        "email": "josea@eliopez.com",
+        "avatar": "josea@eliopez.com-1609615630712.png",
+        "birthdate": "2021-01-08",
+        "password": "$2a$12$i1bgTUR0DQsaBNJ.9sIOj.Yzg8dR31H0rylLuZKLKGHrYfF8r4i0."
     }
 ]
