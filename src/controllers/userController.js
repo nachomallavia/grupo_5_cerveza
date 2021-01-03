@@ -35,20 +35,21 @@ const controller = {
             res.redirect('/')
     },    
     logged: function(req, res) {
-        res.send(req.body);
-        // let emailUsuario = req.body.email;
-        // let passUsuario = req.body.password;
-        // for (let i =0; i<usuarios.length; i++){
-        //     if(emailUsuario==usuarios[i].email){
-        //         if(bcrypt.compareSync(passUsuario, user.password)){
-        //             res.send("bienvenido")
-        //         } else{res.send("los datos ingresados no son correctos")}
-
-        //     } else {
-        //         res.send(req.body)
-        //     }
-        // }
-
-    },
+        // res.send(req.body.email)
+        let emailUsuario = req.body.email;
+        let passUsuario = req.body.password;
+        for (let i = 0; i < usuarios.length; i++){
+            if(emailUsuario==usuarios[i].email){
+                if(bcryptjs.compareSync(passUsuario, usuarios[i].password)){
+                    req.session.datosUsuario = {
+                        id: usuarios[i].email,
+                        email: usuarios[i].email,
+                        avatar: usuarios[i].avatar};
+                        res.redirect('/')
+                } else {res.send("contraseña incorrecta")}
+                
+            } else {res.send("no estás registrado")}
+    }
+}
 };
     module.exports = controller;

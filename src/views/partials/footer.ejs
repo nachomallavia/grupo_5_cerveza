@@ -1,6 +1,10 @@
 <footer>   
     <div class="sesion">
+        <% if(typeof usuarioLoggeado != 'undefined') {%> 
+        <p class="bienvenida">Bienvenido <%= usuarioLoggeado.email %> </p>
+        <% } else { %> 
         <a href="/users/login"><i class="far fa-user"></i>Iniciá Sesión</a>
+        <% } %> 
     </div>
     <div class="seguinosredes">
         <p>¡Seguinos!</p>

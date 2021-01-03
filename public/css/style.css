@@ -110,6 +110,9 @@ footer a{
     text-decoration: none;
     color: white;
 }
+footer p.bienvenida{
+    color: white;
+}
 footer div.enlaces {
     width: fit-content;
 }
