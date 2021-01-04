@@ -8,12 +8,21 @@
             <button class="button"><i class="fab fa-facebook-f"></i>Ingresá Con Facebook</button>
             <button class="button"><i class="fab fa-google"></i> Ingresá Con Google</button>
         </div> -->
+        <% if (typeof errors != 'undefined'){ %> 
+            <ul>
+                <% for (let i = 0 ; i < errors.length ; i++){ %> 
+                    <li>
+                        <%= errors[i].msg  %> 
+                    </li>
+                <% } %> 
+            </ul>
+            <% } %> 
         <hr>
         <div class="separador">
             <h2>Iniciá sesión con tu Mail y Contraseña</h2>
         </div>
         <div class="completar">
-            <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post">
             
             <p><input class="input" type="email" id="email" name="email" placeholder="Mail"></p>
     

@@ -6,40 +6,6 @@ main{
     flex-direction:column;
     align-items:center;
 }
-header{
-    background: var(--color1);
-    padding: 20px 0px;
-    width:100%;
-    display: flex;
-    justify-content: center;
-}
-
-header div.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    font-size:clamp(24px,4vw,32px);
-}
-
-header div.header a img.logo{
-    width: 100%;
-    max-width: 125px;
-}
-header div.header div.carrito{
-    display: flex;
-}
-header div.header div.carrito a{
-    display: flex;
-    text-decoration: none;
-    color:  black;
-    
-}
-
-/* css footer */
-
-/* css main */
-
 
 body{
     background-color:var(--lightgrey);

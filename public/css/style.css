@@ -4,6 +4,7 @@
 @import url('/css/style-index.css');
 @import url('/css/style-product.css');
 @import url('/css/stylelogin.css');
+@import url('/css/style-home.css');
 
 * {
     box-sizing: border-box;
@@ -11,83 +12,144 @@
     font-family:'Roboto';
 }
 :root{
-    --color1:#F0C630;
-    --color2:#0D5B61;
+    --color1:#FDCC1A;
+    --color2:#00555C;
     --color3:#EDDDD4;
     --color4:#C43727;
     --color5:#631F40;
-    --darkgrey:hsl(0,0,12);
-    --lightgrey:#f2f2f2;
-    
+    --darkgrey:#4D4D4D;
+    --lightgrey:#f2f2f2;    
 }
 header{
-    background: var(--color1);
-    padding: 20px 0px;
+    padding: 0px;
+    margin: 0px;
     width:100%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    
+}
+div.barras{
+    display: none;
 }
 
 header div.header{
     display: flex;
     justify-content: space-between;
+    flex-wrap:wrap;
     align-items: center;
-    width: 90%;
-    font-size:clamp(24px,4vw,32px);
-}
-
-header div.header a img.logo{
     width: 100%;
-    max-width: 125px;
+    box-shadow: 10px 0 5px var(--darkgrey);
+    
+    
+}
+header div.header div.top{
+    width: 100%;
+    background-color: var(--color1);
+    display: flex;
+    justify-content: center;
+    
+}
+header div.header div.top div.container{
+    width: 90%;
+    max-width: 1280px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 88px;
+    font-size:24px;
+}
+header div.header div.top a img.logo{
+    width: 100%;
+    max-width: 140px;
+    
 }
 header div.header div.carrito{
     display: flex;
+    max-width:120px;
+    color:var(--color2);
+
+
+    
 }
 header div.header div.carrito a{
-    display: flex;
+
     text-decoration: none;
-    color:  black;
+    color:var(--color2);
+    margin-left: 16px;
+    
 }
-header div.all{
+header div.header div.bottom{
     display: flex;
-    flex-direction: column;
+    background-color: var(--lightgrey);
     width: 100%;
+    min-height: 48px;
+    justify-content: center;
+}
+
+header div.header div.bottom div.container{
+    width:90%;
+    max-width: 1280px;
+    padding-left: 16px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+
+header div.bottom div.container a{
+    text-decoration: none;
+    color:var(--color2);
+    font-size: 16px;
+}
+
+header div.bottom div.container div.header-nav{
+    display: flex;
     align-items: center;
+        
 }
-header div.nav{
-    display: none;
+header div.bottom div.container div.header-nav a{
+    margin-right: 16px;
 }
-header div.carrito a{
-    margin-left: 10px;
+
+header div.bottom div.container div.register-login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
 }
-header img{
-    margin-right: -10px;
+
+header div.bottom div.container div.register-login a{
+    
+    margin-left: 16px;
 }
+
+
 /* Resposive header.ejs */
 
-@media(min-width: 450px){
-    div.barras i{
-        display: none;
+@media only screen and (max-width: 768px){
+    header div.header{
+        width:100%;
     }
-    div.all div.nav{
-        margin-top: 20px;
-        width: 100%;
-        display: flex !important;
-        flex-direction: row;
-    }
-    div.all div.nav nav{
-        width: 100%;
+
+    div.barras {
         display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+        color:var(--color2);
     }
-    div.all div.nav nav a{
-        font-size: 20px;
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
+    header div.header div.bottom{
+        display:none;
     }
+    header div.header div.top div.carrito a{
+        margin-left: 12px;
+    }
+    header div.header div.top a img.logo{
+        width:120px;
+    }
+    
+    
+    
 }
+
 
 /* css footer */
 footer{

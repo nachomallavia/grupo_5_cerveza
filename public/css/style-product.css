@@ -297,6 +297,7 @@ main.product-list{
     position:relative;
     width: 90%;
     max-width: 1280px;
+    color: var(--darkgrey);
 
 }
 .filter.toggle{
@@ -351,11 +352,13 @@ div.category{
 .maker-list{
     display: flex;
     flex-direction: column;
+    
 }
 .maker-item{
     list-style: none;
     margin-top: 8px;
     margin-left: 0px;
+    color: var(--darkgrey);
 }
 .title-list{
     display:flex;
@@ -389,15 +392,25 @@ div.category{
     display: flex;
     flex-direction: column;
     margin-bottom: 40px;
+    margin-right: 16px;
 }
 .card.title{
     margin: 16px;
+    color: var(--darkgrey);
 }
 .card.title a{
     text-decoration: none;
-    color: var(--color1);
+    color: var(--color2);
 }
 .card.title a:hover{
+    color: var(--color1);
+}
+
+.card.title h5 a{
+    text-decoration: none;
+    color: var(--color1);
+}
+.card.title h5 a:hover{
     color: var(--color2);
 }
 
