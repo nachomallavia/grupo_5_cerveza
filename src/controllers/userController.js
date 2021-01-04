@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
-const { validationResult } = require('express-validator')
+const {check, validationResult, body} = require('express-validator') ;
 
 
 let usuarios = fs.readFileSync(path.join(__dirname, '../database/users.json'), 'utf8');
@@ -22,34 +22,63 @@ const controller = {
         res.render('users/login.ejs')
     },
     save: function(req, res) {
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
+            let nuevoUsuario = {
+                id: ultimoIdUser + 1,
+                email: req.body.email,
+                avatar: req.file.filename,
+                birthdate: req.body.fecha,
+                password: bcryptjs.hashSync(req.body.password, 12)
+            };
+            usuarios.push(nuevoUsuario)
+                fs.writeFileSync(path.join(__dirname, '../database/users.json'), JSON.stringify(usuarios, null, 4));
+                res.redirect('/')
+        } else { 
+            return res.render('users/register.ejs', {errors: errors.errors})}
         
-        let nuevoUsuario = {
-            id: ultimoIdUser + 1,
-            email: req.body.email,
-            avatar: req.file.filename,
-            birthdate: req.body.fecha,
-            password: bcryptjs.hashSync(req.body.password, 12)
-        };
-        usuarios.push(nuevoUsuario)
-            fs.writeFileSync(path.join(__dirname, '../database/users.json'), JSON.stringify(usuarios, null, 4));
-            res.redirect('/')
+
     },    
     logged: function(req, res) {
-        // res.send(req.body.email)
-        let emailUsuario = req.body.email;
-        let passUsuario = req.body.password;
-        for (let i = 0; i < usuarios.length; i++){
-            if(emailUsuario==usuarios[i].email){
-                if(bcryptjs.compareSync(passUsuario, usuarios[i].password)){
-                    req.session.datosUsuario = {
-                        id: usuarios[i].email,
-                        email: usuarios[i].email,
-                        avatar: usuarios[i].avatar};
-                        res.redirect('/')
-                } else {res.send("contraseña incorrecta")}
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
+            let usuarioALoguearse;
+            for (i = 0 ; i < usuarios.length ; i++){
+                if( usuarios[i].email == req.body.email){
+                    if(bcryptjs.compareSync(req.body.password, usuarios[i].password)){
+                        usuarioALoguearse = usuarios[i];
+                        break;    
+                    }
+                }
+            }; 
+            if (usuarioALoguearse == undefined){
+                return res.render('users/login.ejs', {errors: [
+                    {msg: 'Credenciales inválidas'}
+                ]});
                 
-            } else {res.send("no estás registrado")}
-    }
+            } 
+            req.session.usuarioLogueado = usuarioALoguearse;
+            res.send(req.session.usuarioLogueado)
+            // res.redirect('/')
+        } else {
+            return res.render('users/login.ejs', {errors: errors.errors});
+        }
+
+
+    //     let emailUsuario = req.body.email;
+    //     let passUsuario = req.body.password;
+    //     for (let i = 0; i < usuarios.length; i++){
+    //         if(emailUsuario==usuarios[i].email){
+    //             if(bcryptjs.compareSync(passUsuario, usuarios[i].password)){
+    //                 req.session.datosUsuario = {
+    //                     id: usuarios[i].email,
+    //                     email: usuarios[i].email,
+    //                     avatar: usuarios[i].avatar};
+    //                     res.redirect('/')
+    //             } else {res.send("contraseña incorrecta")}
+                
+    //         } else {res.send("no estás registrado")}
+    // }
 }
 };
     module.exports = controller;
