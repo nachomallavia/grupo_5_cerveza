@@ -160,10 +160,37 @@ main.create div.container div.formCreate form{
     display: flex;
     flex-direction: column;
 }
-main.create div.container div.formCreate form div{
+main.create div.container div.formCreate form div.name{
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.desc{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.price{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.image{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     margin-top: 8px;
     margin-bottom: 8px;
     font-weight: normal;
@@ -494,4 +521,28 @@ section.edit-delete-buttons button.delete h3.deletetxt{
     background-color: white; 
     display:none;
  }
+}
+/* ESTILOS DE combosCreate.ejs */
+div.items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+div.itemscont{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+div.itemscont img.item-img{
+    width: 10%;
+}
+div.itemscont input{
+    height:34px;
+    width: 100px;
+    font-size: 26px;
+    border:1px solid #ddd;
+    border-radius:4px;
 }

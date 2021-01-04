@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head'); %>
+<body>
+    <%- include('../partials/header'); %>
+    <main class="create">
+        <div class="container">
+            <h2 class="title">CREAR UN COMBO</h2>
+            <div class="separador"></div>
+            <div class="formCreate">
+                <form action="/admin/products/combos/create" method="post" enctype="multipart/form-data">
+                    <div class="name">
+                        <label for="pname">Nombre</label>
+                        <input id="pname" name="pname" type="text">
+                    </div>
+                    <div class="desc">
+                        <label for="pdesc">Descripción</label>
+                        <textarea name="pdesc" id="pdesc" rows="10" cols="20"></textarea>
+                    </div>
+                    <div class="price">
+                        <label for="pprice">Precio</label>
+                        <input id="pprice" name="pprice" type="number" step="any">
+                    </div>
+                    <div class="items">
+                        <% for (let i = 0; i < productos.length; i++){ %>
+                            <div class="itemscont">
+                                <img class="item-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                                <span class="itemsname"><%= productos[i].name %></span>
+                                <input name="pid<%=productos[i].id%>" class="sum" type="number" min="0" value="0">                                            
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="image">
+                        <label for="pimage">Imagen</label>
+                        <input id="pimage" name="pimage" type="file">
+                    </div>
+                    <button type="submit">Crear</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <%- include('../partials/footer'); %>
+</body>
+</html>
