@@ -7,9 +7,9 @@
         "rating": 1,
         "abv": "5",
         "ibu": "27",
-        "srm": "34",
-        "desc": "Maltas oscuras. Sabor y aroma penetrante y nocturno. Chocolate, azúcar negro y café. La Porter es la cerveza tributo de Antares a la cultura de los primeros pubs en el puerto de Londres. Cheers.",
-        "price": "330",
+        "srm": "28",
+        "desc": "Maltas oscuras. Sabor y aroma penetrante y nocturno. Chocolate, azúcar negro y café. La Porter es la cerveza tributo de Antares a la cultura de los primeros pubs en el puerto de Londres.",
+        "price": "450",
         "format": "botella",
         "capacity": "500",
         "image": "Porter_picture.jpeg"
@@ -19,7 +19,7 @@
         "name": "Gose Tonic",
         "maker": "Juguetes",
         "category": "Sour",
-        "rating": 3,
+        "rating": 5,
         "abv": "3",
         "ibu": "6",
         "srm": "2",
@@ -27,7 +27,7 @@
         "price": "350",
         "format": "lata",
         "capacity": "330",
-        "image": "Gose Tonic_picture.jpg"
+        "image": "Gose Tonic_picture copy.jpg"
     },
     {
         "id": 3,

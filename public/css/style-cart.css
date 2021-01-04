@@ -157,7 +157,7 @@ div.cart.total-price{
 
 div.cart.button.background{
     width:100%;
-    background-color:var(--darkgrey);
+    background-color:white;
     display:flex;
     justify-content:center;
     align-items: center;
