@@ -1,7 +1,10 @@
 <footer>   
     <div class="sesion">
         <% if(typeof usuarioLogueado != 'undefined') {%> 
+        <div class="email-avatar">
         <p class="bienvenida">Bienvenido <%= usuarioLogueado.email %> </p>
+        <img id="avatar-profile" src="/uploads/avatars/<%=usuarioLogueado.avatar%>" alt="avatar usuario">
+        </div>
         <% } else { %> 
         <a href="/users/login"><i class="far fa-user"></i>Iniciá Sesión</a>
         <% } %> 

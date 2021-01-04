@@ -58,27 +58,10 @@ const controller = {
                 
             } 
             req.session.usuarioLogueado = usuarioALoguearse;
-            res.send(req.session.usuarioLogueado)
-            // res.redirect('/')
+            res.redirect('/')
         } else {
             return res.render('users/login.ejs', {errors: errors.errors});
         }
-
-
-    //     let emailUsuario = req.body.email;
-    //     let passUsuario = req.body.password;
-    //     for (let i = 0; i < usuarios.length; i++){
-    //         if(emailUsuario==usuarios[i].email){
-    //             if(bcryptjs.compareSync(passUsuario, usuarios[i].password)){
-    //                 req.session.datosUsuario = {
-    //                     id: usuarios[i].email,
-    //                     email: usuarios[i].email,
-    //                     avatar: usuarios[i].avatar};
-    //                     res.redirect('/')
-    //             } else {res.send("contraseña incorrecta")}
-                
-    //         } else {res.send("no estás registrado")}
-    // }
 }
 };
     module.exports = controller;
