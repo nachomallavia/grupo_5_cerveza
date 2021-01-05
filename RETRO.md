@@ -34,3 +34,13 @@
 ### MORE OF
 
 - Compartir descubrimientos con el grupo.  
+
+## Sprint 4
+
+### MORE OF
+
+- Compartir descubrimientos con el grupo.  
+
+### KEEP DOING
+
+- Trabajar de forma organizada.
