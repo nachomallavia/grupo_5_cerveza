@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const registerValidator = require('../validators/registerValidator');
 const loginValidator = require('../validators/loginValidator')
-
+const guestMiddleware = require('../middlewares/guestMiddleware');
 
 
 var storage = multer.diskStorage({
@@ -20,10 +20,10 @@ var storage = multer.diskStorage({
    
 var upload = multer({ storage: storage })
 
-router.get('/register', userController.register );
+router.get('/register',guestMiddleware, userController.register );
 router.post('/register',upload.single('avatar'), registerValidator,userController.save );
 
-router.get('/login', userController.login );
+router.get('/login',guestMiddleware, userController.login );
 router.post('/login', loginValidator ,userController.logged );
 
 module.exports = router;
