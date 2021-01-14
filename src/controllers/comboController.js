@@ -19,6 +19,7 @@ for (let i = 0; i < combos.length; i++){
 }
 
 const controller = {
+
     list: function(req, res){
         res.render('products/comboList');
     },
@@ -30,11 +31,15 @@ const controller = {
     },
     CreateForm: function(req, res){
         for(let i = 1; i <= productos.length; i++){
-            var item = `req.body.pid${i}`;
-            if(item > 0){
-                items.push({nombreProducto: item});
-            };
-        };
+            //var item = req.body.pid + i;
+            var item = `req.body.pid${i}`
+            // if(item > 0){
+            //     var itemDef = item;
+            // }
+            // if(item > 0){
+            //     items.push({nombreProducto: item});
+            // };
+        }
         res.send(item);
         // combos.push({
         //     id: ultimoIdCombo + 1,

@@ -33,5 +33,12 @@
         "avatar": "ianmamotiuk@gmail.com-1609809891047.jpg",
         "birthdate": "2001-12-26",
         "password": "$2a$12$AVZ7mbg8wyqfrSQaK7STSOXsR47Uq4txrIJDoE6I7LLDAEsmF15Ty"
+    },
+    {
+        "id": 6,
+        "email": "admin@email.com",
+        "avatar": "admin@email.com-1610492921226.png",
+        "birthdate": "2000-11-11",
+        "password": "$2a$12$kpzY/Hyzi13b5TPebW2veel2tptQUYldOiH4uMjp78LSJ08O/XdM6"
     }
 ]
