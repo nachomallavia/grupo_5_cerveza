@@ -88,35 +88,5 @@
         "format": "lata",
         "capacity": "330",
         "image": "Tiempo de valientes_picture.jpg"
-    },
-    {
-        "id": 7,
-        "name": "Sativa Session",
-        "maker": "Brewhouse",
-        "category": "IPA",
-        "rating": 2,
-        "abv": "5",
-        "ibu": "33",
-        "srm": "10",
-        "desc": "Creada combinando lúpulos de forma fantasiosa para replicar perfiles cannábicos, nuestra Session IPA es considerada el mejor exponente del estilo en América.",
-        "price": "335",
-        "format": "lata",
-        "capacity": "473",
-        "image": "Sativa Session_picture.jpg"
-    },
-    {
-        "id": 8,
-        "name": "Inmortal",
-        "maker": "Santina",
-        "category": "Scotch",
-        "rating": 4,
-        "abv": "6",
-        "ibu": "18",
-        "srm": "24",
-        "desc": "En nuestra cerveza de bandera nuestra insignia.\r\nInmortal es una cerveza decididamente enfocada en la malta, con notas a caramelo de todas las intensidades, toffee, frutas, pasas, y de dinal seco y torrado que puede recordar a un whisky escocés ahumado.",
-        "price": "280",
-        "format": "lata",
-        "capacity": "473",
-        "image": "Inmortal_picture.jpg"
     }
 ]
