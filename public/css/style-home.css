@@ -81,16 +81,19 @@ div.title-all{
     width: 100%;
     display:flex;
     justify-content: space-between;
-    padding:16px;
+    align-items: center;
+    padding-left: 64px;
+    padding-right: 64px;
+    margin-bottom: 16px;
 }
-section.best h2{
+section h2{
     color:var(--darkgrey);
     font-size: clamp(24px, 1rem, 32px);
 }
 div.title-all a{
     text-decoration: none;
     font-weight: 700;
-color:var(--color2);
+    color:var(--color2);
 }
 div.window-container{
     display: flex;
@@ -110,11 +113,13 @@ div.window-container{
     /* margin-bottom: 80px; */
     position:relative;
 }
+
 div.window-container .column{
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
+
 a.next-card, a.prev-card{
     cursor:pointer;
     position:relative;    
@@ -126,7 +131,7 @@ a.next-card, a.prev-card{
 
 div.window .list.card{
    flex: 1 0 240px; 
-   max-width: 240px;
+   
    background: white;
    border-radius: 8px;
    box-shadow: 4px 4px 16px var(--lightgrey);
@@ -141,6 +146,23 @@ div.window .list.card{
 }   
 div.window .list.card.out{
     display: none;
+}
+section.combos{
+    height:400px;
+}
+div.combo-container{
+    width:100%;
+    padding: 16px;
+}
+div.title{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+div.title a{
+    text-decoration: none;
+    font-weight: 700;
+    color:var(--color2);
 }
 
     @media only screen and (max-width: 768px){

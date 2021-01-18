@@ -10,7 +10,13 @@
                     <div class="carrito">
                         <i class="fas fa-search"></i>
                         <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
-                        <a href="/users/login"><i class="fas fa-user-circle"></i></a>
+                        <% if(typeof usuarioLogueado != 'undefined') {%> 
+                            <div class="email-avatar">
+                            <img id="avatar-profile-header" src="/uploads/avatars/<%=usuarioLogueado.avatar%>" alt="avatar usuario">
+                            </div>
+                            <% } else { %> 
+                                <a href="/users/login"><i class="fas fa-user-circle"></i></a>
+                            <% } %>
                     </div>
                 </div>
             </div>
@@ -25,10 +31,16 @@
                         <a href="#" class="nav-enlace">Contacto</a>
                         </nav>
                     </div>
-                    <div class="register-login">
-                        <a href="/users/register" class="nav-enlace">Registrarse</a>
-                        <a href="/users/login" class="nav-enlace">Iniciar Sesión</a>
-                    </div>
+                    <% if(typeof usuarioLogueado != 'undefined') {%> 
+                        <div class="register-login">
+                        <p class="bienvenida">Bienvenido <%= usuarioLogueado.email %> </p>
+                        <% } else { %> 
+                            <div class="register-login">
+                                <a href="/users/register" class="nav-enlace">Registrarse</a>
+                                <a href="/users/login" class="nav-enlace">Iniciar Sesión</a>
+                            </div>
+                        <% } %> 
+
                 </div>
             </div>
         </div>
