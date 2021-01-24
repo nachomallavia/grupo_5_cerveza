@@ -14,7 +14,7 @@ let modelo = function(sequelize, dataTypes){
     }
     let config = {
         tableName: "makers",
-        timeStamps: false,
+        timestamps: false,
         underscore: true
     }
     let Makers = sequelize.define( alias, cols, config );
