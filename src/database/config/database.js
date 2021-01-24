@@ -3,7 +3,7 @@ module.exports = {
   "development": {
     "username": "root",
     "password": process.env.PASS,
-    "database": "cerveza_db",
+    "database": process.env.BEERDB,
     "host": "127.0.0.1",
     "dialect": "mysql",
     "port": process.env.PUERTO
