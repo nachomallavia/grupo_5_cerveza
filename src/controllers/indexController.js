@@ -20,7 +20,7 @@ module.exports = {
     test: (req,res) =>{
         db.Makers.findByPk(req.params.id)
         .then(function(resultado){ 
-            res.send(resultado.id);
+            console.log(resultado.name);
         })
         // return res.send();
 
