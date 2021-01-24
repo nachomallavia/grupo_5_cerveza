@@ -4,6 +4,7 @@
         <div class="email-avatar">
         <p class="bienvenida">Bienvenido <%= usuarioLogueado.email %> </p>
         <img id="avatar-profile" src="/uploads/avatars/<%=usuarioLogueado.avatar%>" alt="avatar usuario">
+        <a href="/users/logout">Cerrar Sesión</a>
         </div>
         <% } else { %> 
         <a href="/users/login"><i class="far fa-user"></i>Iniciá Sesión</a>
