@@ -1,5 +1,5 @@
 let modelo = function(sequelize, dataTypes){
-    let alias = "Makers";
+    let alias = "Srm";
     let cols = {
         id:{
             type: dataTypes.INTEGER,
@@ -7,23 +7,23 @@ let modelo = function(sequelize, dataTypes){
             primaryKey: true,
             autoIncrement: true
         },
-        name:{
+        code:{
             type: dataTypes.STRING,
             notNull: true
         }
     }
     let config = {
-        tableName: "makers",
+        tableName: "srm_index",
         timestamps: false,
         underscore: true
     }
-    let Makers = sequelize.define( alias, cols, config );
-    Makers.associate = function(models){
-        Makers.hasMany(models.Products,{
-            as: 'maker',
-            foreignKey: 'id_maker'
+    let Srm = sequelize.define( alias, cols, config );
+    Srm.associate = function(models){
+        Srm.hasMany(models.Products,{
+            as: 'srm_index',
+            foreignKey: 'id_srm'
         })
     }
-    return Makers;
+    return Srm;
 }
 module.exports = modelo;

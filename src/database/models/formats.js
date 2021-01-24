@@ -1,5 +1,5 @@
 let modelo = function(sequelize, dataTypes){
-    let alias = "Makers";
+    let alias = "Formats";
     let cols = {
         id:{
             type: dataTypes.INTEGER,
@@ -13,17 +13,17 @@ let modelo = function(sequelize, dataTypes){
         }
     }
     let config = {
-        tableName: "makers",
+        tableName: "formats",
         timestamps: false,
         underscore: true
     }
-    let Makers = sequelize.define( alias, cols, config );
-    Makers.associate = function(models){
-        Makers.hasMany(models.Products,{
-            as: 'maker',
-            foreignKey: 'id_maker'
+    let Formats = sequelize.define( alias, cols, config );
+    Formats.associate = function(models){
+        Formats.hasMany(models.Products,{
+            as: 'format',
+            foreignKey: 'id_format'
         })
     }
-    return Makers;
+    return Formats;
 }
 module.exports = modelo;
