@@ -25,5 +25,6 @@ router.post('/register',upload.single('avatar'), registerValidator,userControlle
 
 router.get('/login',guestMiddleware, userController.login );
 router.post('/login', loginValidator ,userController.logged );
+router.get('/logout',userController.logout )
 
 module.exports = router;

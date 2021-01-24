@@ -62,6 +62,11 @@ const controller = {
         } else {
             return res.render('users/login.ejs', {errors: errors.errors});
         }
-}
+    },
+    logout: function(req,res){
+        req.session.destroy();
+        res.redirect('/')
+    }
+
 };
     module.exports = controller;
