@@ -50,7 +50,7 @@
                                     <li class= "category-item">
                                
                                     <input type="checkbox" name= "categoria" id="" value = "<%= categorias[i] %>" >
-                                    <%= categorias[i] %>
+                                    <%= categorias[i].name %>
                                     
                                     </li>
                                
@@ -69,7 +69,7 @@
                                     <li class= "maker-item">
                                
                                     <input type="checkbox" name= "fabricante" id="" value = "<%= fabricantes[i] %>" >
-                                    <%= fabricantes[i] %>
+                                    <%= fabricantes[i].name %>
                                     
                                     </li>
                                
@@ -98,7 +98,7 @@
                     <div class= "list card">
                         <div class="card title">
                             <h3 id="prod-title"><%=productos[i].name%></h3>
-                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker%></a></h5>
+                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].id_maker%></a></h5>
                         </div>
                         
                         <div class= "card prod-img">
@@ -133,7 +133,7 @@
                         </div>
                         <div class="meter srm">
                             <h4>Tono</h4>
-                            <% var color = productos[i].srm %>
+                            <% var color = productos[i].id_srm %>
                             <% var tono = coloresSrm[color]%>
                             <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
                         </div>

@@ -23,7 +23,7 @@
                             <h4>(0)</h4>
                         </div>
                         <div class="separador"></div>
-                        <p><%= producto.desc %></p>
+                        <p><%= producto.description %></p>
                         <div class= "meter alcohol">
                             <div class= "alcohol text">
                                 <h4>Alcohol</h4>
@@ -45,7 +45,7 @@
                         </div>
                         <div class="meter srm">
                             <h4>Tono</h4>
-                            <% var color = producto.srm %>
+                            <% var color = producto.id_srm %>
                             <% var tono = coloresSrm[color]%>
                             <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
                         </div>
