@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const bcryptjs = require('bcryptjs');
 const {check, validationResult, body} = require('express-validator') ;
-
+const db = require('../database/models');
 
 let usuarios = fs.readFileSync(path.join(__dirname, '../database/users.json'), 'utf8');
 usuarios = JSON.parse(usuarios);
@@ -22,20 +22,29 @@ const controller = {
         res.render('users/login.ejs')
     },
     save: function(req, res) {
-        let errors = validationResult(req);
-        if (errors.isEmpty()){
-            let nuevoUsuario = {
-                id: ultimoIdUser + 1,
-                email: req.body.email,
-                avatar: req.file.filename,
-                birthdate: req.body.fecha,
-                password: bcryptjs.hashSync(req.body.password, 12)
-            };
-            usuarios.push(nuevoUsuario)
-                fs.writeFileSync(path.join(__dirname, '../database/users.json'), JSON.stringify(usuarios, null, 4));
-                res.redirect('/')
-        } else { 
-            return res.render('users/register.ejs', {errors: errors.errors})}
+        db.Users.create({
+            email: req.body.email,
+            avatar: req.file.filename,
+            birthdate: req.body.fecha,
+            password: bcryptjs.hashSync(req.body.password, 12)
+        })
+        .then(function(){
+            res.redirect('/')
+        })
+        // let errors = validationResult(req);
+        // if (errors.isEmpty()){
+        //     let nuevoUsuario = {
+        //         id: ultimoIdUser + 1,
+        //         email: req.body.email,
+        //         avatar: req.file.filename,
+        //         birthdate: req.body.fecha,
+        //         password: bcryptjs.hashSync(req.body.password, 12)
+        //     };
+        //     usuarios.push(nuevoUsuario)
+        //         fs.writeFileSync(path.join(__dirname, '../database/users.json'), JSON.stringify(usuarios, null, 4));
+        //         res.redirect('/')
+        // } else { 
+        //     return res.render('users/register.ejs', {errors: errors.errors})}
         
 
     },    
