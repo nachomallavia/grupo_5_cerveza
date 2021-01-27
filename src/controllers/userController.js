@@ -57,19 +57,22 @@ const controller = {
         //     where: { email: req.body.email}
         // })
         // .then(function(resultado){
-        //     if(bcryptjs.compareSync(req.body.password,resultado[0].password)){
-        //         res.send('Todo ok')
-        //     } else {
-        //         res.send('contraseña incorrecta')
-        //     }
+        //     bcryptjs.compare(req.body.password, resultado[0].password,function(err,result){
+        //         if (result == true){
+        //             res.send('todo ok')
+        //         } else {
+        //             res.send(resultado[0].password)
+        //         }
+        //     })
         // })
+
 
         let errors = validationResult(req);
         if (errors.isEmpty()){
             let usuarioALoguearse;
             for (i = 0 ; i < usuarios.length ; i++){
                 if( usuarios[i].email == req.body.email){
-                    if(bcryptjs.compareSync(req.body.password, usuarios[i].password)){
+                    if(bcryptjs.compare(req.body.password, usuarios[i].password)){
                         usuarioALoguearse = usuarios[i];
                         break;    
                     }
