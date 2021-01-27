@@ -41,7 +41,7 @@
                             </div>
                             
                             <div class= "card prod-img">
-                                <img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                                <a href="/products/<%=productos[i].id%>" class="prodTitle"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
                             </div>
                             <div class="card rating">
                                 <% for (let s = 1; s <= productos[i].rating; s++){ %>
@@ -116,7 +116,7 @@
                             </div>
                             
                             <div class= "card prod-img">
-                                <img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                                <a href="/products/<%=productos[i].id%>" class="prodTitle"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
                             </div>
                             <div class="card rating">
                                 <% for (let s = 1; s <= productos[i].rating; s++){ %>
