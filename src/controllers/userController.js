@@ -53,6 +53,17 @@ const controller = {
 
     },    
     logged: function(req, res) {
+        // db.Users.findAll({
+        //     where: { email: req.body.email}
+        // })
+        // .then(function(resultado){
+        //     if(bcryptjs.compareSync(req.body.password,resultado[0].password)){
+        //         res.send('Todo ok')
+        //     } else {
+        //         res.send('contraseña incorrecta')
+        //     }
+        // })
+
         let errors = validationResult(req);
         if (errors.isEmpty()){
             let usuarioALoguearse;
