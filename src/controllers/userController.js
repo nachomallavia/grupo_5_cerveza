@@ -22,6 +22,8 @@ const controller = {
         res.render('users/login.ejs')
     },
     save: function(req, res) {
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
         db.Users.create({
             email: req.body.email,
             avatar: req.file.filename,
@@ -31,6 +33,8 @@ const controller = {
         .then(function(){
             res.redirect('/')
         })
+        }else { 
+        return res.render('users/register.ejs', {errors: errors.errors})}
         // let errors = validationResult(req);
         // if (errors.isEmpty()){
         //     let nuevoUsuario = {
