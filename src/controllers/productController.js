@@ -43,7 +43,7 @@ const controller = {
         res.render('products/productList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
     detail : function(req, res){
-        db.Products.findByPk(req.params.id,)
+        db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
         .then(function(producto){
             res.render('products/productDetail',{'producto': producto,'coloresSrm': coloresSrm});
         })
