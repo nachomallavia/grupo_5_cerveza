@@ -19,7 +19,7 @@
                     <div class="maker">
                         <label for="pmaker">Fabricante</label>
                         <select id="pmaker" name="pmaker">
-                            <option value="<%= producto.maker %>" selected><%= producto.id_maker %></option>
+                            <option value="<%= producto.maker.id %>" selected><%= producto.maker.name %></option>
                             <% for (let i = 1; i < fabricantes.length; i++){ %>
                             <option value= <%= fabricantes[i] %> > <%= fabricantes[i].name %> </option>
                             <% } %>
@@ -28,7 +28,7 @@
                     <div class="category">
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
-                            <option value="<%= producto.category %>" selected><%= producto.id_category %></option>
+                            <option value="<%= producto.category.id %>" selected><%= producto.category.name %></option>
                             <% for (let i = 1; i < categorias.length; i++){ %>
                             <option value= <%= categorias[i] %> > <%= categorias[i].name %> </option>
                             <% } %>
@@ -45,8 +45,8 @@
                     <div class="srm">
                         <label for="psrm">Tono (SRM)</label>
                         <div class="data-srm">
-                            <h5 id="valor-srm" class="valor-srm"><%= producto.id_srm %></h5>
-                            <input id="psrm-range" name="psrm" type="range" min="1" max="40" value="12">
+                            <h5 id="valor-srm" class="valor-srm"><%= producto.srm_index.id %></h5>
+                            <input id="psrm-range" name="psrm" type="range" min="1" max="40" value="<%= producto.srm_index.id %>">
                             <div id="color-srm" class="color-srm"></div>
                         </div>
                     </div>
@@ -57,9 +57,9 @@
                     <div class="format">
                         <label for="pformat">formato</label>
                         <select id="pformat" name="pformat">
-                            <option value="<%= producto.format %>" selected><%= producto.id_format %></option>
+                            <option value="<%= producto.format.id %>" selected><%= producto.format.name %></option>
                             <% for (let i = 1; i < formatos.length; i++){ %>
-                            <option value= <%= formatos[i].formato %> > <%= formatos[i].name %> </option>
+                            <option value= <%= formatos[i].id %> > <%= formatos[i].name %> </option>
                             <% } %>
                         </select>
                     </div>
@@ -104,8 +104,10 @@
     </script>
     
     <!-- script para cargar los colores de SRM disponibles -->
-    <script> 
+    <script>
+        <% for (let i = 0 ; i < coloresSrm.length; i++ ) %>
         let stringColores = "<%=coloresSrm%>";
+        console.log(stringColores);
         let colores = stringColores.split(',');
                 
 

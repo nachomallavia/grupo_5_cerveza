@@ -99,7 +99,7 @@
                     <div class= "list card">
                         <div class="card title">
                             <h3 id="prod-title"><%=productos[i].name%></h3>
-                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].id_maker%></a></h5>
+                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
                         </div>
                         
                         <div class= "card prod-img">
@@ -134,9 +134,8 @@
                         </div>
                         <div class="meter srm">
                             <h4>Tono</h4>
-                            <% var color = productos[i].srm %>
-                            <% var tono = coloresSrm[color]%>
-                            <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
+                                                        
+                            <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                         </div>
 
                     </div>

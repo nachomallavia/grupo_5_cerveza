@@ -18,7 +18,7 @@
                         <label for="pmaker">Fabricante</label>
                         <select id="pmaker" name="pmaker">
                             <% for (let i = 1; i < fabricantes.length; i++){ %>
-                            <option value= <%= fabricantes[i] %> > <%= fabricantes[i].name %> </option>
+                            <option value= <%= fabricantes[i].id %> > <%= fabricantes[i].name %> </option>
                             <% } %>
                         </select>
                     </div>
@@ -26,7 +26,7 @@
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
                             <% for (let i = 1; i < categorias.length; i++){ %>
-                            <option value= <%= categorias[i] %> > <%= categorias[i].name %> </option>
+                            <option value= <%= categorias[i].id %> > <%= categorias[i].name %> </option>
                             <% } %>
                         </select>
                     </div>
@@ -54,7 +54,7 @@
                         <label for="pformat">formato</label>
                         <select id="pformat" name="pformat">
                             <% for (let i = 1; i < formatos.length; i++){ %>
-                            <option value= <%= formatos[i].formato %> > <%= formatos[i].name %> </option>
+                            <option value= <%= formatos[i].id %> > <%= formatos[i].name %> </option>
                             <% } %>
                         </select>
                     </div>
@@ -113,38 +113,6 @@
        
     </script>
     
-    <!-- script para cargar las capacidades de cada formato, todavía no funciona -->
-    <!-- <script>
-        
-        let formatos = "<%=formatos%>";
-        formatos = formatos.split(',');
-        
-        let trigger = document.getElementById("pformat");
-
-        trigger.addEventListener("input", function(){
-
-            let formatoElegido = document.getElementById("pformat").value;
-
-            
-            
-            let capacidades = document.getElementById("pcapacity");
-
-                       
-
-            for(let i= 0; i<formatos.length; i++){
-                let formatoParseado = formatos[i];
-                if(formatoParseado.formato == formatoElegido){
-                    for(let j= 0; j<formatoParseado.capacidad.length; j++){
-                        let valor = formatoParseado.capacidad[j];
-                        let optn = document.createElement("option");
-                        optn.textContent = valor;
-                        optn.value = valor;
-                        capacidades.appendChild(optn);
-                    }
-                }
-            }
-        })
-    </script> -->
     
 </body>
 </html>

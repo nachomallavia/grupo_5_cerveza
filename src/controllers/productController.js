@@ -14,7 +14,7 @@ let db = require('../database/models');
 
 let productos, fabricantes, coloresSrm, categorias, formatos;
 
-db.Products.findAll().then(function(dBproductos){
+db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
     productos = dBproductos;
 })
 db.Makers.findAll().then(function(dBfabricantes){
@@ -43,7 +43,7 @@ const controller = {
         res.render('products/productList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
     detail : function(req, res){
-        db.Products.findByPk(req.params.id)
+        db.Products.findByPk(req.params.id,)
         .then(function(producto){
             res.render('products/productDetail',{'producto': producto,'coloresSrm': coloresSrm});
         })
@@ -52,7 +52,7 @@ const controller = {
         res.render('products/productCreate',{'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
     },
     Edit : function(req, res){
-        db.Products.findByPk(req.params.id)
+        db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
         .then(function(producto){
             res.render('products/productEdit',{'producto': producto,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
         })
@@ -60,14 +60,14 @@ const controller = {
     CreateForm : function(req,res){
         db.Products.create({
             name: req.body.pname,
-            id_maker: 1,
-            id_category: 1,
+            id_maker: req.body.pmaker,
+            id_category: req.body.pcategory,
             abv: req.body.pabv,
             ibu: req.body.pibu,
-            id_srm: 1,
+            id_srm: req.body.psrm,
             description: req.body.pdesc,
             price: req.body.pprice,
-            id_format: 1,
+            id_format: req.body.pformat,
             capacity: req.body.pcapacity,
             image:  req.files[0].filename,
             rating: 0
@@ -80,14 +80,14 @@ const controller = {
     EditForm : function(req,res){
         db.Products.update({
             name: req.body.pname,
-            id_maker: 1,
-            id_category: 1,
+            id_maker: req.body.pmaker,
+            id_category: req.body.pcategory,
             abv: req.body.pabv,
             ibu: req.body.pibu,
-            id_srm: 1,
+            id_srm: req.body.psrm,
             description: req.body.pdesc,
             price: req.body.pprice,
-            id_format: 1,
+            id_format: req.body.pformat,
             capacity: req.body.pcapacity,
             image:  req.files[0].filename,
         }, {
@@ -96,7 +96,7 @@ const controller = {
             }
         })
         .then(function(){
-            res.redirect('/products/list');
+            res.redirect('/admin/products');
         })
     },
     adminList : function(req,res){

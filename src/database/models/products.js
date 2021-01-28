@@ -74,8 +74,8 @@ module.exports = function(sequelize, dataTypes){
     }
     let config = {
         tableName: "products",
-        timestamps: false,
-        underscore: true
+        timestamps: true,
+        underscore: false
     }
     let Products = sequelize.define( alias, cols, config );
     Products.associate = function (models){

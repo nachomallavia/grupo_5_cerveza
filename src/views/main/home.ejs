@@ -37,7 +37,7 @@
                             <div class= "list card bestCard" id="card<%=n%>">
                             <div class="card title">
                                 <a href="/products/<%=productos[i].id%>" class="prodTitle"><h3 id="prod-title"><%=productos[i].name%></h3></a>
-                                <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker%></a></h5>
+                                <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
                             </div>
                             
                             <div class= "card prod-img">
@@ -74,7 +74,7 @@
                                 <h4>Tono</h4>
                                 <% var color = productos[i].srm %>
                                 <% var tono = coloresSrm[color]%>
-                                <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
+                                <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                             </div>
 
                             </div>
@@ -112,7 +112,7 @@
                             <div class= "list card recomendedCard" id="card<%=c%>">
                             <div class="card title">
                                 <a href="/products/<%=productos[i].id%>" class="prodTitle"><h3 id="prod-title"><%=productos[i].name%></h3></a>
-                                <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker%></a></h5>
+                                <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
                             </div>
                             
                             <div class= "card prod-img">
@@ -142,14 +142,13 @@
                                     <h4>Amargor</h4>
                                     <h4 id="number-bitternes"><%=productos[i].ibu%></h4>
                                 </div>
-                                <% var ibu = productos[i].ibu+"%" %>
+                                <% var ibu = productos[i].ibu + "%" %>
                                 <div class="bar bitternes"><div id="bar-level-bitternes" style= "width: <%= ibu %>"></div></div>
                             </div>
                             <div class="meter srm">
                                 <h4>Tono</h4>
-                                <% var color = productos[i].srm %>
-                                <% var tono = coloresSrm[color]%>
-                                <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
+                                
+                                <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                             </div>
 
                             </div>

@@ -38,6 +38,13 @@ let modelo = function(sequelize, dataTypes){
         underscore: true
     }
     let Users = sequelize.define( alias, cols, config );
+
+    Users.associate = function (models){
+
+        Users.belongsTo(models.UserType,{
+            as: "user_type",
+            foreignKey: "id_user_type"
+        })}
     return Users;
 }
 module.exports = modelo;
