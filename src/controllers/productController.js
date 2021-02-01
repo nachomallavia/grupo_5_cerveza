@@ -78,26 +78,48 @@ const controller = {
         
     },
     EditForm : function(req,res){
-        db.Products.update({
-            name: req.body.pname,
-            id_maker: req.body.pmaker,
-            id_category: req.body.pcategory,
-            abv: req.body.pabv,
-            ibu: req.body.pibu,
-            id_srm: req.body.psrm,
-            description: req.body.pdesc,
-            price: req.body.pprice,
-            id_format: req.body.pformat,
-            capacity: req.body.pcapacity,
-            image:  req.files[0].filename,
-        }, {
-            where: {
-                id: req.params.id
-            }
-        })
-        .then(function(){
-            res.redirect('/admin/products');
-        })
+        if(req.files[0] == null){
+            db.Products.update({
+                name: req.body.pname,
+                id_maker: req.body.pmaker,
+                id_category: req.body.pcategory,
+                abv: req.body.pabv,
+                ibu: req.body.pibu,
+                id_srm: req.body.psrm,
+                description: req.body.pdesc,
+                price: req.body.pprice,
+                id_format: req.body.pformat,
+                capacity: req.body.pcapacity,
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(){
+                res.redirect('/admin/products');
+            })
+        } else {
+            db.Products.update({
+                name: req.body.pname,
+                id_maker: req.body.pmaker,
+                id_category: req.body.pcategory,
+                abv: req.body.pabv,
+                ibu: req.body.pibu,
+                id_srm: req.body.psrm,
+                description: req.body.pdesc,
+                price: req.body.pprice,
+                id_format: req.body.pformat,
+                capacity: req.body.pcapacity,
+                image:  req.files[0].filename,
+            }, {
+                where: {
+                    id: req.params.id
+                }
+            })
+            .then(function(){
+                res.redirect('/admin/products');
+            })
+        }
     },
     adminList : function(req,res){
         res.render('products/productAdminList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm})
