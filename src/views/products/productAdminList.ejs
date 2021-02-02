@@ -98,11 +98,11 @@
                     <div class= "list card">
                         <div class="card title">
                             <h3 id="prod-title"><%=productos[i].name%></h3>
-                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].id_maker%></a></h5>
+                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
                         </div>
                         
                         <div class= "card prod-img">
-                            <img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                            <a href="/products/<%= productos[i].id %>"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
                         </div>
                         <div class="card rating">
                             <% for (let s = 1; s <= productos[i].rating; s++){ %>
@@ -133,9 +133,7 @@
                         </div>
                         <div class="meter srm">
                             <h4>Tono</h4>
-                            <% var color = productos[i].id_srm %>
-                            <% var tono = coloresSrm[color]%>
-                            <div class = "srm-circle" id = "color-srm" style = "background-color: <%= tono %> "></div>
+                            <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                         </div>
                         <section class="edit-delete-buttons">
                             <a class="edit" href="/admin/products/<%= productos[i].id %>/edit"><h4 class="edittxt">EDITAR</h4></a>

@@ -25,7 +25,7 @@
                             <% } %>
                         </select>
                     </div>
-                    <div class="category">
+                    <div class="categoria">
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
                             <option value="<%= producto.category.id %>" selected><%= producto.category.name %></option>
@@ -42,7 +42,7 @@
                         <label for="pibu">Amargor (IBU)</label>
                         <input id="pibu" name="pibu" type="number" value="<%= producto.ibu %>">
                     </div>
-                    <div class="srm">
+                    <div class="tono">
                         <label for="psrm">Tono (SRM)</label>
                         <div class="data-srm">
                             <h5 id="valor-srm" class="valor-srm"><%= producto.srm_index.id %></h5>
@@ -55,7 +55,7 @@
                         <textarea name="pdesc" id="pdesc" rows="10" cols="20"><%= producto.description %></textarea>
                     </div>
                     <div class="format">
-                        <label for="pformat">formato</label>
+                        <label for="pformat">Formato</label>
                         <select id="pformat" name="pformat">
                             <option value="<%= producto.format.id %>" selected><%= producto.format.name %></option>
                             <% for (let i = 1; i < formatos.length; i++){ %>
@@ -64,7 +64,7 @@
                         </select>
                     </div>
                     <div class="capacity">
-                        <label for="pcapacity">capacidad</label>
+                        <label for="pcapacity">Capacidad</label>
                         <select id="pcapacity" name="pcapacity">
                             <option value="<%= producto.capacity %>" selected><%= producto.capacity %></option>
                             <option value="330">330 ml</option>
@@ -87,7 +87,7 @@
                         <input id="ppack" name="ppack" type="number">
                     </div> -->
                     <div class="image">
-                        <label for="pimage">Imagen</label>
+                        <label for="pimage">Imagen</label><p>(Al no elegir una imagen, se mantiene la original)</p>
                         <input id="pimage" name="pimage" type="file">
                     </div>
                     <button type="submit">Editar</button>

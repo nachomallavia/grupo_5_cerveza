@@ -30,7 +30,7 @@ app.use('/', indexRouter);
 app.use('/products', productsRouter);
 app.use('/cart', cartRouter);
 app.use('/users', usersRouter);
-app.use('/admin',adminMiddleware, adminRouter);
+app.use('/admin', adminMiddleware, adminRouter);
 
 app.listen(process.env.PORT || 3000 , function(){
     console.log('Birras llegando..');

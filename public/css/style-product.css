@@ -169,7 +169,70 @@ main.create div.container div.formCreate form div.name{
     font-weight: normal;
     font-size: 18px;
 }
+main.create div.container div.formCreate form div.maker{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.categoria{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.abv{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.ibu{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.tono{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
 main.create div.container div.formCreate form div.desc{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.format{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
+}
+main.create div.container div.formCreate form div.capacity{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -195,6 +258,11 @@ main.create div.container div.formCreate form div.image{
     margin-bottom: 8px;
     font-weight: normal;
     font-size: 18px;
+}
+main.create div.container div.formCreate form div.image p {
+    color: var(--darkgrey);
+    margin-bottom: 8px;
+    font-size: 12px;
 }
 main.create div.container div.formCreate form button{
     margin-bottom: 12px
