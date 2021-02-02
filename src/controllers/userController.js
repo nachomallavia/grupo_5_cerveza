@@ -30,9 +30,9 @@ const controller = {
             email: req.body.email,
             avatar: req.file.filename,
             birthdate: req.body.fecha,
-            password: req.body.password
+            // password: req.body.password
             // HASTA ENCONTRAR LA SOLUCION A BCRYPT EN DB DEJAMOS LA PASS SIN HASHEAR
-            // password: bcryptjs.hashSync(req.body.password, 12)
+            password: bcryptjs.hashSync(req.body.password, 12)
         })
         .then(function(){
             res.redirect('/')
@@ -65,12 +65,12 @@ const controller = {
         })
         .then(function(resultado){
 
-            if(req.body.password==resultado.password){
+            if(bcryptjs.compareSync(req.body.password, resultado.password)){
                 usuarioALoguearse = resultado;
                 req.session.usuarioLogueado = usuarioALoguearse;
                 res.redirect('/')
             } else {
-                res.send('contraseña incorrecta')
+                res.send(resultado)
             }})
             .catch(function(e){
                 return res.render('users/login.ejs', {errors: [
