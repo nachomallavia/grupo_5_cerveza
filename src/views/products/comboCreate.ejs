@@ -23,10 +23,12 @@
                     </div>
                     <div class="items">
                         <% for (let i = 0; i < productos.length; i++){ %>
-                            <div class="itemscont">
-                                <img class="item-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                            <div class="itemscont">                     
+                                <img class="item-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">   
                                 <span class="itemsname"><%= productos[i].name %></span>
-                                <input name="pid<%=productos[i].id%>" class="sum" type="number" min="0" value="0">                                            
+                                <div class="itemscontd">
+                                <input name="<%=productos[i].id%>" class="sum" type="number" min="0" value="0">       
+                                </div>                                     
                             </div>
                         <% } %>
                     </div>

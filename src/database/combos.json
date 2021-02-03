@@ -1,1 +1,21 @@
-[]
+[
+    {
+        "name": "dsgfdsg",
+        "desc": "dsfdsf",
+        "price": "3464",
+        "items": {
+            "1": "3",
+            "3": "3"
+        },
+        "image": "dsgfdsg_picture.jpg"
+    },
+    {
+        "name": "HOOLAAAAA",
+        "desc": "dsfdsfdsf",
+        "price": "3465",
+        "items": {
+            "1": "5"
+        },
+        "image": "HOOLAAAAA_picture.jpg"
+    }
+]

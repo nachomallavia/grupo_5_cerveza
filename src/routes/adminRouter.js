@@ -16,7 +16,7 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 
-            // RUTAS DE PRODUCTO
+// RUTAS DE PRODUCTO
 router.get('/products', productsController.adminList);                                                 
 
 router.get('/products/create', productsController.Create);                               
@@ -27,7 +27,7 @@ router.put('/products/:id/edit', upload.any(), productsController.EditForm);
 
 router.delete('/products/:id', productsController.Delete);
 
-            // RUTAS DE COMBOS
+// RUTAS DE COMBOS
 router.get('/products/combos', comboController.adminList);                                                 
 
 router.get('/products/combos/create', comboController.Create);                               

@@ -615,7 +615,13 @@ div.itemscont{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 10px;
     
+}
+div.itemscontd{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 div.itemscont img.item-img{
     width: 10%;

@@ -2,16 +2,6 @@ const path = require ('path');
 const fs = require ('fs');
 let db = require('../database/models');
 
-// let productos = fs.readFileSync(path.join(__dirname, '../database/products.json'), 'utf-8');
-//     productos = JSON.parse(productos);
-
-// let categorias = fs.readFileSync(path.join(__dirname,'../database/categories.json'),'utf-8');
-//     categorias = JSON.parse(categorias);
-
-// let fabricantes = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/makers.json'),'utf-8'));
-// let coloresSrm = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/srm-index.json'),'utf-8'));
-// let formatos = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/formats.json'),'utf-8'));
-
 let productos, fabricantes, coloresSrm, categorias, formatos;
 
 db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
@@ -29,13 +19,6 @@ db.Categories.findAll().then(function(dBcategorias){
 db.Formats.findAll().then(function(dBformats){
     formatos = dBformats
 })
-
-// let ultimoIdProducto = 0;
-// for (let i = 0; i < productos.length; i++){
-//     if (ultimoIdProducto < productos[i].id){
-//         ultimoIdProducto = productos[i].id;
-//     }
-// }
 
 const controller = {
 
@@ -78,7 +61,8 @@ const controller = {
         
     },
     EditForm : function(req,res){
-        if(req.files[0] == null){
+         // Si al editar, el usuario no cambia la foto, se mantiene la original.
+        if(req.files[0] == null) {                               
             db.Products.update({
                 name: req.body.pname,
                 id_maker: req.body.pmaker,
@@ -98,7 +82,9 @@ const controller = {
             .then(function(){
                 res.redirect('/admin/products');
             })
+
         } else {
+            
             db.Products.update({
                 name: req.body.pname,
                 id_maker: req.body.pmaker,

@@ -1,22 +1,27 @@
-const path = require ('path');
-const fs = require ('fs');
+let db = require('../database/models');
+const fs = require('fs');
+const path = require('path');
 
-let productos = fs.readFileSync(path.join(__dirname, '../database/products.json'), 'utf-8');
-    productos = JSON.parse(productos);
+let combos = fs.readFileSync(path.join(__dirname, '../database/combos.json'), 'utf8');
+combos = JSON.parse(combos);
 
-let combos = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/combos.json'),'utf-8'));
+let productos, fabricantes, coloresSrm, categorias, formatos;
 
-let categorias = fs.readFileSync(path.join(__dirname,'../database/categories.json'),'utf-8');
-    categorias = JSON.parse(categorias);
-
-let items = []; 
-
-let ultimoIdCombo = 0;
-for (let i = 0; i < combos.length; i++){
-    if (ultimoIdCombo < combos[i].id){
-        ultimoIdCombo = combos[i].id;
-    }
-}
+db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+    productos = dBproductos;
+})
+db.Makers.findAll().then(function(dBfabricantes){
+    fabricantes = dBfabricantes;
+})
+db.Srm.findAll().then(function(dBcoloresSrm){
+    coloresSrm = dBcoloresSrm;
+})
+db.Categories.findAll().then(function(dBcategorias){
+    categorias = dBcategorias;
+})
+db.Formats.findAll().then(function(dBformats){
+    formatos = dBformats
+})
 
 const controller = {
 
@@ -30,25 +35,27 @@ const controller = {
         res.render('products/comboCreate',{'productos': productos});
     },
     CreateForm: function(req, res){
-        for(let i = 1; i <= productos.length; i++){
-            //var item = req.body.pid + i;
-            var item = `req.body.pid${i}`
-            // if(item > 0){
-            //     var itemDef = item;
-            // }
-            // if(item > 0){
-            //     items.push({nombreProducto: item});
-            // };
+        let name = req.body.pname;
+        let desc = req.body.pdesc;
+        let price = req.body.pprice;
+        delete req.body.pname;
+        delete req.body.pdesc;
+        delete req.body.pprice;
+        let items = req.body;
+        for(item in items){
+            if(items[item] <= 0){
+                delete items[item];
+            }
         }
-        res.send(item);
-        // combos.push({
-        //     id: ultimoIdCombo + 1,
-        //     name: req.body.pname,
-        //     desc: req.body.pdesc,
-        //     price: req.body.pprice,
-        //     items:,
-        //     image: req.files[0].filename
-        // })
+        combos.push({  
+            name: name,
+            desc: desc,
+            price: price,
+            items: items,
+            image: req.files[0].filename
+        });
+        fs.writeFileSync(path.join(__dirname, '../database/combos.json'), JSON.stringify(combos, null, 4));
+        res.redirect('/admin/products');
     },
     edit: function(req, res){
         res.render('products/comboEdit');
