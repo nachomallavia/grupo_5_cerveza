@@ -30,14 +30,14 @@ const controller = {
             email: req.body.email,
             avatar: req.file.filename,
             birthdate: req.body.fecha,
-            // password: req.body.password
-            // HASTA ENCONTRAR LA SOLUCION A BCRYPT EN DB DEJAMOS LA PASS SIN HASHEAR
             password: bcryptjs.hashSync(req.body.password, 12)
         })
-        .then(function(){
+        .then(function(resultado){
+            usuarioALoguearse = resultado;
+            req.session.usuarioLogueado = usuarioALoguearse;
             res.redirect('/')
         })
-        } else { 
+        }else { 
         return res.render('users/register.ejs', {errors: errors.errors})}
         // let errors = validationResult(req);
         // if (errors.isEmpty()){
@@ -70,7 +70,9 @@ const controller = {
                 req.session.usuarioLogueado = usuarioALoguearse;
                 res.redirect('/')
             } else {
-                res.send(resultado)
+                res.render('users/login.ejs', {errors: [
+                    {msg: 'Credenciales inválidas'}
+                ]});
             }})
             .catch(function(e){
                 return res.render('users/login.ejs', {errors: [

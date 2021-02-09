@@ -22,12 +22,14 @@
             <h2>Iniciá sesión con tu Mail y Contraseña</h2>
         </div>
         <div class="completar">
-            <form action="" method="post">
+            <form id="loginForm" action="" method="post">
             
             <p><input class="input" type="email" id="email" name="email" placeholder="Mail"></p>
+            <small id="errorEmail"></small>
     
     
             <p><input class="input" type="password" id="password" name="password" placeholder="Contraseña"></p>
+            <small id="errorPassword"></small>
             <p class="check"><input type="checkbox" id="recordar">Recordar usuario y contraseña</p>
             <p><a href="#" class="olvidaste">¿Olvidaste tu contraseña?</a></p>
             <button class="button">INGRESAR</button>
@@ -40,6 +42,6 @@
 
 
     <%- include('../partials/footer'); %>
-    <script src="/js/registerFront.js"></script>
+    <script src="/scripts/loginFront.js"></script>
 </body>
 </html>
