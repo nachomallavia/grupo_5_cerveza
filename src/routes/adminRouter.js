@@ -5,6 +5,7 @@ const path = require('path');
 const router = express.Router();
 const productsController = require('../controllers/productController');
 const comboController = require('../controllers/comboController');
+const productValidator = require('../validators/productValidator')
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -20,10 +21,10 @@ var upload = multer({ storage: storage })
 router.get('/products', productsController.adminList);                                                 
 
 router.get('/products/create', productsController.Create);                               
-router.post('/products/create', upload.any(), productsController.CreateForm);                   
+router.post('/products/create', upload.any(), productValidator, productsController.CreateForm);                   
 
 router.get('/products/:id/edit', productsController.Edit);
-router.put('/products/:id/edit', upload.any(), productsController.EditForm);
+router.put('/products/:id/edit', upload.any(), productValidator, productsController.EditForm);
 
 router.delete('/products/:id', productsController.Delete);
 

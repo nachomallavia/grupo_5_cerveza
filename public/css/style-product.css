@@ -140,8 +140,13 @@ main.create div.container{
     /* min-height: 100vh; */
 }
 div.srm{
-    display:flex;
-    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: normal;
+    font-size: 18px;
 }
 
 main.create div.container h2.title{

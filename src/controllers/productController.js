@@ -1,6 +1,5 @@
-const path = require ('path');
-const fs = require ('fs');
 let db = require('../database/models');
+const {check, validationResult, body} = require('express-validator') ;
 
 let productos, fabricantes, coloresSrm, categorias, formatos;
 
@@ -41,27 +40,34 @@ const controller = {
         })
     },
     CreateForm : function(req,res){
-        db.Products.create({
-            name: req.body.pname,
-            id_maker: req.body.pmaker,
-            id_category: req.body.pcategory,
-            abv: req.body.pabv,
-            ibu: req.body.pibu,
-            id_srm: req.body.psrm,
-            description: req.body.pdesc,
-            price: req.body.pprice,
-            id_format: req.body.pformat,
-            capacity: req.body.pcapacity,
-            image:  req.files[0].filename,
-            rating: 0
-        })
-        .then(function(productoNuevo){
-            res.redirect('/products/' + productoNuevo.id);
-        })
-        
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
+            db.Products.create({
+                name: req.body.pname,
+                id_maker: req.body.pmaker,
+                id_category: req.body.pcategory,
+                abv: req.body.pabv,
+                ibu: req.body.pibu,
+                id_srm: req.body.psrm,
+                description: req.body.pdesc,
+                price: req.body.pprice,
+                id_format: req.body.pformat,
+                capacity: req.body.pcapacity,
+                image:  req.files[0].filename,
+                rating: 0
+            })
+            .then(function(productoNuevo){
+                res.redirect('/products/' + productoNuevo.id);
+            })
+        } else {
+            return res.render('products/productCreate',{errors: errors.errors})
+        }
+            
     },
     EditForm : function(req,res){
-         // Si al editar, el usuario no cambia la foto, se mantiene la original.
+        let errors = validationResult(req);
+        if (errors.isEmpty()){
+             // Si al editar, el usuario no cambia la foto, se mantiene la original.
         if(req.files[0] == null) {                               
             db.Products.update({
                 name: req.body.pname,
@@ -106,6 +112,13 @@ const controller = {
                 res.redirect('/admin/products');
             })
         }
+        } else {
+            db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
+            .then(function(producto){
+                return res.render('products/productEdit',{errors: errors.errors,'producto': producto,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
+            })
+        }
+        
     },
     adminList : function(req,res){
         res.render('products/productAdminList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm})
@@ -117,7 +130,7 @@ const controller = {
             }
         })
         .then(function(){
-            res.redirect('/');
+            res.redirect('/admin/products');
         })
         
     }

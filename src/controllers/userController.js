@@ -37,7 +37,7 @@ const controller = {
         .then(function(){
             res.redirect('/')
         })
-        }else { 
+        } else { 
         return res.render('users/register.ejs', {errors: errors.errors})}
         // let errors = validationResult(req);
         // if (errors.isEmpty()){

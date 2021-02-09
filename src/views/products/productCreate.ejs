@@ -8,12 +8,23 @@
         <div class="container">
             <h2 class="title">CREAR UN PRODUCTO</h2>
             <div class="separador"></div>
+            <% if (typeof errors != 'undefined'){ %> 
+                <ul>
+                    <% for (let i = 0 ; i < errors.length ; i++){ %> 
+                        <li>
+                            <%= errors[i].msg  %> 
+                        </li>
+                    <% } %> 
+                </ul>
+                <% } %> 
+            <hr>
             <div class="formCreate">
-                <form action="" method="post" enctype="multipart/form-data">
+                <form id="createForm" action="" method="post" enctype="multipart/form-data">
                     <div class="name">
                         <label for="pname">Nombre</label>
                         <input id="pname" name="pname" type="text">
                     </div>
+                    <small id="errorName"></small>
                     <div class="maker">
                         <label for="pmaker">Fabricante</label>
                         <select id="pmaker" name="pmaker">
@@ -22,7 +33,7 @@
                             <% } %>
                         </select>
                     </div>
-                    <div class="category">
+                    <div class="categoria">
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
                             <% for (let i = 1; i < categorias.length; i++){ %>
@@ -32,12 +43,14 @@
                     </div>
                     <div class="abv">
                         <label for="pabv">Alcohol (%)</label>
-                        <input id="pabv" name="pabv" type="number">
+                        <input id="pabv" name="pabv" type="number" min="0" value="0" max="40">
                     </div>
+                    <small id="errorAbv"></small>
                     <div class="ibu">
                         <label for="pibu">Amargor (IBU)</label>
-                        <input id="pibu" name="pibu" type="number">
+                        <input id="pibu" name="pibu" type="number" min="0" value="0" max="40">
                     </div>
+                    <small id="errorIbu"></small>
                     <div class="srm">
                         <label for="psrm">Tono (SRM)</label>
                         <div class="data-srm">
@@ -50,8 +63,9 @@
                         <label for="pdesc">Descripción</label>
                         <textarea name="pdesc" id="pdesc" rows="10" cols="20"></textarea>
                     </div>
+                    <small id="errorDesc"></small>
                     <div class="format">
-                        <label for="pformat">formato</label>
+                        <label for="pformat">Formato</label>
                         <select id="pformat" name="pformat">
                             <% for (let i = 1; i < formatos.length; i++){ %>
                             <option value= <%= formatos[i].id %> > <%= formatos[i].name %> </option>
@@ -59,7 +73,7 @@
                         </select>
                     </div>
                     <div class="capacity">
-                        <label for="pcapacity">capacidad</label>
+                        <label for="pcapacity">Capacidad</label>
                         <select id="pcapacity" name="pcapacity">
                             <option value="330">330 ml</option>
                             <option value="473">473 ml</option>
@@ -74,8 +88,9 @@
                     </div>
                     <div class="price">
                         <label for="pprice">Precio</label>
-                        <input id="pprice" name="pprice" type="number" step="any">
+                        <input id="pprice" name="pprice" type="number" step="any" min="0" value="0" max="10000">
                     </div>
+                    <small id="errorPrice"></small>
                     <!-- <div class="pack">
                         <label for="ppack">Pack</label>
                         <input id="ppack" name="ppack" type="number">
@@ -90,8 +105,7 @@
         </div>
     </main>
     <%- include('../partials/footer'); %>
-    
-    
+    <script src="/scripts/productsFront.js"></script>
     <!-- script para cargar los colores de SRM disponibles -->
     <script> 
         let stringColores = "<%=coloresSrm%>";
@@ -107,6 +121,7 @@
 
         inputSrm.addEventListener("input", function() {
             numeroSrm = document.getElementById("psrm-range").value;
+            console.log(numeroSrm);
             ventanaSrm.style.backgroundColor = colores[numeroSrm];
             valor.innerText = numeroSrm;
         })

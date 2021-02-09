@@ -10,12 +10,23 @@
                 <img id="prod-img" src="/uploads/<%=producto.image%>" alt="imagen producto">
             </div>
             <div class="separador"></div>
+            <% if (typeof errors != 'undefined'){ %> 
+                <ul>
+                    <% for (let i = 0 ; i < errors.length ; i++){ %> 
+                        <li>
+                            <%= errors[i].msg  %> 
+                        </li>
+                    <% } %> 
+                </ul>
+                <% } %> 
+            <hr>
             <div class="formCreate">
-                <form action="/admin/products/<%= producto.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data" name="editform">
+                <form id="createForm" action="/admin/products/<%= producto.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data" name="editform">
                     <div class="name">
                         <label for="pname">Nombre</label>
                         <input id="pname" name="pname" type="text" value="<%= producto.name %>">
                     </div>
+                    <small id="errorName"></small>
                     <div class="maker">
                         <label for="pmaker">Fabricante</label>
                         <select id="pmaker" name="pmaker">
@@ -38,10 +49,12 @@
                         <label for="pabv">Alcohol (%)</label>
                         <input id="pabv" name="pabv" type="number" value="<%= producto.abv %>">
                     </div>
+                    <small id="errorAbv"></small>
                     <div class="ibu">
                         <label for="pibu">Amargor (IBU)</label>
                         <input id="pibu" name="pibu" type="number" value="<%= producto.ibu %>">
                     </div>
+                    <small id="errorIbu"></small>
                     <div class="tono">
                         <label for="psrm">Tono (SRM)</label>
                         <div class="data-srm">
@@ -54,6 +67,7 @@
                         <label for="pdesc">Descripción</label>
                         <textarea name="pdesc" id="pdesc" rows="10" cols="20"><%= producto.description %></textarea>
                     </div>
+                    <small id="errorDesc"></small>
                     <div class="format">
                         <label for="pformat">Formato</label>
                         <select id="pformat" name="pformat">
@@ -82,6 +96,7 @@
                         <label for="pprice">Precio</label>
                         <input id="pprice" name="pprice" type="number" step="any" value="<%= producto.price %>">
                     </div>
+                    <small id="errorPrice"></small>
                     <!-- <div class="pack">
                         <label for="ppack">Pack</label>
                         <input id="ppack" name="ppack" type="number">
@@ -96,16 +111,9 @@
         </div>
     </main>
     <%- include('../partials/footer'); %>
-    
-    <script>
-        function LoadValue() {
-        editform.pimage.value= producto.image;
-        }
-    </script>
-    
+    <script src="/scripts/productsFront.js"></script>
     <!-- script para cargar los colores de SRM disponibles -->
     <script>
-        <% for (let i = 0 ; i < coloresSrm.length; i++ ) %>
         let stringColores = "<%=coloresSrm%>";
         console.log(stringColores);
         let colores = stringColores.split(',');
