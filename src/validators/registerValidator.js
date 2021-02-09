@@ -12,7 +12,8 @@ check('password').isLength({min: 8}).withMessage('Su contraseña debe tener un m
 body('email')
 .custom(async (email)=>{
   const existingUser = 
-    await db.Users.findOne({email})
+    await db.Users.findOne({
+      where: {email}})
     if(existingUser){
       throw new Error ('Email ya existente')
     }
