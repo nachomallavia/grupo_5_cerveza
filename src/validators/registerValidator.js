@@ -9,27 +9,25 @@ usuarios = JSON.parse(usuarios);
 
 module.exports = [check('email').isEmail().withMessage('Debe ingresar un mail válido'),
 check('password').isLength({min: 8}).withMessage('Su contraseña debe tener un mínimo de 8 caracteres'),
-body('email').custom(function(value){
+body('email')
+.custom(async (email)=>{
+  const existingUser = 
+    await db.Users.findOne({email})
+    if(existingUser){
+      throw new Error ('Email ya existente')
+    }
+})
 
-
-
-
+// .custom(function(value){
 // db.Users.findOne({
-//   where: { email: 'jose@db.db'}
-// }).then(function(resultado)
-// {if(resultado==null){
-// return 'true'
-// } else {
-// return 'true'
-// }})
-
-
-
-    for (let i = 0 ; i < usuarios.length ; i++){
-      if (usuarios[i].email == value ){
-        return false;
-      }
-    } 
-    return true;
-  }).withMessage('Usuario ya existente')
+//   where: { email: value}
+// })
+// .then(function(resultado){
+//   if(resultado){
+//     return false
+//   }
+// })
+// .catch(function(e){
+//   return true
+// })
 ]
