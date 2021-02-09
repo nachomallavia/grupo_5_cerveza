@@ -13,7 +13,7 @@ window.addEventListener('load', function(){
         let errores = {};
 
         if(!regex.test(form.pname.value) || form.pname.value == ''){
-            errores.name = 'Debe ingresar un nombre válido (Solo letras).';
+            errores.name = 'Debe ingresar un nombre válido.';
             errorName.innerText = errores.name;
         } else {
             errorName.innerText = '';
