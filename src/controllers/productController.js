@@ -60,7 +60,7 @@ const controller = {
                 res.redirect('/products/' + productoNuevo.id);
             })
         } else {
-            return res.render('products/productCreate',{errors: errors.errors})
+            return res.render('products/productCreate',{errors: errors.errors,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos})
         }
             
     },
