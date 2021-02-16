@@ -46,7 +46,7 @@ const controller = {
         db.Combos.create({
             name: name,
             price: price,
-            image: 1,
+            image: req.files[0].filename,
         })
         .then(function(combo){
             for( item in items ){
@@ -55,7 +55,9 @@ const controller = {
                     id_product: item,
                     amount: items[item]
                 })
-                .then(function(relation){});
+                .then(function(relation){
+                    console.log("succes");
+                });
             }
             res.redirect('/admin/products');
         })
