@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <%- include('../partials/head'); %>
+<body>
+    <%- include('../partials/header'); %>
+    <main class="product-list">
+        <aside class="filter group">
+            <form action="" class="filter form">
+                <div class="order">
+                
+                    <label for="ordenar">Ordenar por</label>
+                    <select name="ordenar" id="ordenar">
+                        <option value="novedad">Novedad</option>
+                        <option value="mayor-precio">Mayor precio</option>
+                        <option value="menor-precio">Menor precio</option>
+                        <option value="mayor-amargor">Mayor amargor</option>
+                        <option value="menor-amargor">Menor amargor</option>
+                        <option value="mayor-puntaje">Mayor puntaje</option>
+                        <option value="menor-puntaje">Menor puntaje</option>
+                    </select>
+                    
+                </div>
+                <div class="filter controls">                  
+
+                        <label for="precio">Precio</label>
+                        <div class="range price">
+                            <input type="number" name="precio-minimo" id="" placeholder="Min">
+                            <input type="number" name="precio-maximo" id="" placeholder="Max">
+                        </div>
+                                            
+                        <div class= "range alcohol">
+                            <label for="amargor">Alcohol</label>
+                            <input type="range" name="alcohol" id="alcohol" min="1" max="100">
+                        </div>
+
+                        <div class= "range ibu">
+                            <label for="amargor">Amargor</label>
+                            <input type="range" name="amargor" id="amargor" min="1" max="100">
+                        </div>
+
+                        <div class="category">
+                            <label for="Category">Categorías</label>
+                            <ul class= "category-list">
+                         
+                                <% for (let i = 0; i < categorias.length; i++){ %>
+                                    <li class= "category-item">
+                               
+                                    <input type="checkbox" name= "categoria" id="" value = "<%= categorias[i] %>" >
+                                    <%= categorias[i].name %>
+                                    
+                                    </li>
+                               
+                                <% } %>
+
+                            </ul>
+                         
+                        
+                        </div>
+
+                        <div class="maker">
+                            <label for="maker">Fabricantes</label>
+                            <ul class= "maker-list">
+                         
+                                <% for (let i = 0; i < fabricantes.length; i++){ %>
+                                    <li class= "maker-item">
+                               
+                                    <input type="checkbox" name= "fabricante" id="" value = "<%= fabricantes[i] %>" >
+                                    <%= fabricantes[i].name %>
+                                    
+                                    </li>
+                               
+                                <% } %>
+
+                            </ul>
+                         
+                        
+                        </div>
+
+
+                        <!-- <button type="submit" class="filter-btn">Aplicar</button> -->
+
+                    
+                </div>
+            </form>
+            
+        </aside>
+        <div class="title-list">
+            <div class="title-products">
+                <h2>Combos</h2>
+                <span>Home - Combos</span>
+            </div>
+            <div id= "list container" class = "list container">
+                <% for (let i = 0; i<combos.length; i++){ %>
+                    <div class= "list card">
+                        <div class="card title">
+                            <h3 id="prod-title"><%=combos[i].name%></h3>
+                        </div>
+                        
+                        <div class= "card prod-img">
+                           <img id="prod-img" src="/uploads/<%=combos[i].image%>" alt="imagen combo">
+                        </div>
+                    </div>
+                <% } %>
+
+                
+            </div>
+
+        </div>
+        
+    </main>
+    <%- include('../partials/footer'); %>
+    
+</body>
+</html>

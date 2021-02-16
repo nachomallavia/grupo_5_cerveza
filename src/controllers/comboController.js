@@ -1,11 +1,6 @@
 let db = require('../database/models');
-const fs = require('fs');
-const path = require('path');
 
-let combos = fs.readFileSync(path.join(__dirname, '../database/combos.json'), 'utf8');
-combos = JSON.parse(combos);
-
-let productos, fabricantes, coloresSrm, categorias, formatos;
+let productos, fabricantes, coloresSrm, categorias, formatos, combos;
 
 db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
     productos = dBproductos;
@@ -20,26 +15,27 @@ db.Categories.findAll().then(function(dBcategorias){
     categorias = dBcategorias;
 })
 db.Formats.findAll().then(function(dBformats){
-    formatos = dBformats
+    formatos = dBformats;
+})
+db.Combos.findAll({include:{all: true, nested: true}}).then(function(dBcombos){
+    combos = dBcombos;
 })
 
 const controller = {
 
     list: function(req, res){
-        res.render('products/comboList');
+        res.render('combos/comboList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
     adminList: function(req, res){
-        res.render('products/comboAdminList');
+        res.render('combos/comboAdminList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
     Create: function(req, res){
-        res.render('products/comboCreate',{'productos': productos});
+        res.render('combos/comboCreate',{'productos': productos});
     },
     CreateForm: function(req, res){
         let name = req.body.pname;
-        let desc = req.body.pdesc;
         let price = req.body.pprice;
         delete req.body.pname;
-        delete req.body.pdesc;
         delete req.body.pprice;
         let items = req.body;
         for(item in items){
@@ -47,18 +43,25 @@ const controller = {
                 delete items[item];
             }
         }
-        combos.push({  
+        db.Combos.create({
             name: name,
-            desc: desc,
             price: price,
-            items: items,
-            image: req.files[0].filename
-        });
-        fs.writeFileSync(path.join(__dirname, '../database/combos.json'), JSON.stringify(combos, null, 4));
-        res.redirect('/admin/products');
+            image: 1,
+        })
+        .then(function(combo){
+            for( item in items ){
+                db.combos_products.create({
+                    id_combo: combo.id,
+                    id_product: item,
+                    amount: items[item]
+                })
+                .then(function(relation){});
+            }
+            res.redirect('/admin/products');
+        })
     },
     edit: function(req, res){
-        res.render('products/comboEdit');
+        res.render('combos/comboEdit');
     },
     EditForm: function(req, res){
 

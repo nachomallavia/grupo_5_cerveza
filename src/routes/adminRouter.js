@@ -29,14 +29,14 @@ router.put('/products/:id/edit', upload.any(), productValidator, productsControl
 router.delete('/products/:id', productsController.Delete);
 
 // RUTAS DE COMBOS
-router.get('/products/combos', comboController.adminList);                                                 
+router.get('/combos', comboController.adminList);                                                 
 
-router.get('/products/combos/create', comboController.Create);                               
-router.post('/products/combos/create', upload.any(), comboController.CreateForm);                   
+router.get('/combos/create', comboController.Create);                               
+router.post('/combos/create', upload.any(), comboController.CreateForm);                   
             
-router.get('/products/combos/:id/edit', comboController.edit);
-router.put('/products/combos/:id/edit', upload.any(), comboController.EditForm);
+router.get('/combos/:id/edit', comboController.edit);
+router.put('/combos/:id/edit', upload.any(), comboController.EditForm);
             
-router.delete('/products/combos/:id', comboController.Delete);
+router.delete('/combos/:id', comboController.Delete);
 
 module.exports = router;

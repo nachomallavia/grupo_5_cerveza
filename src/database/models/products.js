@@ -6,7 +6,7 @@ module.exports = function(sequelize, dataTypes){
             type: dataTypes.INTEGER,
             notNull: true,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         name:{
             type: dataTypes.STRING,
@@ -95,6 +95,11 @@ module.exports = function(sequelize, dataTypes){
         Products.belongsTo(models.Formats,{
             as: "format",
             foreignKey: "id_format"
+        })
+        Products.belongsToMany(models.Combos,{
+            as: "combos",
+            foreignKey: "id",
+            through: 'combos_products'
         })
     }
     return Products;
