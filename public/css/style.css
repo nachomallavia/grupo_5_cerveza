@@ -218,3 +218,10 @@ footer div.email-avatar{
 
     left: 30%
 }
+
+input{
+    padding:8px;
+}
+select{
+    padding: 8px;
+}

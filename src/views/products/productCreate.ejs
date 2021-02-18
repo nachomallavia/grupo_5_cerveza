@@ -33,7 +33,7 @@
                             <% } %>
                         </select>
                     </div>
-                    <div class="categoria">
+                    <div class="category">
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
                             <% for (let i = 1; i < categorias.length; i++){ %>
@@ -106,24 +106,27 @@
     </main>
     <%- include('../partials/footer'); %>
     <script src="/scripts/productsFront.js"></script>
+    
     <!-- script para cargar los colores de SRM disponibles -->
-    <script> 
-        let stringColores = "<%=coloresSrm%>";
-        let colores = stringColores.split(',');
-                
+    <script>
+        
+        let arrayColores = <%-JSON.stringify(coloresSrm)%>;
+            
+                           
 
         var inputSrm = document.getElementById("psrm-range");
-        var numeroSrm = document.getElementById("psrm-range").value;
+        var valorNumeroSrm = document.getElementById("psrm-range").value;
+        var numeroSrm = valorNumeroSrm;
         var ventanaSrm =document.getElementById("color-srm");
         var valor = document.getElementById("valor-srm");
 
         console.log(numeroSrm);
 
         inputSrm.addEventListener("input", function() {
-            numeroSrm = document.getElementById("psrm-range").value;
-            console.log(numeroSrm);
-            ventanaSrm.style.backgroundColor = colores[numeroSrm];
-            valor.innerText = numeroSrm;
+            valorNumeroSrm = document.getElementById("psrm-range").value;
+            numeroSrm = valorNumeroSrm;
+            ventanaSrm.style.backgroundColor = arrayColores[numeroSrm].code;
+            valor.innerText = valorNumeroSrm;
         })
        
     </script>

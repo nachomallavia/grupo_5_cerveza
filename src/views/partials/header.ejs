@@ -12,7 +12,9 @@
                         <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
                         <% if(typeof usuarioLogueado != 'undefined') {%> 
                             <div class="email-avatar">
-                            <img id="avatar-profile-header" src="/uploads/avatars/<%=usuarioLogueado.avatar%>" alt="avatar usuario">
+                                <a href="/admin" style="display: block;">
+                                    <img id="avatar-profile-header" src="/uploads/avatars/<%=usuarioLogueado.avatar%>" alt="avatar usuario">
+                                </a>
                             </div>
                             <% } else { %> 
                                 <a href="/users/login"><i class="fas fa-user-circle"></i></a>

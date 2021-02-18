@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
     <%- include('../partials/head'); %>
-<body onload="LoadValue()">
+<body>
     <%- include('../partials/header'); %>
+    
     <main class="create">
         <div class="container">
-            <h2 class="title">Producto a editar:</h2><h2 class="product-name-edit"><%= producto.name %></h2>
-            <div class= "edit-image">
-                <img id="prod-img" src="/uploads/<%=producto.image%>" alt="imagen producto">
-            </div>
+            <h2 class="title">CREAR UN PRODUCTO</h2>
             <div class="separador"></div>
             <% if (typeof errors != 'undefined'){ %> 
                 <ul>
@@ -21,66 +19,59 @@
                 <% } %> 
             <hr>
             <div class="formCreate">
-                <form id="createForm" action="/admin/products/<%= producto.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data" name="editform">
+                <form id="createForm" action="" method="post" enctype="multipart/form-data">
                     <div class="name">
                         <label for="pname">Nombre</label>
-                        <input id="pname" name="pname" type="text" value="<%= producto.name %>">
+                        <input id="pname" name="pname" type="text">
                     </div>
                     <small id="errorName"></small>
                     <div class="maker">
                         <label for="pmaker">Fabricante</label>
                         <select id="pmaker" name="pmaker">
-                            <option value="<%= producto.maker.id %>" selected><%= producto.maker.name %></option>
                             <% for (let i = 1; i < fabricantes.length; i++){ %>
-                            <option value= <%= fabricantes[i] %> > <%= fabricantes[i].name %> </option>
+                            <option value= <%= fabricantes[i].id %> > <%= fabricantes[i].name %> </option>
                             <% } %>
                         </select>
                     </div>
                     <div class="category">
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
-                            <option value="<%= producto.category.id %>" selected><%= producto.category.name %></option>
                             <% for (let i = 1; i < categorias.length; i++){ %>
-                            <option value= <%= categorias[i] %> > <%= categorias[i].name %> </option>
+                            <option value= <%= categorias[i].id %> > <%= categorias[i].name %> </option>
                             <% } %>
                         </select>
                     </div>
                     <div class="abv">
                         <label for="pabv">Alcohol (%)</label>
-                        <input id="pabv" name="pabv" type="number" value="<%= producto.abv %>">
+                        <input id="pabv" name="pabv" type="number">
                     </div>
-                    <small id="errorAbv"></small>
                     <div class="ibu">
                         <label for="pibu">Amargor (IBU)</label>
-                        <input id="pibu" name="pibu" type="number" value="<%= producto.ibu %>">
+                        <input id="pibu" name="pibu" type="number">
                     </div>
-                    <small id="errorIbu"></small>
                     <div class="srm">
                         <label for="psrm">Tono (SRM)</label>
                         <div class="data-srm">
-                            <h5 id="valor-srm" class="valor-srm"><%= producto.srm_index.id %></h5>
-                            <input id="psrm-range" name="psrm" type="range" min="1" max="40" value="<%= producto.srm_index.id %>">
+                            <h5 id="valor-srm" class="valor-srm">12</h5>
+                            <input id="psrm-range" name="psrm" type="range" min="1" max="40" value="12">
                             <div id="color-srm" class="color-srm"></div>
                         </div>
                     </div>
                     <div class="desc">
                         <label for="pdesc">Descripción</label>
-                        <textarea name="pdesc" id="pdesc" rows="10" cols="20"><%= producto.description %></textarea>
+                        <textarea name="pdesc" id="pdesc" rows="10" cols="20"></textarea>
                     </div>
-                    <small id="errorDesc"></small>
                     <div class="format">
-                        <label for="pformat">Formato</label>
+                        <label for="pformat">formato</label>
                         <select id="pformat" name="pformat">
-                            <option value="<%= producto.format.id %>" selected><%= producto.format.name %></option>
-                            <% for (let i = 1; i < formatos.length; i++){ %>
+                            <% for (let i = 0; i < formatos.length; i++){ %>
                             <option value= <%= formatos[i].id %> > <%= formatos[i].name %> </option>
                             <% } %>
                         </select>
                     </div>
                     <div class="capacity">
-                        <label for="pcapacity">Capacidad</label>
+                        <label for="pcapacity">capacidad</label>
                         <select id="pcapacity" name="pcapacity">
-                            <option value="<%= producto.capacity %>" selected><%= producto.capacity %></option>
                             <option value="330">330 ml</option>
                             <option value="473">473 ml</option>
                             <option value="500">500 ml</option>
@@ -94,30 +85,26 @@
                     </div>
                     <div class="price">
                         <label for="pprice">Precio</label>
-                        <input id="pprice" name="pprice" type="number" step="any" value="<%= producto.price %>">
+                        <input id="pprice" name="pprice" type="number" step="any">
                     </div>
-                    <small id="errorPrice"></small>
-                    <!-- <div class="pack">
-                        <label for="ppack">Pack</label>
-                        <input id="ppack" name="ppack" type="number">
-                    </div> -->
+                    
                     <div class="image">
-                        <label for="pimage">Imagen</label><p>(Al no elegir una imagen, se mantiene la original)</p>
+                        <label for="pimage">Imagen</label>
                         <input id="pimage" name="pimage" type="file">
                     </div>
-                    <button type="submit">Editar</button>
+                    <button type="submit">Crear</button>
                 </form>
             </div>
         </div>
     </main>
     <%- include('../partials/footer'); %>
+        
     <script src="/scripts/productsFront.js"></script>
-    <!-- script para cargar los colores de SRM disponibles -->
     <script>
         
         let arrayColores = <%-JSON.stringify(coloresSrm)%>;
             
-        
+        console.log(arrayColores);
                       
 
         var inputSrm = document.getElementById("psrm-range");
@@ -136,7 +123,6 @@
         })
        
     </script>
-    
     
     
 </body>

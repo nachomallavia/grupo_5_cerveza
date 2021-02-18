@@ -6,6 +6,7 @@ const path = require('path');
 const registerValidator = require('../validators/registerValidator');
 const loginValidator = require('../validators/loginValidator')
 const guestMiddleware = require('../middlewares/guestMiddleware');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 
 
@@ -26,7 +27,7 @@ router.get('/register',guestMiddleware, userController.register );
 router.post('/register',upload.single('avatar'), registerValidator,userController.save );
 
 router.get('/login',guestMiddleware, userController.login );
-router.post('/login', loginValidator ,userController.logged );
+router.post('/login', loginValidator, userController.logged );
 router.get('/logout',userController.logout )
 
 

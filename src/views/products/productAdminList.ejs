@@ -91,7 +91,12 @@
         <div class="title-list">
             <div class="title-products">
                 <h2>Productos</h2>
-                <span>home - productos</span>
+                <div class="buttons">
+                    <a href="/admin/products/create"><button class="mainbtn">Crear Producto</button></a>
+                    <a href="/admin/combos/create"><button class="secondarybtn">Crear Combo</button></a>
+
+                </div>
+                
             </div>
             <div id= "list container" class = "list container">
                 <% for (let i = 0; i<productos.length; i++){ %>
@@ -136,10 +141,10 @@
                             <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                         </div>
                         <section class="edit-delete-buttons">
-                            <a class="edit" href="/admin/products/<%= productos[i].id %>/edit"><h4 class="edittxt">EDITAR</h4></a>
+                            <a class="" href="/admin/products/<%= productos[i].id %>/edit"><button class="mainbtn">EDITAR PRODUCTO</button></a>
                             
                             <form action="/admin/products/<%= productos[i].id %>?_method=DELETE" method="POST">
-                                <button type="submit" class="delete"><h3 class="deletetxt">ELIMINAR</h3></button>
+                                <button type="submit" class="terciarybtn">ELIMINAR</button>
                             </form>
                         </section>
 

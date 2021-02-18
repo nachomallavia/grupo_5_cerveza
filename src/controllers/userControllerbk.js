@@ -30,11 +30,11 @@ const controller = {
             email: req.body.email,
             avatar: req.file.filename,
             birthdate: req.body.fecha,
+            // password: req.body.password
+            // HASTA ENCONTRAR LA SOLUCION A BCRYPT EN DB DEJAMOS LA PASS SIN HASHEAR
             password: bcryptjs.hashSync(req.body.password, 12)
         })
-        .then(function(resultado){
-            usuarioALoguearse = resultado;
-            req.session.usuarioLogueado = usuarioALoguearse;
+        .then(function(){
             res.redirect('/')
         })
         }else { 
@@ -66,18 +66,11 @@ const controller = {
         .then(function(resultado){
 
             if(bcryptjs.compareSync(req.body.password, resultado.password)){
-                    usuarioALoguearse = resultado;
-                    req.session.usuarioLogueado = usuarioALoguearse;
-                    if(req.session.usuarioLogueado.id_user_type == 2){
-                        res.redirect('/admin');
-                    } else{
-                     res.redirect('/')
-                    }
-
-            }else {
-                res.render('users/login.ejs', {errors: [
-                    {msg: 'Credenciales inválidas'}
-                ]});
+                usuarioALoguearse = resultado;
+                req.session.usuarioLogueado = usuarioALoguearse;
+                res.redirect('/admin/products')
+            } else {
+                res.send(resultado)
             }})
             .catch(function(e){
                 return res.render('users/login.ejs', {errors: [

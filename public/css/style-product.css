@@ -183,7 +183,7 @@ main.create div.container div.formCreate form div.maker{
     font-weight: normal;
     font-size: 18px;
 }
-main.create div.container div.formCreate form div.categoria{
+main.create div.container div.formCreate form div.category{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -637,4 +637,48 @@ div.itemscont input{
     font-size: 26px;
     border:1px solid #ddd;
     border-radius:4px;
+}
+
+/* Estilos para botones de productos */
+div.title-products{
+    margin-top: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+
+}
+div.card.prod-img{
+    max-height: 240px;
+}
+div.card #prod-img{ 
+    max-height: 100%;
+}
+button.mainbtn{
+    border-style: none;
+    background-color: var(--color2);
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 8px;
+    width: auto;
+    
+}
+button.secondarybtn{
+    border-style: none;
+    border: 1px solid var(--color2);
+    color:var(--color2);
+    background-color: rgba(255, 255, 255, 0);
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.terciarybtn{
+    border-style: none;
+    border: 0px solid var(--color2);
+    color:var(--color2);
+    background-color: rgba(255, 255, 255, 0);
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
 }

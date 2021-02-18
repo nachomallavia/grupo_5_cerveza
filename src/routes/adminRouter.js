@@ -5,7 +5,8 @@ const path = require('path');
 const router = express.Router();
 const productsController = require('../controllers/productController');
 const comboController = require('../controllers/comboController');
-const productValidator = require('../validators/productValidator')
+const productValidator = require('../validators/productValidator');
+const adminMiddleware = require('../middlewares/adminMiddleware');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -18,6 +19,7 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 // RUTAS DE PRODUCTO
+router.get('/', productsController.adminList);                                                 
 router.get('/products', productsController.adminList);                                                 
 
 router.get('/products/create', productsController.Create);                               
