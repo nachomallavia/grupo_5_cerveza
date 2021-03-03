@@ -13,6 +13,7 @@ const productsRouter = require ('./routes/productRouter');
 const usersRouter = require('./routes/usersRouter');
 const adminRouter = require('./routes/adminRouter');
 const indexRouter = require('./routes/indexRouter');
+const apiRouter = require('./routes/apiRouter')
 
 app.use(session( { secret: 'elio-pez' } ));
 app.use(express.static(path.join(__dirname, '../public')));
@@ -31,6 +32,7 @@ app.use('/products', productsRouter);
 app.use('/cart', cartRouter);
 app.use('/users', usersRouter);
 app.use('/admin',adminMiddleware, adminRouter);
+app.use('/api', apiRouter);
 
 app.listen(process.env.PORT || 3000 , function(){
     console.log('Birras llegando..');
