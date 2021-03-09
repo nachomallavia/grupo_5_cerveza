@@ -3,26 +3,32 @@ const {check, validationResult, body} = require('express-validator') ;
 
 let productos, fabricantes, coloresSrm, categorias, formatos;
 
-db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
-    productos = dBproductos;
-})
-db.Makers.findAll().then(function(dBfabricantes){
-    fabricantes = dBfabricantes;
-})
-db.Srm.findAll().then(function(dBcoloresSrm){
-    coloresSrm = dBcoloresSrm;
-})
-db.Categories.findAll().then(function(dBcategorias){
-    categorias = dBcategorias;
-})
-db.Formats.findAll().then(function(dBformats){
-    formatos = dBformats
-})
+
 
 const controller = {
 
     list : function(req,res){
-        res.render('products/productList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
+        db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+            productos = dBproductos;
+        }).then(function(){
+            db.Makers.findAll().then(function(dBfabricantes){
+                fabricantes = dBfabricantes;
+            }).then(function(){
+                db.Srm.findAll().then(function(dBcoloresSrm){
+                    coloresSrm = dBcoloresSrm;
+                }).then(function(){
+                    db.Categories.findAll().then(function(dBcategorias){
+                        categorias = dBcategorias;
+                    }).then(function(){
+                        db.Formats.findAll().then(function(dBformats){
+                            formatos = dBformats
+                        }).then(function(){
+                            res.render('products/productList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
+                        })
+                    })
+                })
+            })
+        })
     },
     detail : function(req, res){
         db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
@@ -31,7 +37,28 @@ const controller = {
         })
     },
     Create : function(req,res){
-        res.render('products/productCreate',{'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
+        db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+            productos = dBproductos;
+        }).then(function(){
+            db.Makers.findAll().then(function(dBfabricantes){
+                fabricantes = dBfabricantes;
+            }).then(function(){
+                db.Srm.findAll().then(function(dBcoloresSrm){
+                    coloresSrm = dBcoloresSrm;
+                }).then(function(){
+                    db.Categories.findAll().then(function(dBcategorias){
+                        categorias = dBcategorias;
+                    }).then(function(){
+                        db.Formats.findAll().then(function(dBformats){
+                            formatos = dBformats
+                        }).then(function(){
+                            res.render('products/productCreate',{'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
+                        })
+                    })
+                })
+            })
+        })
+        
     },
     Edit : function(req, res){
         db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
