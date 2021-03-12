@@ -1,4 +1,5 @@
 const db = require ('../database/models/index.js');
+const fetch = require("node-fetch");
 
 const controller = {
     
@@ -42,7 +43,6 @@ const controller = {
                     cantidad: productos.length,
                     cantidadPorCategoría: categories,
                     productos,
-
                 })
             })
         })
@@ -72,6 +72,13 @@ const controller = {
                 relations
             })
         })
+    },
+    prueba: function(req,res){
+        fetch("http://localhost:3000/api/products")
+        .then(response => response.json())
+        .then(function(data){
+            res.send(data);
+        });
     }
 
 }

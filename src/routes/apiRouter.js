@@ -12,4 +12,5 @@ router.get('/products', apiController.productsList);
 
 router.get('/products/:id', apiController.productsDetail);
 
+router.get('/prueba',apiController.prueba)
 module.exports = router;

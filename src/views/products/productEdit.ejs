@@ -72,7 +72,7 @@
                         <label for="pformat">Formato</label>
                         <select id="pformat" name="pformat">
                             <option value="<%= producto.format.id %>" selected><%= producto.format.name %></option>
-                            <% for (let i = 1; i < formatos.length; i++){ %>
+                            <% for (let i = 0; i < formatos.length; i++){ %>
                             <option value= <%= formatos[i].id %> > <%= formatos[i].name %> </option>
                             <% } %>
                         </select>

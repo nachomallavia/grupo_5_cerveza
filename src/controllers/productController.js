@@ -87,7 +87,27 @@ const controller = {
                 res.redirect('/products/' + productoNuevo.id);
             })
         } else {
-            return res.render('products/productCreate',{errors: errors.errors,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos})
+            db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+                productos = dBproductos;
+            }).then(function(){
+                db.Makers.findAll().then(function(dBfabricantes){
+                    fabricantes = dBfabricantes;
+                }).then(function(){
+                    db.Srm.findAll().then(function(dBcoloresSrm){
+                        coloresSrm = dBcoloresSrm;
+                    }).then(function(){
+                        db.Categories.findAll().then(function(dBcategorias){
+                            categorias = dBcategorias;
+                        }).then(function(){
+                            db.Formats.findAll().then(function(dBformats){
+                                formatos = dBformats
+                            }).then(function(){
+                                return res.render('products/productCreate',{errors: errors.errors,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos})
+                            })
+                        })
+                    })
+                })
+            })
         }
             
     },
@@ -141,14 +161,51 @@ const controller = {
         }
         } else {
             db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
-            .then(function(producto){
-                return res.render('products/productEdit',{errors: errors.errors,'producto': producto,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
+            .then(function(productodB){
+                produducto = productodB;
+                db.Makers.findAll().then(function(dBfabricantes){
+                    fabricantes = dBfabricantes;
+                }).then(function(){
+                    db.Srm.findAll().then(function(dBcoloresSrm){
+                        coloresSrm = dBcoloresSrm;
+                    }).then(function(){
+                        db.Categories.findAll().then(function(dBcategorias){
+                            categorias = dBcategorias;
+                        }).then(function(){
+                            db.Formats.findAll().then(function(dBformats){
+                                formatos = dBformats
+                            }).then(function(){
+                                return res.render('products/productEdit',{errors: errors.errors,'producto': producto,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
+                            })
+                        })
+                    })
+                })
             })
         }
         
     },
     adminList : function(req,res){
-        res.render('products/productAdminList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm})
+        db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+            productos = dBproductos;
+        }).then(function(){
+            db.Makers.findAll().then(function(dBfabricantes){
+                fabricantes = dBfabricantes;
+            }).then(function(){
+                db.Srm.findAll().then(function(dBcoloresSrm){
+                    coloresSrm = dBcoloresSrm;
+                }).then(function(){
+                    db.Categories.findAll().then(function(dBcategorias){
+                        categorias = dBcategorias;
+                    }).then(function(){
+                        db.Formats.findAll().then(function(dBformats){
+                            formatos = dBformats
+                        }).then(function(){
+                            res.render('products/productAdminList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm})
+                        })
+                    })
+                })
+            })
+        })
     },
     Delete : function(req,res){
         db.Products.destroy({

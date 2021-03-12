@@ -32,7 +32,27 @@ db.Formats.findAll().then(function(dBformats){
 
 module.exports = {
     home: (req, res) => {
-        return res.render('main/home',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
+        db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+            productos = dBproductos;
+        }).then(function(){
+            db.Makers.findAll().then(function(dBfabricantes){
+                fabricantes = dBfabricantes;
+            }).then(function(){
+                db.Srm.findAll().then(function(dBcoloresSrm){
+                    coloresSrm = dBcoloresSrm;
+                }).then(function(){
+                    db.Categories.findAll().then(function(dBcategorias){
+                        categorias = dBcategorias;
+                    }).then(function(){
+                        db.Formats.findAll().then(function(dBformats){
+                            formatos = dBformats
+                        }).then(function(){
+                            res.render('main/home',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
+                        })
+                    })
+                })
+            })
+        })
     },
     test: (req,res) =>{
         db.Makers.findByPk(req.params.id)
