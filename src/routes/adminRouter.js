@@ -4,6 +4,7 @@ const path = require('path');
 
 const router = express.Router();
 const productsController = require('../controllers/productController');
+const testController =require('../controllers/testController');
 const comboController = require('../controllers/comboController');
 const productValidator = require('../validators/productValidator');
 const adminMiddleware = require('../middlewares/adminMiddleware');
@@ -18,6 +19,10 @@ var storage = multer.diskStorage({
 })
 var upload = multer({ storage: storage })
 
+// RUTA DE PRUEBA DE PROMESAS
+
+router.get('/test', testController.productTest);
+
 // RUTAS DE PRODUCTO
 router.get('/', productsController.adminList);                                                 
 router.get('/products', productsController.adminList);                                                 
@@ -31,7 +36,7 @@ router.put('/products/:id/edit', upload.any(), productValidator, productsControl
 router.delete('/products/:id', productsController.Delete);
 
 // RUTAS DE COMBOS
-router.get('/combos', comboController.adminList);                                                 
+router.get('/combos', comboController.comboList);                                                 
 
 router.get('/combos/create', comboController.Create);                               
 router.post('/combos/create', upload.any(), comboController.CreateForm);                   

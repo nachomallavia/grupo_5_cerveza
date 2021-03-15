@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html>
     <%- include('../partials/head'); %>
-    <!-- <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../css/style.css">
-    </head> -->
+    
 <body>
     <%- include('../partials/header'); %>
     <main class="product-list">
@@ -34,18 +30,23 @@
                         </div>
                                             
                         <div class= "range alcohol">
-                            <label for="amargor">Alcohol</label>
+                            <label for="amargor">Alcohol</label><br>
                             <input type="range" name="alcohol" id="alcohol" min="1" max="100">
                         </div>
 
                         <div class= "range ibu">
-                            <label for="amargor">Amargor</label>
+                            <label for="amargor">Amargor</label><br>
                             <input type="range" name="amargor" id="amargor" min="1" max="100">
                         </div>
 
                         <div class="category">
                             <label for="Category">Categorías</label>
                             <ul class= "category-list">
+                                <li class= "category-item">
+                               
+                                    <input type="checkbox" name= "categoria" id="allCategories" value = "all" >
+                                    Todas 
+                                </li>
                          
                                 <% for (let i = 0; i < categorias.length; i++){ %>
                                     <li class= "category-item">
@@ -65,6 +66,11 @@
                         <div class="maker">
                             <label for="maker">Fabricantes</label>
                             <ul class= "maker-list">
+                                <li class= "maker-item">
+                               
+                                    <input type="checkbox" name= "fabricante" id="allMakers" value = "all" >
+                                    Todos                                    
+                                </li>
                          
                                 <% for (let i = 0; i < fabricantes.length; i++){ %>
                                     <li class= "maker-item">
@@ -98,7 +104,9 @@
                 <% for (let i = 0; i<productos.length; i++){ %>
                     <div class= "list card">
                         <div class="card title">
-                            <h3 id="prod-title"><%=productos[i].name%></h3>
+                            <a href="/products/<%= productos[i].id %>">
+                                <h3 id="prod-title"><%=productos[i].name%></h3>
+                            </a>
                             <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
                         </div>
                         
