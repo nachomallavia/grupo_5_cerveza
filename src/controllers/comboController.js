@@ -37,12 +37,18 @@ const controller = {
     }, 
 
     list: function(req, res){
+        const productos = await db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
+        const fabricantes = await db.Makers.findAll();
+        const coloresSrm = await db.Srm.findAll();
+        const categorias = await db.Categories.findAll();
+        const combos = await db.Combos.findAll();
         res.render('combos/comboList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
     adminList: function(req, res){
         res.render('combos/comboAdminList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
-    Create: function(req, res){
+    Create: async function(req, res){
+        const productos = await db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
         res.render('combos/comboCreate',{'productos': productos});
     },
     CreateForm: function(req, res){
@@ -73,14 +79,14 @@ const controller = {
                     console.log("succes");
                 });
             }
-            res.redirect('/admin/products');
+            res.redirect('/admin/combos');
         })
     },
     edit: function(req, res){
         res.render('combos/comboEdit');
     },
     EditForm: function(req, res){
-
+        
     },
     Delete: function(req, res){
         
