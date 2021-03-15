@@ -54,6 +54,7 @@ const controller = {
     CreateForm: function(req, res){
         let name = req.body.pname;
         let price = req.body.pprice;
+        let description = req.body.pdesc;
         delete req.body.pname;
         delete req.body.pprice;
         let items = req.body;
@@ -66,6 +67,7 @@ const controller = {
         db.Combos.create({
             name: name,
             price: price,
+            description: description,
             image: req.files[0].filename,
         })
         .then(function(combo){
