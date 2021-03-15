@@ -36,7 +36,7 @@ const controller = {
         res.render('combos/comboAdminList',{'combos':combos,'categorias': categories,'fabricantes': makers,'productos': products,'coloresSrm':srmIndex, 'formatos': formats})
     }, 
 
-    list: function(req, res){
+    list: async function(req, res){
         const productos = await db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
         const fabricantes = await db.Makers.findAll();
         const coloresSrm = await db.Srm.findAll();
