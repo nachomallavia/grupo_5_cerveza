@@ -4,6 +4,7 @@ const indexController = require('../controllers/indexController');
 
 
 router.get('/', indexController.home);
+router.get('/contact', indexController.contactos);
 
 router.get('/test/:id', indexController.test);
 

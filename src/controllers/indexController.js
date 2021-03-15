@@ -48,5 +48,8 @@ module.exports = {
             res.send(resultado.name);
         })
 
+    },
+    contactos: function(req,res){
+        res.render('main/contactos')
     }
 }
