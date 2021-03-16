@@ -234,6 +234,7 @@ select{
     margin-top: 10%;
     margin-bottom: 5%;
     width: 70%;
+    border-radius: 5%;
 }
 .contact-form .form-control{
     border-radius:1rem;
@@ -249,6 +250,7 @@ select{
 }
 .contact-form form{
     padding: 14%;
+    border-radius: 50%;
 }
 .contact-form form .row{
     margin-bottom: -7%;
@@ -279,3 +281,9 @@ select{
     border: none;
     cursor: pointer;
 }
+.form-group {
+    display: flex;
+    margin: 20px;
+
+}
+

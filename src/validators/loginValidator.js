@@ -6,8 +6,8 @@ const path = require('path');
 // usuarios = JSON.parse(usuarios);
 
 
-module.exports = [check('email').isEmail().withMessage('Debe ingresar un mail válido')
-// ,
+module.exports = [check('email').isEmail().withMessage('Debe ingresar un mail válido'),
+check('password').isLength({min: 8}).withMessage('Su contraseña debe tener un mínimo de 8 caracteres')
 // body('email').custom(function(value){
 //     for (let i = 0 ; i < usuarios.length ; i++){
 //       if (usuarios[i].email == value ){

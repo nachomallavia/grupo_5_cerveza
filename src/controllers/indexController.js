@@ -51,5 +51,8 @@ module.exports = {
     },
     contactos: function(req,res){
         res.render('main/contactos')
+    },
+    respuestaContacto: function(req,res){
+        res.render('main/respuestaContacto')
     }
 }
