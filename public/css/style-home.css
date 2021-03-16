@@ -151,7 +151,7 @@ div.window .list.card.out{
 /* COMBOS ESCONDIDOS POR EL MOMENTO */
 section.combos{
     height:400px;
-    display: none;
+    display: flex;
 }
 div.combo-container{
     width:100%;
