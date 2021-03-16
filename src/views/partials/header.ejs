@@ -30,6 +30,12 @@
                         <a href="/products" class="nav-enlace">Cervezas</a>
                         <a href="/combos" class="nav-enlace">Combos</a>
                         <a href="/contact" class="nav-enlace">Contacto</a>
+                        <% if(typeof usuarioLogueado != 'undefined') {%> 
+                            <% if(usuarioLogueado.id_user_type == 2) {%> 
+                            
+                                <a href="#" class="nav-enlace">Dashboard</a>
+
+                            <% }} %>
                         </nav>
                     </div>
                     <% if(typeof usuarioLogueado != 'undefined') {%> 
