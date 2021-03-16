@@ -3,6 +3,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const cors = require('cors')
 
 const app = express();
 const sesionIniciadaMiddleware = require('./middlewares/sesionIniciada');
@@ -22,6 +23,7 @@ app.use(methodOverride('_method'));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors())
 
 app.set('view engine','ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -34,6 +36,6 @@ app.use('/users', usersRouter);
 app.use('/admin',adminMiddleware, adminRouter);
 app.use('/api', apiRouter);
 
-app.listen(process.env.PORT || 3000 , function(){
+app.listen(process.env.PORT || 3001 , function(){
     console.log('Birras llegando..');
 })
