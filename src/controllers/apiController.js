@@ -27,7 +27,7 @@ const controller = {
     },
 
     productsList: function(req,res){
-        db.Products.findAll({include:[{association:"category"}],attributes: ['id','name','description','image']})
+        db.Products.findAll({include:[{association:"category"},{association:"srm_index"}],attributes: ['id','name','description','image','price']})
         .then(function(productos){
             for(let i = 0; i < productos.length; i++){
                 productos[i].dataValues["detail"] = `/api/products/${productos[i].id}`
