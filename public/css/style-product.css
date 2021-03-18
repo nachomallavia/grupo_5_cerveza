@@ -367,6 +367,7 @@ main.create div.color-srm{
 main.product-list{
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     position:relative;
     width: 90%;
     max-width: 1280px;
@@ -456,6 +457,13 @@ div.category{
     flex-wrap: wrap;
     justify-content: space-around;
 }
+.list.container.combo{
+    margin: 16px;
+    display: flex;
+    flex-grow:3;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
 .list.card{
     
     max-width: 280px;
@@ -467,11 +475,29 @@ div.category{
     margin-bottom: 40px;
     margin-right: 16px;
 }
+.titleprice{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+div.price{
+    margin:12px;
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--darkgrey);
+}
 .card.title{
-    margin: 16px;
+    margin: 12px;
+    text-overflow: ellipsis;
     color: var(--darkgrey);
 }
 .card.title a{
+    font-size: 15px;
+    width: 75%;
+    display: block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    /* overflow: hidden; */
     text-decoration: none;
     color: var(--color2);
 }
@@ -479,12 +505,15 @@ div.category{
     color: var(--color1);
 }
 
-.card.title h5 a{
+.card.title h5 {
+    margin-top:4px;
+    font-size: 12px;
     text-decoration: none;
-    color: var(--color1);
+    font-weight: 400;
+    color: var(--darkgrey);
 }
 .card.title h5 a:hover{
-    color: var(--color2);
+    color: var(--color1);
 }
 
 .card.prod-img{

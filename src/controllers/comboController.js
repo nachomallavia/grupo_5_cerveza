@@ -44,6 +44,12 @@ const controller = {
         const combos = await db.Combos.findAll();
         res.render('combos/comboList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
+    detail: async function(req, res){
+        const combo = await db.Combos.findByPk(req.params.id, {include: {model: db.Products, as: 'product'}}).catch(error =>{ console.log(error)});
+        console.log(combo);
+        res.send(`combo ${combo.product[0].dataValues}`);
+        
+    },
     adminList: function(req, res){
         res.render('combos/comboAdminList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },

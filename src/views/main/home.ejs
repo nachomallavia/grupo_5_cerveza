@@ -6,17 +6,21 @@
     <main>
         <div class="slide-container">
             <div class="slide desktop">
-                <img src="/img/slides/Banner1_desktop.jpg" alt="">
+                <img src="/img/slides/Banner1_desktop.jpg" alt="" id="banner1" class="banner show">
+                <img src="/img/slides/Banner2_desktop.jpg" alt="" id="banner2" class="banner">
+                <img src="/img/slides/Banner3_desktop.jpg" alt="" id="banner2" class="banner">
             </div>
             <div class="slide mobile">
-                <img src="/img/slides/Banner1_mobile.jpg" alt="">
+                <img src="/img/slides/Banner1_mobile.jpg" alt="" class="bannerMobile show">
+                <img src="/img/slides/Banner2_mobile.jpg" alt="" class="bannerMobile">
+                <img src="/img/slides/Banner3_mobile.jpg" alt="" class="bannerMobile">
             </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <a class="prev" id="prevBanner">&#10094;</a>
+            <a class="next" id="nextBanner">&#10095;</a>
             <div class="dot-container">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" data-index = "1"></span>
+                <span class="dot" data-index = "2"></span>
+                <span class="dot" data-index = "3"></span>
               </div>
         </div>
 
@@ -34,12 +38,15 @@
                         
                         <% if (productos[i].rating > 3){ %>
                             <%n++%>    
-                            <div class= "list card bestCard" id="card<%=n%>">
-                            <div class="card title">
-                                <a href="/products/<%=productos[i].id%>" class="prodTitle"><h3 id="prod-title"><%=productos[i].name%></h3></a>
-                                <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
+                        <div class= "list card bestCard" id="card<%=n%>">
+                            <div class="titleprice">
+                                <div class="card title">
+                                    <a href="/products/<%=productos[i].id%>" class="prodTitle"><h3 id="prod-title"><%=productos[i].name%></h3></a>
+                                    <h5>por <%=productos[i].maker.name%></h5>
+                                    
+                                </div>
+                                
                             </div>
-                            
                             <div class= "card prod-img">
                                 <a href="/products/<%=productos[i].id%>" class="prodTitle"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
                             </div>
@@ -50,6 +57,7 @@
                                     <div class="emptystar"><img src="/img/star_empty.svg" alt=""></div>
                                 <% } %>
                             </div>
+                            <div class="card price">$<%=productos[i].price%></div>
 
                             <div class= "meter alcohol">
                                 <div class= "alcohol text">
@@ -76,8 +84,9 @@
                                 <% var tono = coloresSrm[color]%>
                                 <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                             </div>
+                            
 
-                            </div>
+                        </div>
                     
                         <% } %>
                     <% } %>                                       
@@ -90,8 +99,30 @@
         <section class="combos">
             <div class="combo-container">
                 <div class="title-all">
-                    <h2>Combos seleccionados</h2>
-                    <a>próximamente</a>
+                    <h2>Combos disponibles</h2>
+                    <!-- <a>próximamente</a> -->
+                </div>
+                <div class="combo window">
+                    <% for (let i = 0; i<combos.length; i++){ %>
+                        <div class="card combo">
+                            <div class="titlecombo">
+                                <div>
+                                    <h4><%=combos[i].name%></h4>
+                                    <p>$<%=combos[i].price%></p>
+                                </div>
+                                <div class="detail-link">
+                                   <a href="/combos/<%=combos[i].id%>">ver detalle</a>
+                                </div>
+                            </div>
+
+                            <div class="imgcontainer combo">
+                                <img src="/uploads/<%=combos[i].image%>" alt="<%=combos[i].name%>">
+                            </div>
+                            
+                            
+                        </div>
+
+                        <% } %>
                 </div>
             </div>
         </section>
@@ -110,47 +141,51 @@
                                                 
                             <%c++%>    
                             <div class= "list card recomendedCard" id="card<%=c%>">
-                            <div class="card title">
-                                <a href="/products/<%=productos[i].id%>" class="prodTitle"><h3 id="prod-title"><%=productos[i].name%></h3></a>
-                                <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
-                            </div>
+                                <div class="titleprice">
+                                    <div class="card title">
+                                        <a href="/products/<%=productos[i].id%>" class="prodTitle"><h3 id="prod-title"><%=productos[i].name%></h3></a>
+                                        <h5>por <%=productos[i].maker.name%></h5>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <div class= "card prod-img">
+                                    <a href="/products/<%=productos[i].id%>" class="prodTitle"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
+                                </div>
+                                <div class="card rating">
+                                    <% for (let s = 1; s <= productos[i].rating; s++){ %>
+                                    <div class="fullstar"><img src="/img/star_full.svg" alt=""></div><% } %>
+                                    <% for (let r = 1; r <= (5-(productos[i].rating)); r++){ %> 
+                                        <div class="emptystar"><img src="/img/star_empty.svg" alt=""></div>
+                                    <% } %>
+                                </div>
+                                <div class="card price">$<%=productos[i].price%></div>
+    
+                                <div class= "meter alcohol">
+                                    <div class= "alcohol text">
+                                        <h4>Alcohol</h4>
+                                        <h4 id="percentage-alcohol"><%=productos[i].abv%>%</h4>
+                                    </div>
+                                    <% var abv = (((productos[i].abv)/14)*100)+"%" %>
+                                    
+                                    <div class="bar alcohol"><div id="bar-level-alcohol" style= "width: <%= abv %>"></div></div>
+                                </div>
                             
-                            <div class= "card prod-img">
-                                <a href="/products/<%=productos[i].id%>" class="prodTitle"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
-                            </div>
-                            <div class="card rating">
-                                <% for (let s = 1; s <= productos[i].rating; s++){ %>
-                                <div class="fullstar"><img src="/img/star_full.svg" alt=""></div><% } %>
-                                <% for (let r = 1; r <= (5-(productos[i].rating)); r++){ %> 
-                                    <div class="emptystar"><img src="/img/star_empty.svg" alt=""></div>
-                                <% } %>
-                            </div>
-
-                            <div class= "meter alcohol">
-                                <div class= "alcohol text">
-                                    <h4>Alcohol</h4>
-                                    <h4 id="percentage-alcohol"><%=productos[i].abv%>%</h4>
+    
+                                <div class= "meter bitternes">
+                                    <div class="bitternes text">
+                                        <h4>Amargor</h4>
+                                        <h4 id="number-bitternes"><%=productos[i].ibu%></h4>
+                                    </div>
+                                    <% var ibu = productos[i].ibu+"%" %>
+                                    <div class="bar bitternes"><div id="bar-level-bitternes" style= "width: <%= ibu %>"></div></div>
                                 </div>
-                                <% var abv = (((productos[i].abv)/14)*100)+"%" %>
-                                
-                                <div class="bar alcohol"><div id="bar-level-alcohol" style= "width: <%= abv %>"></div></div>
-                            </div>
-                        
-
-                            <div class= "meter bitternes">
-                                <div class="bitternes text">
-                                    <h4>Amargor</h4>
-                                    <h4 id="number-bitternes"><%=productos[i].ibu%></h4>
+                                <div class="meter srm">
+                                    <h4>Tono</h4>
+                                    <% var color = productos[i].srm %>
+                                    <% var tono = coloresSrm[color]%>
+                                    <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                                 </div>
-                                <% var ibu = productos[i].ibu + "%" %>
-                                <div class="bar bitternes"><div id="bar-level-bitternes" style= "width: <%= ibu %>"></div></div>
-                            </div>
-                            <div class="meter srm">
-                                <h4>Tono</h4>
-                                
-                                <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
-                            </div>
-
                             </div>
                     
                         
@@ -213,6 +248,9 @@
                 
             
             } //  Cierra la funcion
-    </script>  
+           
+    </script>
+    <script src= "./scripts/slider.js"></script>
+     
 </body>
 </html>

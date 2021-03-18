@@ -31,7 +31,7 @@
                         <label for="pmaker">Fabricante</label>
                         <select id="pmaker" name="pmaker">
                             <option value="<%= producto.maker.id %>" selected><%= producto.maker.name %></option>
-                            <% for (let i = 1; i < fabricantes.length; i++){ %>
+                            <% for (let i = 0; i < fabricantes.length; i++){ %>
                             <option value= <%= fabricantes[i] %> > <%= fabricantes[i].name %> </option>
                             <% } %>
                         </select>
@@ -40,7 +40,7 @@
                         <label for="pcategory">Categoría</label>
                         <select id="pcategory" name="pcategory">
                             <option value="<%= producto.category.id %>" selected><%= producto.category.name %></option>
-                            <% for (let i = 1; i < categorias.length; i++){ %>
+                            <% for (let i = 0; i < categorias.length; i++){ %>
                             <option value= <%= categorias[i] %> > <%= categorias[i].name %> </option>
                             <% } %>
                         </select>
