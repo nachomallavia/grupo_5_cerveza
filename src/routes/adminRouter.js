@@ -36,12 +36,9 @@ router.put('/products/:id/edit', upload.any(), productValidator, productsControl
 router.delete('/products/:id', productsController.Delete);
 
 // RUTAS DE COMBOS
-<<<<<<< HEAD
-router.get('/combos', comboController.adminList);     
 
-=======
-router.get('/combos',comboController.list);
->>>>>>> fb2503f535fd2fee0781fb4460313b04ad3a69b5
+router.get('/combos', comboController.adminList);   
+
 router.get('/combos/create', comboController.Create);                               
 router.post('/combos/create', upload.any(), comboController.CreateForm);                   
             
