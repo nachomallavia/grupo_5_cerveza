@@ -3,7 +3,7 @@
     <%- include('../partials/head'); %>
 <body>
     <%- include('../partials/header'); %>
-    <main class="product-list">
+    <main class="product-list combo">
         <aside class="filter group">
             <form action="" class="filter form">
                 <div class="order">
@@ -89,18 +89,27 @@
                 <h2>Combos</h2>
                 <span>Home - Combos</span>
             </div>
-            <div id= "list container" class = "list container">
+            <div id= "list container" class = "list container combo">
                 <% for (let i = 0; i<combos.length; i++){ %>
-                    <div class= "list card">
-                        <div class="card title">
-                            <h3 id="prod-title"><%=combos[i].name%></h3>
+                    <div class="card combo">
+                        <div class="titlecombo">
+                            <div>
+                                <h4><%=combos[i].name%></h4>
+                                <p>$<%=combos[i].price%></p>
+                            </div>
+                            <div class="detail-link">
+                               <a href="/combos/<%=combos[i].id%>">ver detalle</a>
+                            </div>
+                        </div>
+
+                        <div class="imgcontainer combo">
+                            <img src="/uploads/<%=combos[i].image%>" alt="<%=combos[i].name%>">
                         </div>
                         
-                        <div class= "card prod-img">
-                           <img id="prod-img" src="/uploads/<%=combos[i].image%>" alt="imagen combo">
-                        </div>
+                        
                     </div>
-                <% } %>
+
+                    <% } %>
 
                 
             </div>

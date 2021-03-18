@@ -21,7 +21,7 @@
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Todas'),(2,'Porter'),(3,'IPA'),(4,'APA'),(5,'Stout'),(6,'Pale Ale'),(7,'Sour'),(8,'Wheat'),(9,'Brown'),(10,'Amber'),(11,'Scotch Ale'),(12,'Dark Lager'),(13,'Bock'),(14,'Pale Lager'),(15,'Belgian');
+INSERT INTO `categories` VALUES (2,'Porter'),(3,'IPA'),(4,'APA'),(5,'Stout'),(6,'Pale Ale'),(7,'Sour'),(8,'Wheat'),(9,'Brown'),(10,'Amber'),(11,'Scotch Ale'),(12,'Dark Lager'),(13,'Bock'),(14,'Pale Lager'),(15,'Belgian');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -31,6 +31,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `combos` WRITE;
 /*!40000 ALTER TABLE `combos` DISABLE KEYS */;
+INSERT INTO `combos` VALUES (6,'Especial Mapache',1000,'Especial Mapache_picture.jpg','Combo Strange Brewing por 6 unidades'),(7,'Una de cada',2500,'Una de cada_picture.png','Llevate todo a un precio de locos!!'),(8,'Combo IPAs',1200,'Combo IPAs_picture.png','Las mejores IPAs son todas las IPAs');
 /*!40000 ALTER TABLE `combos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -40,6 +41,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `combos_products` WRITE;
 /*!40000 ALTER TABLE `combos_products` DISABLE KEYS */;
+INSERT INTO `combos_products` VALUES (6,7,2,16),(6,9,2,17),(6,8,2,18),(7,1,1,19),(7,2,1,20),(7,3,1,21),(7,4,1,22),(7,7,1,23),(7,8,1,24),(7,9,1,25),(7,5,1,26),(7,6,1,27),(8,3,2,28),(8,4,2,29),(8,5,2,30);
 /*!40000 ALTER TABLE `combos_products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +61,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `makers` WRITE;
 /*!40000 ALTER TABLE `makers` DISABLE KEYS */;
-INSERT INTO `makers` VALUES (1,'Todos'),(2,'Antares'),(3,'Capitán Lúpulo'),(4,'Juguetes Perdidos'),(5,'Sir Hopper'),(6,'Strange Brewing'),(7,'Gante'),(8,'Brew House'),(9,'Deliryum'),(10,'Gorila'),(11,'Kraken'),(12,'Patagonia'),(13,'Andes'),(14,'Santina'),(15,'Quilmes'),(16,'Palermo'),(17,'Schneider'),(18,'Rabieta');
+INSERT INTO `makers` VALUES (2,'Antares'),(3,'Capitán Lúpulo'),(4,'Juguetes Perdidos'),(5,'Sir Hopper'),(6,'Strange Brewing'),(7,'Gante'),(8,'Brew House'),(9,'Deliryum'),(10,'Gorila'),(11,'Kraken'),(12,'Patagonia'),(13,'Andes'),(14,'Santina'),(15,'Quilmes'),(16,'Palermo'),(17,'Schneider'),(18,'Rabieta');
 /*!40000 ALTER TABLE `makers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +71,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Porter',2,2,1,5.200,27,28,'Maltas oscuras. Sabor y aroma penetrante y nocturno. Chocolate, azúcar negro y café. La Porter es la cerveza tributo de Antares a la cultura de los primeros pubs en el puerto de Londres.',450.00,2,500,'Porter_picture.jpeg','2021-01-24 20:02:49','2021-01-24 20:02:49'),(2,'Gose Tonic',4,7,5,7.000,6,6,'Esta es una Sour Salty Gose con pepino y bayas de enebro, emulando el mejor gin-tonic.',350.00,1,330,'Gose Tonic_picture.jpg','2021-01-24 20:02:49','2021-02-18 03:09:55'),(3,'Nebulosa',1,1,5,6.000,30,1,'Una Hazy IPA con un gran protagonismo del lúpulo.',370.00,1,473,'Nebulosa_picture.jpg','2021-01-24 20:02:49','2021-01-28 04:16:55'),(4,'24.7',12,3,4,4.000,36,8,'Cerveza estilo Session IPA, muy tomable y refrescante, de amargor marcado otorgado por una combinación de lúpulos patagónicos. Cuenta con un intenso aroma a cítrico y frutal.',230.00,2,730,'24.7_picture.jpg','2021-01-24 20:02:49','2021-01-24 20:02:49'),(5,'American IPA',2,3,2,6.000,55,6,' ',290.00,1,473,'American IPA_picture.jpg','2021-01-24 20:07:18','2021-01-24 20:07:18'),(6,'Tiempo de valientes',6,3,4,4.000,46,3,'India Pale Lager con lúpulo Columbus, Cascade, Simcoe y Mosaic. Por estos extraños tiempos de valientes.',340.00,1,330,'Tiempo de valientes_picture.jpg','2021-01-24 20:09:11','2021-01-28 04:28:11');
+INSERT INTO `products` VALUES (1,'Porter',2,2,1,5.200,27,28,'Maltas oscuras. Sabor y aroma penetrante y nocturno. Chocolate, azúcar negro y café. La Porter es la cerveza tributo de Antares a la cultura de los primeros pubs en el puerto de Londres.',450.00,2,500,'Porter_picture.jpeg','2021-01-24 20:02:49','2021-01-24 20:02:49'),(2,'Gose Tonic',2,7,5,8.000,6,20,'Esta es una Sour Salty Gose con pepino y bayas de enebro, emulando el mejor gin-tonic.',200.00,2,330,'Gose Tonic_picture.jpg','2021-01-24 20:02:49','2021-03-16 14:01:29'),(3,'Nebulosa',3,4,5,6.000,30,1,'Una Hazy IPA con un gran protagonismo del lúpulo.',370.00,1,473,'Nebulosa_picture.jpg','2021-01-24 20:02:49','2021-03-15 02:10:58'),(4,'24.7',12,3,3,4.000,36,8,'Cerveza estilo Session IPA, muy tomable y refrescante, de amargor marcado otorgado por una combinación de lúpulos patagónicos. Cuenta con un intenso aroma a cítrico y frutal.',230.00,2,730,'24.7_picture.jpg','2021-01-24 20:02:49','2021-03-17 22:07:29'),(5,'American IPA',2,3,2,6.000,55,6,' Una clásica IPA americana.',290.00,1,473,'American IPA_picture.jpg','2021-01-24 20:07:18','2021-03-17 22:06:08'),(6,'Tiempo de valientes',6,3,4,4.000,46,3,'India Pale Lager con lúpulo Columbus, Cascade, Simcoe y Mosaic. Por estos extraños tiempos de valientes.',340.00,1,330,'Tiempo de valientes_picture.jpg','2021-01-24 20:09:11','2021-01-28 04:28:11'),(7,'Cortado por favor',6,5,4,7.000,24,32,'Oatmel Milk Stout hecha con con café de Fuego tostadores y nibs de cacao.\r\n\r\n',280.00,1,473,'Cortado por favor_picture.png','2021-03-17 23:54:23','2021-03-17 22:06:08'),(8,'Casi maduro',6,7,5,5.000,12,2,'Cerveza Sour Ale con jugo de Guambaya y Maracuya.\r\n',320.00,1,473,'Casi maduro_picture','2021-03-18 00:26:41','2021-03-17 22:06:08'),(9,'Conquista Mapache',6,6,3,6.000,24,4,'Juicy Pale Ale con lúpulos Simcoe, Citra y Mosaic.',300.00,1,473,'Conquista Mapache_picture.png','2021-03-18 00:29:34','2021-03-17 22:06:08');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,4 +114,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-03-11 20:37:59
+-- Dump completed on 2021-03-18  3:03:26

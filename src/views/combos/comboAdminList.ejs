@@ -89,16 +89,23 @@
                 <h2>Combos</h2>
                 <span>Home - Combos</span>
             </div>
-            <div id= "list container" class = "list container">
+            <div id= "list container combo" class = "list container combo">
                 <% for (let i = 0; i<combos.length; i++){ %>
-                    <div class= "list card">
-                        <div class="card title">
-                            <h3 id="prod-title"><%=combos[i].name%></h3>
+                    <div class="card combo">
+                        <div class="titlecombo">
+                            <div>
+                                <h4><%=combos[i].name%></h4>
+                                <p>$<%=combos[i].price%></p>
+                            </div>
+                            <div class="detail-link">
+                               <a href="/combos/<%=combos[i].id%>">ver detalle</a>
+                            </div>
                         </div>
-                        
-                        <div class= "card prod-img">
-                           <img id="prod-img" src="/uploads/<%=combos[i].image%>" alt="imagen combo">
+
+                        <div class="imgcontainer combo">
+                            <img src="/uploads/<%=combos[i].image%>" alt="<%=combos[i].name%>">
                         </div>
+<<<<<<< HEAD
                         <section class="edit-delete-buttons">
                             <a class="" href="/admin/combos/<%= combos[i].id %>/edit"><button class="mainbtn">EDITAR PRODUCTO</button></a>
                             
@@ -106,8 +113,13 @@
                                 <button type="submit" class="terciarybtn">ELIMINAR</button>
                             </form>
                         </section>
+=======
+                        
+                        
+>>>>>>> fb2503f535fd2fee0781fb4460313b04ad3a69b5
                     </div>
-                <% } %>
+
+                    <% } %>
 
                 
             </div>

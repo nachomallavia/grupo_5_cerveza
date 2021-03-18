@@ -82,13 +82,13 @@ div.title-all{
     display:flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 64px;
-    padding-right: 64px;
+    padding-left: 36px;
+    padding-right: 36px;
     margin-bottom: 16px;
 }
 section h2{
     color:var(--darkgrey);
-    font-size: clamp(24px, 1rem, 32px);
+    font-size: clamp(18px, 1rem, 28px);
 }
 div.title-all a{
     text-decoration: none;
@@ -118,6 +118,7 @@ div.window-container .column{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 32px;
 }
 
 a.next-card, a.prev-card{
@@ -149,13 +150,13 @@ div.window .list.card.out{
 }
 
 /* COMBOS ESCONDIDOS POR EL MOMENTO */
-section.combos{
+/* section.combos{
     height:400px;
     display: flex;
-}
+} */
 div.combo-container{
     width:100%;
-    padding: 16px;
+    /* padding: 16px; */
 }
 div.title{
     display: flex;
@@ -168,6 +169,70 @@ div.title a{
     color:var(--color2);
 }
 
+    
+
+    img.banner{
+        display: none;
+    }
+    img.show{
+        display: block;
+    }
+    section.combos{
+        margin-bottom: 48px;
+    }
+    
+
+    div.combo.window{
+        display: flex;
+        flex: 0 0 240px; 
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        
+        overflow: hidden;
+        
+    }
+    div.card.combo{
+        /* width:30%; */
+        margin:16px;
+        font-size: 18px;
+        font-weight: 400;
+        color: var(--darkgrey);
+        padding: 0px;
+        border-radius: 8px;
+        box-shadow: 4px 4px 16px var(--lightgrey);
+    }
+    div.titlecombo{
+        display: flex;
+        justify-content: space-between;
+    }
+    div.card.combo p{
+        margin-left:16px;
+        margin-top: 8px;
+        font-size: 14px;
+    }
+    div.card.combo h4{
+        margin-left:16px;
+        margin-top: 8px;
+        font-size: 18px;
+    }
+    div.detail-link{
+        margin-right:16px;
+        margin-top: 8px;
+    }
+    div.detail-link a{
+        text-decoration: none;
+        color: var(--color2);
+    }
+    div.detail-link a:hover{
+        color: var(--color1);
+    }
+    div.combo img{
+        margin-top: 16px;
+        border-radius: 0px 0px 8px 8px;
+
+        width:100%;
+    }
+
     @media only screen and (max-width: 768px){
 
         div.slide.desktop{
@@ -178,5 +243,10 @@ div.title a{
             width:100%;
             max-width:1280px;
             margin-bottom: 80px;
+        }
+        div.combo.window{
+            flex-wrap: wrap;}
+        div.card.combo{
+            width:80%;
         }
     }
