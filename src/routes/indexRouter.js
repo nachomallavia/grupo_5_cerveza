@@ -8,7 +8,7 @@ router.get('/contact', indexController.contactos);
 router.post('/contact', indexController.respuestaContacto);
 
 router.get('/test/:id', indexController.test);
-router.get('/combos', comboController.comboList);                                                 
+router.get('/combos', comboController.list);                                                 
 
 
 module.exports = router;

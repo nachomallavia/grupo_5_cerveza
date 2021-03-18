@@ -5,38 +5,30 @@
     <%- include('../partials/header'); %>
     <main class="create">
         <div class="container">
-            <h2 class="title">CREAR UN COMBO</h2>
+            <h2 class="title">Combo a editar:</h2><h2 class="product-name-edit"><%= combo.name %></h2>
+            <div class= "edit-image">
+                <img id="prod-img" src="/uploads/<%=combo.image%>" alt="imagen producto">
+            </div>
             <div class="separador"></div>
             <div class="formCreate">
-                <form action="/admin/products/combos/create" method="post" enctype="multipart/form-data">
+                <form action="/admin/combos/<%= combo.id %>/edit?_method=PUT" method="post" enctype="multipart/form-data">
                     <div class="name">
                         <label for="pname">Nombre</label>
-                        <input id="pname" name="pname" type="text" value="combo.name">
+                        <input id="pname" name="pname" type="text" value="<%= combo.name %>">
                     </div>
                     <div class="desc">
                         <label for="pdesc">Descripción</label>
-                        <textarea name="pdesc" id="pdesc" rows="10" cols="20" value="combo.desc"></textarea>
+                        <textarea name="pdesc" id="pdesc" rows="10" cols="20"><%= combo.description %></textarea>
                     </div>
                     <div class="price">
                         <label for="pprice">Precio</label>
-                        <input id="pprice" name="pprice" type="number" step="any" value="combo.price">
-                    </div>
-                    <div class="items">
-                        <% for (let i = 0; i < productos.length; i++){ %>
-                            <div class="itemscont">                     
-                                <img class="item-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">   
-                                <span class="itemsname"><%= productos[i].name %></span>
-                                <div class="itemscontd">
-                                <input name="<%=productos[i].id%>" class="sum" type="number" min="0" value="combo.items.i">       
-                                </div>                                     
-                            </div>
-                        <% } %>
+                        <input id="pprice" name="pprice" type="number" step="any" value="<%= combo.price %>">
                     </div>
                     <div class="image">
                         <label for="pimage">Imagen</label>
                         <input id="pimage" name="pimage" type="file">
                     </div>
-                    <button type="submit">Crear</button>
+                    <button type="submit">Editar</button>
                 </form>
             </div>
         </div>
