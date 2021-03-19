@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/head'); %>
+<body>
+    <%- include('../partials/header'); %>
+    <div class="title-list">
+        <div class="title-products">
+            <h2>Resultados de su búsqueda</h2>
+        </div>
+        <div id= "list container" class = "list container">
+            <% for (let i = 0; i<productos.length; i++){ %>
+                <div class= "list card">
+                    <div class="card title">
+                        <a href="/products/<%= productos[i].id %>">
+                            <h3 id="prod-title"><%=productos[i].name%></h3>
+                        </a>
+                    </div>
+                    
+                    <div class= "card prod-img">
+                        <a href="/products/<%= productos[i].id %>"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
+                    </div>
+                    <div class="card rating">
+                        <% for (let s = 1; s <= productos[i].rating; s++){ %>
+                        <div class="fullstar"><img src="/img/star_full.svg" alt=""></div><% } %>
+                        <% for (let r = 1; r <= (5-(productos[i].rating)); r++){ %> 
+                            <div class="emptystar"><img src="/img/star_empty.svg" alt=""></div>
+                        <% } %>
+                    </div>
+
+                    <div class= "meter alcohol">
+                        <div class= "alcohol text">
+                            <h4>Alcohol</h4>
+                            <h4 id="percentage-alcohol"><%=productos[i].abv%>%</h4>
+                        </div>
+                        <% var abv = (((productos[i].abv)/14)*100)+"%" %>
+                        
+                        <div class="bar alcohol"><div id="bar-level-alcohol" style= "width: <%= abv %>"></div></div>
+                    </div>
+                
+
+                    <div class= "meter bitternes">
+                        <div class="bitternes text">
+                            <h4>Amargor</h4>
+                            <h4 id="number-bitternes"><%=productos[i].ibu%></h4>
+                        </div>
+                        <% var ibu = productos[i].ibu+"%" %>
+                        <div class="bar bitternes"><div id="bar-level-bitternes" style= "width: <%= ibu %>"></div></div>
+                    </div>
+                    
+
+                </div>
+            <% } %>
+
+            
+        </div>
+
+    </div>
+
+
+    <%- include('../partials/footer'); %>
+    <script src="/scripts/loginFront.js"></script>
+</body>
+</html>

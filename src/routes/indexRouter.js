@@ -5,6 +5,7 @@ const comboController = require('../controllers/comboController')
 
 router.get('/', indexController.home);
 router.get('/contact', indexController.contactos);
+router.get('/search', indexController.search);
 router.post('/contact', indexController.respuestaContacto);
 
 router.get('/test/:id', indexController.test);

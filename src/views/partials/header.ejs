@@ -8,12 +8,17 @@
                     <a href="/"><img class="logo" src="/img/logo.svg" alt="Logo Elio Pez"></a>
             
                     <div class="carrito">
-                        <!-- <i class="fas fa-search"></i> -->
-                        <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                        <form action="/search" class="formBuscador">
+                            <!-- <div class="buscador"> -->
+                                <input placeholder="Buscar" id="search" name="search" type="text" ><button type="submit"><i class="fas fa-search"></i></button>
+                            </form>    <!-- </div> -->
+                            <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+                        
                         <% if(typeof usuarioLogueado != 'undefined') {%> 
                             <div class="email-avatar">
                                 <a href="/admin" style="display: block;">
-                                    <img id="avatar-profile-header" src="/uploads/avatars/<%=usuarioLogueado.avatar%>" alt="avatar usuario">
+                                    <img id="avatar-profile-header" src="
+                                    /uploads/avatars/<%=usuarioLogueado.avatar%>" alt="avatar usuario">
                                 </a>
                             </div>
                             <% } else { %> 

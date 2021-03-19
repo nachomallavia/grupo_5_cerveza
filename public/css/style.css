@@ -68,19 +68,35 @@ header div.header div.top a img.logo{
 }
 header div.header div.carrito{
     display: flex;
-    max-width:120px;
+    /* max-width:120px; */
     color:var(--color2);
-
-
+    justify-content:center;
+    position: relative;
+    left: 10%;
     
+}
+header div.header div.carrito form{
+    display: flex;
+    /* max-width:120px; */
+    color:var(--color2);  
+    align-items: center;
+    height: 40px;
+    position: relative;
+    bottom: 5px
 }
 header div.header div.carrito a{
 
     text-decoration: none;
     color:var(--color2);
     margin-left: 16px;
-    
 }
+header div.header div.carrito a{
+
+    text-decoration: none;
+    color:var(--color2);
+    margin-left: 16px;
+}
+
 header div.header div.bottom{
     display: flex;
     background-color: var(--lightgrey);
@@ -123,6 +139,34 @@ header div.bottom div.container div.register-login a{
     
     margin-left: 16px;
 }
+
+
+.formBuscador {
+    width: 40%;
+    height: 50px;
+    display: inline-block;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 6px;
+}
+
+form input[type="text"] {
+    width: 90%;
+    border: none;
+    font-size: 18px;
+}
+
+form button[type="submit"] {
+    width: 10%;
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: #686868;
+    border-left: 1px solid #EAEDE6;
+    padding: 0;
+    text-align: right
+}
+
 
 
 /* Resposive header.ejs */
@@ -259,7 +303,7 @@ select{
 }
 
 
-/* sacar si no funca */
+
 
 .contact-form{
     background: #fff;
