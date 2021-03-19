@@ -92,6 +92,7 @@
             <div id= "list container combo" class = "list container combo">
                 <% for (let i = 0; i<combos.length; i++){ %>
                     <div class="card combo">
+                        <div class= "list card">
                         <div class="titlecombo">
                             <div>
                                 <h4><%=combos[i].name%></h4>
@@ -103,22 +104,17 @@
                         </div>
 
                         <div class="imgcontainer combo">
-                            <img src="/uploads/<%=combos[i].image%>" alt="<%=combos[i].name%>">
+                            <img src="/uploads/<%=combos[i].image%>" alt="<%=combos[i].name%>" id="prod-img">
                         </div>
-<<<<<<< HEAD
                         <section class="edit-delete-buttons">
-                            <a class="" href="/admin/combos/<%= combos[i].id %>/edit"><button class="mainbtn">EDITAR PRODUCTO</button></a>
+                            <a class="" href="/admin/combos/<%= combos[i].id %>/edit"><button class="mainbtn">EDITAR COMBO</button></a>
                             
                             <form action="/admin/combos/<%= combos[i].id %>?_method=DELETE" method="POST">
                                 <button type="submit" class="terciarybtn">ELIMINAR</button>
                             </form>
                         </section>
-=======
-                        
-                        
->>>>>>> fb2503f535fd2fee0781fb4460313b04ad3a69b5
                     </div>
-
+                    </div>
                     <% } %>
 
                 
