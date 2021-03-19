@@ -5,7 +5,11 @@
     <%- include('../partials/header'); %>
     <div class="title-list">
         <div class="title-products">
+            <% if(productos.length>0){ %> 
             <h2>Resultados de su búsqueda</h2>
+            <% } else { %>
+                <h2>Su búsqueda no ha arrojado resultados</h2>
+                <%  }%> 
         </div>
         <div id= "list container" class = "list container">
             <% for (let i = 0; i<productos.length; i++){ %>
