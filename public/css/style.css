@@ -304,8 +304,9 @@ select{
 
 
 
-
 .contact-form{
+    display: flex;
+    flex-direction: column;
     background: #fff;
     margin-top: 10%;
     margin-bottom: 5%;
@@ -313,7 +314,7 @@ select{
     border-radius: 5%;
 }
 .contact-form .form-control{
-    border-radius:1rem;
+    border-radius:4px;
 }
 .contact-image{
     text-align: center;
@@ -326,7 +327,7 @@ select{
 }
 .contact-form form{
     padding: 14%;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 .contact-form form .row{
     margin-bottom: -7%;
@@ -335,20 +336,20 @@ select{
     margin-bottom: 8%;
     margin-top: -10%;
     text-align: center;
-    color: #0062cc;
+    color: var(--darkgrey);
 }
 .contact-form .btnContact {
-    width: 50%;
+    width: clamp( 50%, 240px, 100%);
     border: none;
-    border-radius: 1rem;
-    padding: 1.5%;
-    background: #dc3545;
+    border-radius: 4px;
+    padding: 16px;
+    background: var(--color2);
+    font-size: 16px;
     font-weight: 600;
     color: #fff;
     cursor: pointer;
 }
-.btnContactSubmit
-{
+.btnContactSubmit {
     width: 50%;
     border-radius: 1rem;
     padding: 1.5%;
@@ -359,7 +360,7 @@ select{
 }
 .form-group {
     display: flex;
+    align-items: center;
     margin: 20px;
 
 }
-
