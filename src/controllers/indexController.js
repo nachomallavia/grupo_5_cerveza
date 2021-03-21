@@ -33,12 +33,12 @@ const db = require ('../database/models/index.js');
 module.exports = {
     home : async function(req,res){
         console.log("---------------------- esperando promesas -----------------------")
-        const products = await db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
+        const products = await db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
         const makers = await db.Makers.findAll();
         const srmIndex = await db.Srm.findAll();
         const categories = await db.Categories.findAll();
         const formats = await db.Formats.findAll();
-        const combos = await db.Combos.findAll();
+        const combos = await db.Combos.findAll({where:{state: 0}});
         console.log("---------------------- promesas listas -----------------------")
 
         res.render('main/home',{'combos':combos,'categorias': categories,'fabricantes': makers,'productos': products,'coloresSrm':srmIndex, 'formatos': formats})}
@@ -59,6 +59,7 @@ module.exports = {
      function(req,res){
         db.Products.findAll({
             where: {
+                state:0,
                 name: {
                     [db.Sequelize.Op.like]: "%"+req.query.search+"%"
                 }
@@ -77,6 +78,7 @@ module.exports = {
     function(req,res){
         db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]},{
             where: {
+                            state:0,
                             name: {
                                 [db.Sequelize.Op.like]: "%"+req.query.search+"%"
                             }

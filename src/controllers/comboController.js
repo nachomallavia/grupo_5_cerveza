@@ -24,11 +24,11 @@ let db = require('../database/models');
 const controller = {
 
     list: async function(req, res){
-        const productos = await db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
+        const productos = await db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
         const fabricantes = await db.Makers.findAll();
         const coloresSrm = await db.Srm.findAll();
         const categorias = await db.Categories.findAll();
-        const combos = await db.Combos.findAll();
+        const combos = await db.Combos.findAll({where:{state: 0}});
         res.render('combos/comboList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
     detail: async function(req, res){
@@ -38,15 +38,15 @@ const controller = {
         
     },
     adminList: async function(req, res){
-        const productos = await db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
+        const productos = await db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
         const fabricantes = await db.Makers.findAll();
         const coloresSrm = await db.Srm.findAll();
         const categorias = await db.Categories.findAll();
-        const combos = await db.Combos.findAll();
+        const combos = await db.Combos.findAll({where:{state: 0}});
         res.render('combos/comboAdminList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
     Create: async function(req, res){
-        const productos = await db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
+        const productos = await db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
         res.render('combos/comboCreate',{'productos': productos});
     },
     CreateForm: function(req, res){
@@ -123,22 +123,17 @@ const controller = {
     },
     Delete: function(req, res){
         let id = req.params.id
-        db.Combos.destroy({
-            where: {
+        db.Combos.update({
+            state: 1
+        },
+        {
+            where:{
                 id: id
             }
         })
         .then(function(){
-            // db.combos_products.destroy({
-            //     where: {
-            //         id_combo: id
-            //     }
-            // })
-            // .then(function(){
-                res.redirect('/admin/combos');
-           
+            res.redirect('/admin/combos');
         })
-        
     },
 
 };

@@ -87,7 +87,10 @@
         <div class="title-list">
             <div class="title-products">
                 <h2>Combos</h2>
-                <span>Home - Combos</span>
+                <div class="buttons">
+                <a href="/admin/combos/create"><button class="mainbtn">Crear Combo</button></a>
+                <a href="/admin/products"><button class="secondarybtn">Products Management</button></a>
+                </div>
             </div>
             <div id= "list container combo" class = "list container combo">
                 <% for (let i = 0; i<combos.length; i++){ %>

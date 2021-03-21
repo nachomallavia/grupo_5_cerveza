@@ -69,8 +69,11 @@ module.exports = function(sequelize, dataTypes){
         },
         image:{
             type: dataTypes.STRING,
+        },
+        state:{
+            type: dataTypes.INTEGER,
+            notNull: true,
         }
-
     }
     let config = {
         tableName: "products",

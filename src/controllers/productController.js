@@ -8,7 +8,7 @@ let productos, fabricantes, coloresSrm, categorias, formatos;
 const controller = {
 
     list : function(req,res){
-        db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+        db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
             productos = dBproductos;
         }).then(function(){
             db.Makers.findAll().then(function(dBfabricantes){
@@ -33,11 +33,11 @@ const controller = {
     detail : function(req, res){
         db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
         .then(function(producto){
-            res.render('products/productDetail',{'producto': producto,'coloresSrm': coloresSrm});
+            res.render('products/productDetail',{'categorias': categorias,'fabricantes': fabricantes,'producto': producto,'coloresSrm':coloresSrm});
         })
     },
     Create : function(req,res){
-        db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+        db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
             productos = dBproductos;
         }).then(function(){
             db.Makers.findAll().then(function(dBfabricantes){
@@ -61,9 +61,26 @@ const controller = {
         
     },
     Edit : function(req, res){
-        db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]})
-        .then(function(producto){
-            res.render('products/productEdit',{'producto': producto,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
+        db.Products.findByPk(req.params.id,{include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproducto){
+            producto = dBproducto;
+        }).then(function(){
+            db.Makers.findAll().then(function(dBfabricantes){
+                fabricantes = dBfabricantes;
+            }).then(function(){
+                db.Srm.findAll().then(function(dBcoloresSrm){
+                    coloresSrm = dBcoloresSrm;
+                }).then(function(){
+                    db.Categories.findAll().then(function(dBcategorias){
+                        categorias = dBcategorias;
+                    }).then(function(){
+                        db.Formats.findAll().then(function(dBformats){
+                            formatos = dBformats
+                        }).then(function(){
+                            res.render('products/productEdit',{'producto': producto,'categorias': categorias,'fabricantes': fabricantes, 'coloresSrm': coloresSrm, 'formatos': formatos});
+                        })
+                    })
+                })
+            })
         })
     },
     CreateForm : function(req,res){
@@ -87,7 +104,7 @@ const controller = {
                 res.redirect('/products/' + productoNuevo.id);
             })
         } else {
-            db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
+            db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
                 productos = dBproductos;
             }).then(function(){
                 db.Makers.findAll().then(function(dBfabricantes){
@@ -184,32 +201,20 @@ const controller = {
         }
         
     },
-    adminList : function(req,res){
-        db.Products.findAll({include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]}).then(function(dBproductos){
-            productos = dBproductos;
-        }).then(function(){
-            db.Makers.findAll().then(function(dBfabricantes){
-                fabricantes = dBfabricantes;
-            }).then(function(){
-                db.Srm.findAll().then(function(dBcoloresSrm){
-                    coloresSrm = dBcoloresSrm;
-                }).then(function(){
-                    db.Categories.findAll().then(function(dBcategorias){
-                        categorias = dBcategorias;
-                    }).then(function(){
-                        db.Formats.findAll().then(function(dBformats){
-                            formatos = dBformats
-                        }).then(function(){
-                            res.render('products/productAdminList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm})
-                        })
-                    })
-                })
-            })
-        })
+    adminList : async function(req,res){
+        const productos = await db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
+        const fabricantes = await db.Makers.findAll();
+        const coloresSrm = await db.Srm.findAll();
+        const categorias = await db.Categories.findAll();
+        res.render('products/productAdminList',{'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm})
+                       
     },
     Delete : function(req,res){
-        db.Products.destroy({
-            where: {
+        db.Products.update({
+            state: 1
+        },
+        {
+            where:{
                 id: req.params.id
             }
         })
