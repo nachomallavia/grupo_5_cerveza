@@ -6,18 +6,18 @@
     <%- include('../partials/header'); %>
     <main class="product-list">
         <aside class="filter group">
-            <form action="" class="filter form">
+            <form action="" class="filter form" id="filters">
                 <div class="order">
                 
                     <label for="ordenar">Ordenar por</label>
                     <select name="ordenar" id="ordenar">
-                        <option value="novedad">Novedad</option>
-                        <option value="mayor-precio">Mayor precio</option>
-                        <option value="menor-precio">Menor precio</option>
-                        <option value="mayor-amargor">Mayor amargor</option>
-                        <option value="menor-amargor">Menor amargor</option>
-                        <option value="mayor-puntaje">Mayor puntaje</option>
-                        <option value="menor-puntaje">Menor puntaje</option>
+                        <option value="id" data-desc="false">Novedad</option>
+                        <option value="price" data-desc="false">Mayor precio</option>
+                        <option value="price" data-desc="true">Menor precio</option>
+                        <option value="ibu" data-desc="false">Mayor amargor</option>
+                        <option value="ibu" data-desc="true">Menor amargor</option>
+                        <option value="rating" data-desc="false">Mayor puntaje</option>
+                        <option value="rating" data-desc="true">Menor puntaje</option>
                     </select>
                     
                 </div>
@@ -25,18 +25,35 @@
 
                         <label for="precio">Precio</label>
                         <div class="range price">
-                            <input type="number" name="precio-minimo" id="" placeholder="Min">
-                            <input type="number" name="precio-maximo" id="" placeholder="Max">
+                            <input type="number" name="precio-minimo" id="min-price" placeholder="Min">
+                            <input type="number" name="precio-maximo" id="max-price" placeholder="Max">
+                            <button id="btn-price-check" class="btn-price-check">></button>
                         </div>
                                             
                         <div class= "range alcohol">
                             <label for="amargor">Alcohol</label><br>
-                            <input type="range" name="alcohol" id="alcohol" min="1" max="100">
+                            <% var minAlcohol = productos.reduce((min, x) => {if(min.abv>x.abv){ %>
+                            <%    min = x } %>
+                            <% return min }) %>
+                            <% var maxAlcohol = productos.reduce((max, x) => {if(max.abv<x.abv){ %>
+                                <%    max = x } %>
+                                <% return max }) %>
+
+                            <input type="range" class="slider" name="alcohol" id="input-alcohol" min="<%= JSON.stringify(minAlcohol.abv) %>" max="<%= JSON.stringify(maxAlcohol.abv) %>" step="0.2" value="<%= JSON.stringify(minAlcohol.abv) %>">
+                            <div class="range-display" id="abv-display"><%= JSON.stringify(minAlcohol.abv) %></div>
                         </div>
 
                         <div class= "range ibu">
                             <label for="amargor">Amargor</label><br>
-                            <input type="range" name="amargor" id="amargor" min="1" max="100">
+                            <% var minIbu = productos.reduce((min, x) => {if(min.ibu>x.ibu){ %>
+                                <%    min = x } %>
+                                <% return min }) %>
+                                <% var maxIbu = productos.reduce((max, x) => {if(max.ibu<x.ibu){ %>
+                                    <%    max = x } %>
+                                    <% return max }) %>
+
+                            <input type="range" class="slider" name="amargor" id="input-ibu" min="<%= JSON.stringify(minIbu.ibu) %>" max="<%= JSON.stringify(maxIbu.ibu) %>"step="1" value="<%= JSON.stringify(minIbu.ibu) %>">
+                            <div class="range-display" id="ibu-display"><%= JSON.stringify(minIbu.ibu) %></div>
                         </div>
 
                         <div class="category">
@@ -44,14 +61,14 @@
                             <ul class= "category-list">
                                 <li class= "category-item">
                                
-                                    <input type="checkbox" name= "categoria" id="allCategories" value = "all" >
+                                    <input type="checkbox" name= "categoria" class="categories" checked="true" id="allCategories" value = "all" >
                                     Todas 
                                 </li>
                          
                                 <% for (let i = 0; i < categorias.length; i++){ %>
                                     <li class= "category-item">
                                
-                                    <input type="checkbox" name= "categoria" id="" value = "<%= categorias[i] %>" >
+                                    <input type="checkbox" name= "categoria" class="categories"  id="" value = "<%= categorias[i].name %>" >
                                     <%= categorias[i].name %>
                                     
                                     </li>
@@ -68,14 +85,14 @@
                             <ul class= "maker-list">
                                 <li class= "maker-item">
                                
-                                    <input type="checkbox" name= "fabricante" id="allMakers" value = "all" >
+                                    <input type="checkbox" name= "fabricante" class="makers" id="allmakers" checked="true"value = "all" >
                                     Todos                                    
                                 </li>
                          
                                 <% for (let i = 0; i < fabricantes.length; i++){ %>
                                     <li class= "maker-item">
                                
-                                    <input type="checkbox" name= "fabricante" id="" value = "<%= fabricantes[i] %>" >
+                                    <input type="checkbox" name= "fabricante" class="makers"id=""  value = "<%= fabricantes[i].name %>" >
                                     <%= fabricantes[i].name %>
                                     
                                     </li>
@@ -88,7 +105,10 @@
                         </div>
 
 
-                        <!-- <button type="submit" class="filter-btn">Aplicar</button> -->
+                        <!-- <button type="submit" class="filter-btn" style="display: none;">Aplicar</button>
+                        <div class="btn-container">
+                            <button id="btnsubmit" class="filter-btn">Aplicar</button>
+                        </div> -->
 
                     
                 </div>
@@ -100,19 +120,28 @@
                 <h2>Productos</h2>
                 <span>home - productos</span>
             </div>
-            <div id= "list container" class = "list container">
+            <div id= "list-container" class = "list container">
+                <% let n = 0; %>  
                 <% for (let i = 0; i<productos.length; i++){ %>
-                    <div class= "list card">
+                  
+                    <%n++%>
+                      
+                    <div class= "list card bestCard" id="card<%=n%>" data-link="/products/<%=productos[i].id%>">
                         <div class="card title">
-                            <a href="/products/<%= productos[i].id %>">
+                            <a href="/products/<%=productos[i].id%>" class="prodTitle">
                                 <h3 id="prod-title"><%=productos[i].name%></h3>
                             </a>
-                            <h5>por <a class="prod-maker" id="prod-maker" href="#"><%=productos[i].maker.name%></a></h5>
+                            <h5>por <%=productos[i].maker.name%></h5>
+                              
                         </div>
+                            
                         
                         <div class= "card prod-img">
-                            <a href="/products/<%= productos[i].id %>"><img id="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto"></a>
+                            <a href="/products/<%=productos[i].id%>" class="prodTitle">
+                                <img id="prod-img" class="prod-img" src="/uploads/<%=productos[i].image%>" alt="imagen producto">
+                            </a>
                         </div>
+
                         <div class="card rating">
                             <% for (let s = 1; s <= productos[i].rating; s++){ %>
                             <div class="fullstar"><img src="/img/star_full.svg" alt=""></div><% } %>
@@ -120,6 +149,7 @@
                                 <div class="emptystar"><img src="/img/star_empty.svg" alt=""></div>
                             <% } %>
                         </div>
+                        <div class="card price">$<%=productos[i].price%></div>
 
                         <div class= "meter alcohol">
                             <div class= "alcohol text">
@@ -142,12 +172,17 @@
                         </div>
                         <div class="meter srm">
                             <h4>Tono</h4>
-                                                        
+                            <% var color = productos[i].srm %>
+                            <% var tono = coloresSrm[color]%>
                             <div class = "srm-circle" id = "color-srm" style = "background-color: <%= productos[i].srm_index.code %> "></div>
                         </div>
+                        
 
                     </div>
-                <% } %>
+                    
+                
+                    
+                <% } %> 
 
                 
             </div>
@@ -155,7 +190,10 @@
         </div>
         
     </main>
+    <% var productlist = JSON.stringify(productos) %>
+    <div style="display: none" id="arrayproductos" data="<%=productlist%>" ></div>
     <%- include('../partials/footer'); %>
+    <script src="./scripts/filter.js"></script>
     
 </body>
 </html>
