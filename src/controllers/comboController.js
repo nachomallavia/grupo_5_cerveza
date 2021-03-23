@@ -1,3 +1,4 @@
+const { sequelize } = require('../database/models');
 let db = require('../database/models');
 
 // let productos, fabricantes, coloresSrm, categorias, formatos, combos;
@@ -31,11 +32,14 @@ const controller = {
         const combos = await db.Combos.findAll({where:{state: 0}});
         res.render('combos/comboList',{'combos':combos,'categorias': categorias,'fabricantes': fabricantes,'productos': productos,'coloresSrm':coloresSrm});
     },
-    detail: async function(req, res){
-        const combo = await db.Combos.findByPk(req.params.id, {include: {model: db.Products, as: 'product'}}).catch(error =>{ console.log(error)});
-        console.log(combo);
-        res.send(`combo ${combo.product[0].dataValues}`);
-        
+    detail: function(req, res){
+        db.Combos.findByPk(req.params.id)
+        .then(function(combo){
+            sequelize.query(`SELECT combos_products.amount,products.name, products.image, products.id, products.price from combos_products,products where combos_products.id_combo = ${req.params.id} and combos_products.id_product = products.id`)
+            .then(function(relations){
+                res.render('combos/comboDetail',{'combo':combo,'relations':relations[0]});
+            })
+        })   
     },
     adminList: async function(req, res){
         const productos = await db.Products.findAll({where:{state: 0},include:[{association:"maker"},{association:"category"},{association:"srm_index"},{association:"format"}]});
