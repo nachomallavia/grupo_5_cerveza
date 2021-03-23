@@ -11,7 +11,7 @@
                 
                     <label for="ordenar">Ordenar por</label>
                     <select name="ordenar" id="ordenar">
-                        <option value="id" data-desc="true">Novedad</option>
+                        <option value="id" data-desc="false">Novedad</option>
                         <option value="price" data-desc="false">Mayor precio</option>
                         <option value="price" data-desc="true">Menor precio</option>
                         <option value="ibu" data-desc="false">Mayor amargor</option>
@@ -39,8 +39,8 @@
                                 <%    max = x } %>
                                 <% return max }) %>
 
-                            <input type="range" class="slider" name="alcohol" id="alcohol" min="<%= JSON.stringify(minAlcohol.abv) %>" max="<%= JSON.stringify(maxAlcohol.abv) %>">
-                            <div class="range-display" id="alcohol-display">5.2</div>
+                            <input type="range" class="slider" name="alcohol" id="input-alcohol" min="<%= JSON.stringify(minAlcohol.abv) %>" max="<%= JSON.stringify(maxAlcohol.abv) %>" step="0.2" value="<%= JSON.stringify(minAlcohol.abv) %>">
+                            <div class="range-display" id="abv-display"><%= JSON.stringify(minAlcohol.abv) %></div>
                         </div>
 
                         <div class= "range ibu">
@@ -52,8 +52,8 @@
                                     <%    max = x } %>
                                     <% return max }) %>
 
-                            <input type="range" class="slider" name="amargor" id="amargor" min="1" max="100">
-                            <div class="range-display" id="ibu-display">24</div>
+                            <input type="range" class="slider" name="amargor" id="input-ibu" min="<%= JSON.stringify(minIbu.ibu) %>" max="<%= JSON.stringify(maxIbu.ibu) %>"step="1" value="<%= JSON.stringify(minIbu.ibu) %>">
+                            <div class="range-display" id="ibu-display"><%= JSON.stringify(minIbu.ibu) %></div>
                         </div>
 
                         <div class="category">
@@ -61,14 +61,14 @@
                             <ul class= "category-list">
                                 <li class= "category-item">
                                
-                                    <input type="checkbox" name= "categoria" id="allCategories" value = "all" >
+                                    <input type="checkbox" name= "categoria" class="categories" checked="true" id="allCategories" value = "all" >
                                     Todas 
                                 </li>
                          
                                 <% for (let i = 0; i < categorias.length; i++){ %>
                                     <li class= "category-item">
                                
-                                    <input type="checkbox" name= "categoria" id="" value = "<%= categorias[i] %>" >
+                                    <input type="checkbox" name= "categoria" class="categories"  id="" value = "<%= categorias[i].name %>" >
                                     <%= categorias[i].name %>
                                     
                                     </li>
@@ -85,14 +85,14 @@
                             <ul class= "maker-list">
                                 <li class= "maker-item">
                                
-                                    <input type="checkbox" name= "fabricante" id="allMakers" value = "all" >
+                                    <input type="checkbox" name= "fabricante" class="makers" id="allmakers" checked="true"value = "all" >
                                     Todos                                    
                                 </li>
                          
                                 <% for (let i = 0; i < fabricantes.length; i++){ %>
                                     <li class= "maker-item">
                                
-                                    <input type="checkbox" name= "fabricante" id="" value = "<%= fabricantes[i] %>" >
+                                    <input type="checkbox" name= "fabricante" class="makers"id=""  value = "<%= fabricantes[i].name %>" >
                                     <%= fabricantes[i].name %>
                                     
                                     </li>
@@ -193,7 +193,7 @@
     <% var productlist = JSON.stringify(productos) %>
     <div style="display: none" id="arrayproductos" data="<%=productlist%>" ></div>
     <%- include('../partials/footer'); %>
-    <script src="./scripts/filters.js"></script>
+    <script src="./scripts/filter.js"></script>
     
 </body>
 </html>

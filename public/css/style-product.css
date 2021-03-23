@@ -454,6 +454,8 @@ div.category{
 .title-list{
     display:flex;
     flex-direction: column;
+    justify-content: center;
+    margin-left:56px;
 }
 .title-products{
     
@@ -472,7 +474,7 @@ div.category{
     display: flex;
     flex-grow:3;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /* justify-content: space-around; */
 }
 .list.container.combo{
     margin: 16px;
