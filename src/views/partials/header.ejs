@@ -46,6 +46,7 @@
                     <% if(typeof usuarioLogueado != 'undefined') {%> 
                         <div class="register-login">
                         <p class="bienvenida">Bienvenido <%= usuarioLogueado.email %> </p>
+                        <a href="/users/logout">Cerrar Sesión</a>
                         <% } else { %> 
                             <div class="register-login">
                                 <a href="/users/register" class="nav-enlace">Registrarse</a>

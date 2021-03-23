@@ -1,5 +1,5 @@
 window.addEventListener('load', (event) => {
-    console.log('archivo linkeado')
+    
     const productos = JSON.parse(document.getElementById('arrayproductos').getAttribute('data'));
     
     const condiciones = {};
@@ -129,7 +129,7 @@ window.addEventListener('load', (event) => {
 
     btnPrice.addEventListener('click', (event)=>{
         event.preventDefault();
-        console.log('apretaste el boton de precio')
+        
         let min = parseInt(inputMinPrice.value);
         let max = parseInt(inputMaxPrice.value);
         
@@ -190,7 +190,7 @@ window.addEventListener('load', (event) => {
             })
         }
 
-        console.log(condiciones.makers);
+        
             
             
 
